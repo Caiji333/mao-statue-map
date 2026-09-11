@@ -1,0 +1,413 @@
+{
+  "metadata": {
+    "source": "高德地图 Web 服务 API",
+    "collectedAt": "2026-09-11T16:16:15.628Z",
+    "highConfidenceReviewed": 81,
+    "merged": 76,
+    "duplicates": 3,
+    "explicitlyExcluded": 2,
+    "lowerConfidenceCandidates": 16
+  },
+  "suspectedDuplicates": [
+    {
+      "amapId": "B0H10NTVK6",
+      "name": "韶山毛泽东同志纪念馆-毛主席铜像",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "韶峰路与红旗路交叉口西南240米",
+      "location": [
+        112.491325,
+        27.906075
+      ],
+      "type": "风景名胜;风景名胜;风景名胜",
+      "confidence": "high",
+      "matchedKeywords": [
+        "毛泽东铜像",
+        "毛主席铜像",
+        "毛主席雕像",
+        "毛泽东主席塑像",
+        "毛泽东石像",
+        "毛主席像"
+      ],
+      "reason": "与现有点位 hn-shaoshan-01 疑似重复"
+    },
+    {
+      "amapId": "B019B10DWQ",
+      "name": "毛泽东雕像",
+      "province": "辽宁省",
+      "city": "大连市",
+      "district": "甘井子区",
+      "address": "凌工路2号大连理工大学主楼前侧",
+      "location": [
+        121.528035,
+        38.878816
+      ],
+      "type": "风景名胜;风景名胜相关;旅游景点",
+      "confidence": "high",
+      "matchedKeywords": [
+        "毛泽东雕像",
+        "毛泽东同志塑像",
+        "毛泽东石像",
+        "毛主席像"
+      ],
+      "reason": "与现有点位 ln-dalian-01 疑似重复"
+    },
+    {
+      "amapId": "B023B18DKR",
+      "name": "浙江大学玉泉校区毛主席雕像",
+      "province": "浙江省",
+      "city": "杭州市",
+      "district": "西湖区",
+      "address": "浙大路38浙江大学玉泉校区",
+      "location": [
+        120.122891,
+        30.262172
+      ],
+      "type": "风景名胜;风景名胜;风景名胜",
+      "confidence": "high",
+      "matchedKeywords": [
+        "毛主席像"
+      ],
+      "reason": "与现有点位 zj-hangzhou-01 疑似重复"
+    }
+  ],
+  "excluded": [
+    {
+      "amapId": "B0FFFDJUCF",
+      "name": "毛泽东选集雕塑",
+      "province": "北京市",
+      "city": "北京市",
+      "district": "朝阳区",
+      "address": "酒仙桥路2号北京798艺术区E区",
+      "location": [
+        116.495061,
+        39.982674
+      ],
+      "type": "风景名胜;风景名胜;风景名胜",
+      "confidence": "high",
+      "matchedKeywords": [
+        "毛泽东铜像",
+        "毛泽东雕像",
+        "毛主席雕像",
+        "青年毛泽东雕塑",
+        "毛泽东同志塑像",
+        "毛泽东石像"
+      ],
+      "reason": "名称指向场馆或非人物主题雕塑"
+    },
+    {
+      "amapId": "B0H0PCFOJ5",
+      "name": "毛泽东塑像收藏馆",
+      "province": "江苏省",
+      "city": "南通市",
+      "district": "崇川区",
+      "address": "陆洪小镇1号-2",
+      "location": [
+        120.910003,
+        31.981978
+      ],
+      "type": "科教文化服务;展览馆;展览馆",
+      "confidence": "high",
+      "matchedKeywords": [
+        "毛主席塑像"
+      ],
+      "reason": "名称指向场馆或非人物主题雕塑"
+    }
+  ],
+  "lowerConfidenceCandidates": [
+    {
+      "amapId": "B0KRVZCKBX",
+      "name": "赵北毛主席像公园",
+      "province": "河南省",
+      "city": "平顶山市",
+      "district": "汝州市",
+      "address": "东赵落小学北大门东北侧约100米",
+      "location": [
+        112.984603,
+        34.085482
+      ],
+      "type": "风景名胜;公园广场;公园",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛主席像"
+      ]
+    },
+    {
+      "amapId": "B02DC01F82",
+      "name": "韶山风景名胜区毛泽东广场",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "韶山乡韶山冲引凤山下",
+      "location": [
+        112.492608,
+        27.90732
+      ],
+      "type": "风景名胜;公园广场;城市广场",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东铜像",
+        "毛主席铜像",
+        "毛主席雕像",
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B02DC01847",
+      "name": "韶山毛泽东纪念园",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "韶山乡韶山风景名胜区故居景区内(北侧)",
+      "location": [
+        112.492957,
+        27.913878
+      ],
+      "type": "风景名胜;风景名胜;纪念馆",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东铜像",
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B0FFFRWAHZ",
+      "name": "韶山毛泽东纪念园-喷泉",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "韶山毛泽东纪念园(东南角)",
+      "location": [
+        112.49425,
+        27.913281
+      ],
+      "type": "风景名胜;风景名胜相关;旅游景点",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B0FFI7Y9Z1",
+      "name": "毛泽东广场站",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "韶山乡韶山风景名胜区(西南角)",
+      "location": [
+        112.487204,
+        27.903781
+      ],
+      "type": "风景名胜;风景名胜相关;旅游景点",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B0FFIDFL9J",
+      "name": "毛泽东广场-休息廊",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "故园路16号毛泽东同志故居内(西侧)",
+      "location": [
+        112.491709,
+        27.907091
+      ],
+      "type": "风景名胜;风景名胜相关;旅游景点",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B0FFJHFBK7",
+      "name": "韶山毛泽东纪念园-怀念亭",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "韶山毛泽东纪念园",
+      "location": [
+        112.492945,
+        27.913902
+      ],
+      "type": "风景名胜;风景名胜相关;旅游景点",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B0IA5SBK07",
+      "name": "毛泽东广场快警站",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "韶山国家重点风景名胜区正门旁",
+      "location": [
+        112.493113,
+        27.907281
+      ],
+      "type": "政府机构及社会团体;公检法机构;社会治安机构",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B0FFI67EMH",
+      "name": "毛泽东广场-饮水处",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "中国韶山风景名胜区故居景区内(西南角)",
+      "location": [
+        112.491651,
+        27.90668
+      ],
+      "type": "风景名胜;风景名胜相关;旅游景点",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B0FFI6MVOQ",
+      "name": "毛泽东广场-导游联系处",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "故园路16号毛泽东同志故居内(西侧)",
+      "location": [
+        112.492424,
+        27.907427
+      ],
+      "type": "风景名胜;风景名胜相关;旅游景点",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B0LROZWNBL",
+      "name": "韶山毛泽东纪念园-水帘洞",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "韶山毛泽东纪念园内(西侧)",
+      "location": [
+        112.491138,
+        27.913921
+      ],
+      "type": "风景名胜;风景名胜;风景名胜",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B0FFIAQZNP",
+      "name": "毛泽东纪念园东门环保车站",
+      "province": "湖南省",
+      "city": "湘潭市",
+      "district": "韶山市",
+      "address": "韶山毛泽东纪念园",
+      "location": [
+        112.495038,
+        27.914844
+      ],
+      "type": "交通设施服务;交通服务相关;交通服务相关",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛泽东主席塑像",
+        "毛泽东石像"
+      ]
+    },
+    {
+      "amapId": "B0FFM932RJ",
+      "name": "毛主席广场",
+      "province": "江苏省",
+      "city": "常州市",
+      "district": "金坛区",
+      "address": "区Y771",
+      "location": [
+        119.741737,
+        31.708862
+      ],
+      "type": "风景名胜;公园广场;城市广场",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛主席铜像",
+        "毛主席雕像",
+        "青年毛泽东雕塑",
+        "毛泽东主席塑像"
+      ]
+    },
+    {
+      "amapId": "B0FFG0ND30",
+      "name": "毛泽东祖先纪念园",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "永胜县",
+      "address": "凤羽路",
+      "location": [
+        100.638894,
+        26.423302
+      ],
+      "type": "风景名胜;风景名胜;纪念馆",
+      "confidence": "review",
+      "matchedKeywords": [
+        "青年毛泽东雕塑",
+        "毛泽东同志塑像",
+        "毛泽东主席塑像"
+      ]
+    },
+    {
+      "amapId": "B0FFG9AIAI",
+      "name": "毛主席广场",
+      "province": "云南省",
+      "city": "昭通市",
+      "district": "昭阳区",
+      "address": "公园路47号",
+      "location": [
+        103.714455,
+        27.341298
+      ],
+      "type": "风景名胜;公园广场;城市广场",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛主席雕像",
+        "毛泽东主席塑像"
+      ]
+    },
+    {
+      "amapId": "B0J3UZYD24",
+      "name": "毛主席广场工会驿站",
+      "province": "云南省",
+      "city": "昭通市",
+      "district": "昭阳区",
+      "address": "公园路47号毛主席广场(西北角)",
+      "location": [
+        103.71425,
+        27.3414
+      ],
+      "type": "政府机构及社会团体;社会团体;社会团体相关",
+      "confidence": "review",
+      "matchedKeywords": [
+        "毛主席雕像"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+export const uiText = {
+  appName: '全国教员雕像点位地图',
+  appSubtitle: '公共记忆地理档案',
+  searchPlaceholder: '搜索名称、城市或地址',
+  allProvinces: '全部省份',
+  noData: '暂无雕像点位数据',
+  noResults: '没有找到相关点位',
+  loadError: '点位资料暂时无法载入',
+  mapTimeout: '底图响应较慢，正在尝试重新连接',
+  tokenMissing: '未配置天地图 Key，当前以基础模式展示点位',
+  amapLegacyNotice: '高德预览瓦片 · 正式发布请切换授权底图',
+  loading: '正在展开全国点位图谱',
+  dataNotice: '示范数据 · 坐标持续校核',
+  unknown: '暂无相关资料',
+} as const;
