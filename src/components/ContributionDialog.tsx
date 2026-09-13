@@ -1,17 +1,18 @@
-import { ImagePlus, MapPin, X } from 'lucide-react';
+import { ImagePlus, Link2, LoaderCircle, MapPin, X } from 'lucide-react';
 import { type FormEvent, useEffect, useState } from 'react';
 import type { StatueFeature } from '../types/statue';
-import { findNearbyPendingContributions, type PendingContributionPreview } from '../lib/contributions';
+import { findNearbyPendingContributions, resolveAmapShareUrl, type PendingContributionPreview } from '../lib/contributions';
 
 export interface ContributionInput { name: string; province: string; city: string; address: string; longitude: number; latitude: number; desc: string; background: string; year: string; photo: File | null; existingId?: string; }
-interface Props { onClose: () => void; onSubmit: (input: ContributionInput) => Promise<string | null>; nearby: StatueFeature[]; existingFeature?: StatueFeature; }
+interface Props { onClose: () => void; onSubmit: (input: ContributionInput) => Promise<string | null>; nearby: StatueFeature[]; existingFeature?: StatueFeature; initialCoordinates?: [number, number]; }
 
-export function ContributionDialog({ onClose, onSubmit, nearby, existingFeature }: Props) {
+export function ContributionDialog({ onClose, onSubmit, nearby, existingFeature, initialCoordinates }: Props) {
   const existing = existingFeature?.properties;
-  const coordinates = existingFeature?.geometry.coordinates;
-  const [form, setForm] = useState({ name: existing?.name ?? '', province: existing?.province ?? '', city: existing?.city ?? '', address: existing?.address ?? '', longitude: coordinates?.[0]?.toString() ?? '', latitude: coordinates?.[1]?.toString() ?? '', desc: existing?.desc ?? '', background: existing?.background ?? '', year: existing?.year ?? '' });
+  const coordinates = existingFeature?.geometry.coordinates ?? initialCoordinates;
+  const [form, setForm] = useState({ name: existing?.name ?? '', province: existing?.province ?? '', city: existing?.city ?? '', address: existing?.address ?? '', longitude: coordinates?.[0]?.toFixed(6) ?? '', latitude: coordinates?.[1]?.toFixed(6) ?? '', desc: existing?.desc ?? '', background: existing?.background ?? '', year: existing?.year ?? '' });
   const [photo, setPhoto] = useState<File | null>(null); const [error, setError] = useState(''); const [sending, setSending] = useState(false);
   const [pendingNearby, setPendingNearby] = useState<PendingContributionPreview[]>([]);
+  const [amapUrl, setAmapUrl] = useState(''); const [resolvingAmap, setResolvingAmap] = useState(false); const [amapError, setAmapError] = useState('');
   const update = (key: keyof typeof form, value: string) => setForm((current) => ({ ...current, [key]: value }));
   const submit = async (event: FormEvent) => { event.preventDefault(); setSending(true); setError(''); const result = await onSubmit({ ...form, longitude: Number(form.longitude), latitude: Number(form.latitude), photo, existingId: existingFeature?.properties.id }); setSending(false); if (result) setError(result); else onClose(); };
   const closest = nearby.find((feature) => {
@@ -26,9 +27,17 @@ export function ContributionDialog({ onClose, onSubmit, nearby, existingFeature 
     const timer = window.setTimeout(() => { void findNearbyPendingContributions(longitude, latitude).then(setPendingNearby); }, 220);
     return () => window.clearTimeout(timer);
   }, [existingFeature, form.latitude, form.longitude]);
+  const resolveAmap = async () => {
+    setResolvingAmap(true); setAmapError('');
+    const result = await resolveAmapShareUrl(amapUrl);
+    setResolvingAmap(false);
+    if (result.error || !result.data) { setAmapError(result.error || '高德链接解析失败'); return; }
+    setForm((current) => ({ ...current, name: current.name || result.data!.name, address: current.address || result.data!.name, longitude: result.data!.longitude.toFixed(6), latitude: result.data!.latitude.toFixed(6) }));
+  };
   return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="contribution-modal" role="dialog" aria-modal="true">
     <button className="modal-close" type="button" onClick={onClose} aria-label="关闭"><X size={18} /></button><div className="modal-kicker">{existingFeature ? '修改建议' : '新增点位'}</div><h2>{existingFeature ? '修订点位资料' : '补充一处雕像点位'}</h2>
     <p className="modal-copy">提交后进入管理员审核。{existingFeature ? '审核通过后替换公开资料。' : '坐标 50 米内已有点位时不能重复提交。'}</p>
+    {!existingFeature && <div className="amap-resolver"><label>高德地图分享内容<div><Link2 size={15} /><input type="text" value={amapUrl} onChange={(event) => setAmapUrl(event.target.value)} placeholder="粘贴分享链接或包含链接的整段文字" /><button type="button" disabled={!amapUrl.trim() || resolvingAmap} onClick={() => void resolveAmap()}>{resolvingAmap ? <LoaderCircle className="spin" size={15} /> : '解析'}</button></div></label>{amapError && <small>{amapError}</small>}</div>}
     {closest && <div className="duplicate-warning"><MapPin size={16} /><span>50 米内已有已公开点位“{closest.properties.name}”，请改为提交该点位的资料修改建议。</span></div>}
     {pendingNearby.length > 0 && <div className="pending-warning"><MapPin size={16} /><div><strong>附近已有待审核投稿</strong><small>这些内容尚未公开，仅供你查看，不能进行审核操作。</small>{pendingNearby.map((item) => <details key={item.id} className="pending-preview"><summary>{item.payload.name || '未命名点位'} · {Math.round(item.distance_m)} 米</summary><p>{[item.payload.province, item.payload.city, item.payload.address].filter(Boolean).join(' · ')}</p>{item.payload.desc && <p>{item.payload.desc}</p>}{item.payload.image_url && <img src={item.payload.image_url} alt="待审核投稿现场" />}<small>提交时间：{new Date(item.created_at).toLocaleString('zh-CN')}</small></details>)}</div></div>}
     <form className="contribution-form" onSubmit={submit}>

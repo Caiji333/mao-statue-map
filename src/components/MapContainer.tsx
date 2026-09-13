@@ -5,6 +5,7 @@ import { mapConfig } from '../config/mapConfig';
 import { createMapStyle, toCollection } from '../lib/map';
 import type { FocusRequest, StatueFeature } from '../types/statue';
 import { MarkerPopup } from './MarkerPopup';
+import { MapContributionPrompt } from './MapContributionPrompt';
 
 interface MapContainerProps {
   features: StatueFeature[];
@@ -13,6 +14,7 @@ interface MapContainerProps {
   onStatus: (message: string | null) => void;
   onSuggestEdit?: (feature: StatueFeature) => void;
   onClusterSelect?: (features: StatueFeature[]) => void;
+  onPickCoordinates?: (coordinates: [number, number]) => void;
 }
 
 const SOURCE_ID = 'statues';
@@ -20,14 +22,17 @@ const CLUSTER_LAYER = 'statue-clusters';
 const CLUSTER_COUNT_LAYER = 'statue-cluster-count';
 const MARKER_LAYER = 'statue-markers';
 
-export function MapContainer({ features, focusRequest, onReady, onStatus, onSuggestEdit, onClusterSelect }: MapContainerProps) {
+export function MapContainer({ features, focusRequest, onReady, onStatus, onSuggestEdit, onClusterSelect, onPickCoordinates }: MapContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const popupRef = useRef<{ popup: maplibregl.Popup; root: Root } | null>(null);
+  const pickPopupRef = useRef<{ popup: maplibregl.Popup; root: Root } | null>(null);
+  const pickHandlerRef = useRef(onPickCoordinates);
   const featuresRef = useRef(features);
   const [mapReady, setMapReady] = useState(false);
 
   featuresRef.current = features;
+  pickHandlerRef.current = onPickCoordinates;
 
   const closePopup = useCallback(() => {
     const active = popupRef.current;
@@ -154,7 +159,7 @@ export function MapContainer({ features, focusRequest, onReady, onStatus, onSugg
           if (clusterFeatures.length) onClusterSelect?.(clusterFeatures);
         }).catch(() => onStatus('聚合点位列表读取失败，请重试'));
         void source.getClusterExpansionZoom(clusterId).then((zoom) => {
-    map.easeTo({ center: coordinates, zoom, duration: 850, essential: true });
+          map.easeTo({ center: coordinates, zoom, duration: 850, essential: true });
         });
       });
 
@@ -163,6 +168,24 @@ export function MapContainer({ features, focusRequest, onReady, onStatus, onSugg
         const id = clicked?.properties?.id as string | undefined;
         const feature = featuresRef.current.find((item) => item.properties.id === id);
         if (feature) openPopup(map, feature);
+      });
+
+      map.on('contextmenu', (event) => {
+        const coordinates: [number, number] = [event.lngLat.lng, event.lngLat.lat];
+        const active = pickPopupRef.current;
+        if (active) active.popup.remove();
+        const host = document.createElement('div');
+        const root = createRoot(host);
+        const popup = new maplibregl.Popup({ closeButton: true, closeOnClick: true, offset: 12, className: 'map-pick-popup' })
+          .setLngLat(coordinates)
+          .setDOMContent(host)
+          .addTo(map);
+        root.render(<MapContributionPrompt coordinates={coordinates} onContribute={() => { popup.remove(); pickHandlerRef.current?.(coordinates); }} />);
+        pickPopupRef.current = { popup, root };
+        popup.once('close', () => {
+          if (pickPopupRef.current?.popup === popup) pickPopupRef.current = null;
+          window.setTimeout(() => root.unmount(), 0);
+        });
       });
 
       const clusterTooltip = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 20 });
@@ -195,6 +218,8 @@ export function MapContainer({ features, focusRequest, onReady, onStatus, onSugg
       disposed = true;
       window.clearTimeout(timeout);
       closePopup();
+      const pickActive = pickPopupRef.current;
+      if (pickActive) { pickPopupRef.current = null; pickActive.popup.remove(); window.setTimeout(() => pickActive.root.unmount(), 0); }
       map.remove();
       mapRef.current = null;
     };

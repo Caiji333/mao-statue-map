@@ -31,6 +31,8 @@ function App() {
   const [adminOpen, setAdminOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
   const [clusterFeatures, setClusterFeatures] = useState<StatueFeature[]>([]);
+  const [contributionCoordinates, setContributionCoordinates] = useState<[number, number] | undefined>();
+  const [pendingPickedCoordinates, setPendingPickedCoordinates] = useState<[number, number] | undefined>();
 
   const provinces = useMemo(() => getProvinces(data.features), [data.features]);
   const visibleFeatures = useMemo(
@@ -57,10 +59,15 @@ function App() {
     window.setTimeout(() => setTransitioning(false), 260);
   };
 
-  const openContribution = useCallback((feature?: StatueFeature) => {
+  const openContribution = useCallback((feature?: StatueFeature, coordinates?: [number, number]) => {
     if (!auth.user) { setAuthOpen(true); return; }
-    setEditingFeature(feature); setContributionOpen(true);
+    setEditingFeature(feature); setContributionCoordinates(coordinates); setContributionOpen(true);
   }, [auth.user]);
+
+  const pickCoordinates = useCallback((coordinates: [number, number]) => {
+    if (!auth.user) { setPendingPickedCoordinates(coordinates); setAuthOpen(true); return; }
+    openContribution(undefined, coordinates);
+  }, [auth.user, openContribution]);
 
   const handleContribution = async (input: ContributionInput) => {
     if (!auth.user) return '请先登录';
@@ -117,6 +124,7 @@ function App() {
           onStatus={showNotice}
           onSuggestEdit={(feature) => openContribution(feature)}
           onClusterSelect={setClusterFeatures}
+          onPickCoordinates={pickCoordinates}
         />
 
         {clusterFeatures.length > 0 && <ClusterListPanel features={clusterFeatures} onClose={() => setClusterFeatures([])} onSelect={selectFeature} />}
@@ -170,8 +178,8 @@ function App() {
       )}
 
       {notice && <div className="toast" role="status"><AlertTriangle size={16} />{notice}</div>}
-      {authOpen && <AuthDialog onClose={() => setAuthOpen(false)} onSignIn={auth.signIn} onSignUp={auth.signUp} />}
-      {contributionOpen && <ContributionDialog nearby={data.features} existingFeature={editingFeature} onSubmit={handleContribution} onClose={() => { setContributionOpen(false); setEditingFeature(undefined); }} />}
+      {authOpen && <AuthDialog onClose={() => { setAuthOpen(false); setPendingPickedCoordinates(undefined); }} onAuthenticated={() => { setAuthOpen(false); if (pendingPickedCoordinates) { setContributionCoordinates(pendingPickedCoordinates); setPendingPickedCoordinates(undefined); setContributionOpen(true); } }} onSignIn={auth.signIn} onSignUp={auth.signUp} />}
+      {contributionOpen && <ContributionDialog nearby={data.features} existingFeature={editingFeature} initialCoordinates={contributionCoordinates} onSubmit={handleContribution} onClose={() => { setContributionOpen(false); setEditingFeature(undefined); setContributionCoordinates(undefined); }} />}
       {adminOpen && <AdminPanel onClose={() => setAdminOpen(false)} onChanged={reload} onLocate={(item) => { const longitude = Number(item.payload.longitude); const latitude = Number(item.payload.latitude); if (!Number.isFinite(longitude) || !Number.isFinite(latitude)) return; setAdminOpen(false); setFocusRequest({ feature: { type: 'Feature', geometry: { type: 'Point', coordinates: [longitude, latitude] }, properties: { id: item.id, name: String(item.payload.name || '待审核点位'), province: String(item.payload.province || ''), city: String(item.payload.city || ''), address: String(item.payload.address || ''), desc: String(item.payload.desc || ''), image: String(item.payload.image_url || ''), verificationStatus: 'user_verified' } }, nonce: Date.now() }); }} />}
       {accountOpen && auth.user && <MyContributionsPanel email={auth.user.email ?? '已登录用户'} onClose={() => setAccountOpen(false)} onSignOut={async () => { await auth.signOut(); setAccountOpen(false); }} />}
     </main>

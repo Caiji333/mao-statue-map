@@ -3,6 +3,15 @@ import type { ContributionInput } from '../components/ContributionDialog';
 import type { StatueFeature, StatueProperties } from '../types/statue';
 
 export interface PendingContributionPreview { id: string; payload: Record<string, string>; distance_m: number; created_at: string; }
+export interface AmapShareLocation { longitude: number; latitude: number; name: string; }
+
+export async function resolveAmapShareUrl(url: string): Promise<{ data: AmapShareLocation | null; error: string | null }> {
+  if (!supabase) return { data: null, error: '尚未配置 Supabase' };
+  const { data, error } = await supabase.functions.invoke('resolve-amap-share', { body: { url } });
+  if (error) return { data: null, error: '高德链接解析失败，请检查链接后重试' };
+  if (data?.error) return { data: null, error: String(data.error) };
+  return { data: data as AmapShareLocation, error: null };
+}
 
 export async function findNearbyPendingContributions(longitude: number, latitude: number): Promise<PendingContributionPreview[]> {
   if (!supabase || !Number.isFinite(longitude) || !Number.isFinite(latitude)) return [];

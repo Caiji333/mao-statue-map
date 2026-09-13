@@ -4,11 +4,12 @@ import { hasSupabase } from '../lib/supabase';
 
 interface Props {
   onClose: () => void;
+  onAuthenticated?: () => void;
   onSignIn: (email: string, password: string) => Promise<{ error: string | null }>;
   onSignUp: (email: string, password: string) => Promise<{ error: string | null; needsEmailConfirmation?: boolean }>;
 }
 
-export function AuthDialog({ onClose, onSignIn, onSignUp }: Props) {
+export function AuthDialog({ onClose, onAuthenticated, onSignIn, onSignUp }: Props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mode, setMode] = useState<'signIn' | 'signUp'>('signIn');
@@ -20,14 +21,14 @@ export function AuthDialog({ onClose, onSignIn, onSignUp }: Props) {
     if (mode === 'signIn') {
       const result = await onSignIn(email, password);
       setSubmitting(false);
-      if (result.error) setError(result.error); else onClose();
+      if (result.error) setError(result.error); else (onAuthenticated ?? onClose)();
       return;
     }
     const result = await onSignUp(email, password);
     setSubmitting(false);
     if (result.error) setError(result.error);
     else if (result.needsEmailConfirmation) setRegistered(true);
-    else onClose();
+    else (onAuthenticated ?? onClose)();
   };
   return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
     <section className="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
