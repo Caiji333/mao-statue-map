@@ -164,7 +164,7 @@ function App() {
       )}
 
       {notice && <div className="toast" role="status"><AlertTriangle size={16} />{notice}</div>}
-      {authOpen && <AuthDialog onClose={() => setAuthOpen(false)} onSignIn={auth.signIn} />}
+      {authOpen && <AuthDialog onClose={() => setAuthOpen(false)} onSignIn={auth.signIn} onSignUp={auth.signUp} />}
       {contributionOpen && <ContributionDialog nearby={data.features} existingFeature={editingFeature} onSubmit={handleContribution} onClose={() => { setContributionOpen(false); setEditingFeature(undefined); }} />}
       {adminOpen && <AdminPanel onClose={() => setAdminOpen(false)} onChanged={reload} />}
       {accountOpen && auth.user && <MyContributionsPanel email={auth.user.email ?? '已登录用户'} onClose={() => setAccountOpen(false)} onSignOut={async () => { await auth.signOut(); setAccountOpen(false); }} />}

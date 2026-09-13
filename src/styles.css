@@ -170,18 +170,23 @@ button { cursor: pointer; }
 .auth-modal input, .contribution-form input, .contribution-form textarea { width: 100%; min-width: 0; padding: 9px 10px; border: 1px solid #cdc8be; border-radius: 5px; outline: 0; color: #2c302c; background: #fff; font-size: 13px; }
 .contribution-form textarea { resize: vertical; }
 .auth-modal input:focus, .contribution-form input:focus, .contribution-form textarea:focus { border-color: #3d6d64; box-shadow: 0 0 0 3px rgba(61,109,100,.1); }
+.password-label { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.password-label small { color: #8a8d86; font-size: 10px; }
 .form-grid { display: grid; gap: 11px; }
 .form-grid.two { grid-template-columns: 1fr 1fr; }
 .form-grid.three { grid-template-columns: .75fr .75fr 1.5fr; }
 .file-field { padding: 11px; border: 1px dashed #c6c2b8; border-radius: 6px; background: #f9f7f2; }
 .file-field input { padding: 5px 0; border: 0; background: transparent; font-size: 11px; }
 .file-field small { color: #888981; }
-.form-error, .form-hint { margin: 0; padding: 8px 10px; border-radius: 5px; font-size: 11px; line-height: 1.5; }
+.form-error, .form-hint, .form-success { margin: 0; padding: 8px 10px; border-radius: 5px; font-size: 11px; line-height: 1.5; }
 .form-error { color: #8f272c; background: #fff0ee; }
 .form-hint { color: #75551f; background: #fff7e3; }
+.form-success { color: #315f57; background: #e8f1ee; }
 .modal-primary, .modal-secondary { height: 38px; padding: 0 15px; border-radius: 5px; font-size: 12px; }
 .modal-primary { border: 0; color: #fff; background: #315f57; }
 .modal-primary:disabled { cursor: not-allowed; opacity: .5; }
+.auth-switch { align-self: center; display: inline-flex; align-items: center; gap: 6px; margin-top: 15px; border: 0; color: #315f57; background: transparent; font-size: 12px; cursor: pointer; }
+.auth-switch:hover { color: #234940; text-decoration: underline; }
 .modal-secondary { border: 1px solid #ccc7bd; color: #585b56; background: #fff; }
 .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 3px; }
 .duplicate-warning { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 14px; padding: 10px; border: 1px solid #d9bc84; border-radius: 5px; color: #704e16; background: #fff7e5; font-size: 11px; line-height: 1.5; }
@@ -201,8 +206,14 @@ button { cursor: pointer; }
 .review-actions button { height: 32px; display: flex; align-items: center; gap: 5px; padding: 0 10px; border-radius: 5px; font-size: 11px; }
 .review-reject { border: 1px solid #d9b1b3; color: #912d32; background: #fff7f6; }
 .review-approve { border: 0; color: #fff; background: #315f57; }
-.account-email { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 12px 0 18px; padding: 10px 12px; border-radius: 5px; color: #5d605a; background: #f3f1eb; font-size: 11px; }
-.account-email button { display: flex; align-items: center; gap: 5px; border: 0; color: #8d292f; background: transparent; font-size: 11px; }
+.account-email { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 12px 0 10px; padding: 10px 12px; border-radius: 5px; color: #5d605a; background: #f3f1eb; font-size: 11px; }
+.account-email > div { display: flex; align-items: center; gap: 10px; }
+.account-email button { display: flex; align-items: center; gap: 5px; border: 0; color: #315f57; background: transparent; font-size: 11px; }
+.account-email button:last-child { color: #8d292f; }
+.password-form { display: grid; grid-template-columns: 1fr 1fr auto; align-items: end; gap: 8px; margin: 0 0 10px; padding: 12px; border: 1px solid #ded9d0; border-radius: 6px; background: #fff; }
+.password-form label { display: flex; flex-direction: column; gap: 5px; color: #5e615b; font-size: 10px; }
+.password-form input { min-width: 0; height: 36px; padding: 0 9px; border: 1px solid #cdc8be; border-radius: 5px; outline: 0; }
+.password-form input:focus { border-color: #3d6d64; box-shadow: 0 0 0 3px rgba(61,109,100,.1); }
 .contribution-history { display: grid; grid-template-columns: 76px 1fr; gap: 12px; padding: 12px; border: 1px solid #ded9d0; border-radius: 6px; background: #fff; }
 .history-status { height: 25px; display: flex; align-items: center; justify-content: center; gap: 4px; border-radius: 4px; font-size: 10px; }
 .history-status.pending_review { color: #76551e; background: #fff5d9; }
@@ -255,6 +266,8 @@ button { cursor: pointer; }
   .form-grid.two, .form-grid.three { grid-template-columns: 1fr; }
   .modal-backdrop { padding: 10px; }
   .auth-modal, .contribution-modal, .admin-modal, .account-modal { padding: 20px 16px; max-height: calc(100dvh - 20px); }
+  .account-email { align-items: flex-start; flex-direction: column; }
+  .password-form { grid-template-columns: 1fr; }
   .review-item-head { flex-direction: column; gap: 3px; }
 }
 

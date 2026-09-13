@@ -61,13 +61,13 @@ Vite 的 `base` 已配置为相对路径，可部署到 GitHub Pages、Vercel、
 协作功能使用 Supabase。未配置时游客地图仍可正常浏览，但登录和贡献功能不会启用。
 
 1. 创建 Supabase 项目，在 SQL Editor 中先执行 `supabase/migrations/202609130001_contributions.sql`，再执行 `supabase/seed.sql`。
-2. 在 Authentication > URL Configuration 中填写正式站点地址和允许的回调地址。
+2. 在 Authentication > Providers > Email 中开启邮箱密码登录；如需免邮件直接注册，将 Confirm email 关闭。这样用户使用邮箱和密码注册后可立即登录，不消耗邮件额度。
 3. 在 `.env.local` 或部署平台配置 `VITE_SUPABASE_URL` 与 `VITE_SUPABASE_ANON_KEY`。
-4. 使用邮箱魔法链接登录一次，从 Authentication > Users 复制用户 UUID。
+4. 使用邮箱和密码注册一次，让系统创建对应的用户资料。
 5. 在 SQL Editor 中执行以下语句，将首个账号设为管理员：
 
 ```sql
-update public.profiles set role = 'admin' where id = '你的用户UUID';
+update public.profiles set role = 'admin' where lower(email) = lower('你的登录邮箱');
 ```
 
 权限与审核规则：
@@ -77,6 +77,6 @@ update public.profiles set role = 'admin' where id = '你的用户UUID';
 - 管理员可以通过或驳回；通过后公开地图立即读取更新。
 - 新点位与已发布或待审核点位相距 50 米以内时，服务端拒绝重复提交。
 - 每个账号每天最多提交 5 次、上传 5 张图片；单张图片最大 5MB，仅允许 JPG、PNG、WebP。
-- 正式使用邮件登录前，建议在 Supabase 配置自有 SMTP，避免默认邮件服务的低额度限制。
+- 当前前端使用邮箱 + 密码注册/登录，不依赖 Supabase 邮件发送额度。若以后开启 Confirm email 或密码找回，再配置自有 SMTP。
 
 本地 GeoJSON 修改后运行 `npm run seed:supabase`，可重新生成数据库初始化种子文件。

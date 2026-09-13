@@ -21,7 +21,7 @@ create table public.statues (
   longitude double precision not null check (longitude between 73 and 136),
   latitude double precision not null check (latitude between 3 and 54),
   location geography(Point, 4326) generated always as (st_setsrid(st_makepoint(longitude, latitude), 4326)::geography) stored,
-  desc text,
+  "desc" text,
   background text,
   year text,
   image_url text,
@@ -70,16 +70,16 @@ begin
   if next_status not in ('approved', 'rejected') then raise exception 'invalid review status'; end if;
   if next_status = 'approved' then
     if item.kind = 'new_statue' then
-      insert into public.statues (name, province, city, address, longitude, latitude, desc, background, year, image_url, source, verification_status, created_by)
+      insert into public.statues (name, province, city, address, longitude, latitude, "desc", background, year, image_url, source, verification_status, created_by)
       values (item.payload->>'name', item.payload->>'province', item.payload->>'city', item.payload->>'address',
         (item.payload->>'longitude')::double precision, (item.payload->>'latitude')::double precision,
         item.payload->>'desc', item.payload->>'background', item.payload->>'year', item.payload->>'image_url', '用户贡献', 'verified', item.user_id);
     elsif item.statue_id is not null then
-      update public.statues set name = coalesce(item.payload->>'name', name), province = coalesce(item.payload->>'province', province), city = coalesce(item.payload->>'city', city), address = coalesce(item.payload->>'address', address), longitude = coalesce((item.payload->>'longitude')::double precision, longitude), latitude = coalesce((item.payload->>'latitude')::double precision, latitude), desc = coalesce(item.payload->>'desc', desc), background = coalesce(item.payload->>'background', background), year = coalesce(item.payload->>'year', year), image_url = coalesce(item.payload->>'image_url', image_url), updated_at = now() where id = item.statue_id;
+      update public.statues set name = coalesce(item.payload->>'name', name), province = coalesce(item.payload->>'province', province), city = coalesce(item.payload->>'city', city), address = coalesce(item.payload->>'address', address), longitude = coalesce((item.payload->>'longitude')::double precision, longitude), latitude = coalesce((item.payload->>'latitude')::double precision, latitude), "desc" = coalesce(item.payload->>'desc', "desc"), background = coalesce(item.payload->>'background', background), year = coalesce(item.payload->>'year', year), image_url = coalesce(item.payload->>'image_url', image_url), updated_at = now() where id = item.statue_id;
     elsif item.kind = 'edit_suggestion' and item.payload->>'external_id' is not null then
-      insert into public.statues (external_id, name, province, city, address, longitude, latitude, desc, background, year, image_url, source, verification_status, created_by)
+      insert into public.statues (external_id, name, province, city, address, longitude, latitude, "desc", background, year, image_url, source, verification_status, created_by)
       values (item.payload->>'external_id', item.payload->>'name', item.payload->>'province', item.payload->>'city', item.payload->>'address', (item.payload->>'longitude')::double precision, (item.payload->>'latitude')::double precision, item.payload->>'desc', item.payload->>'background', item.payload->>'year', item.payload->>'image_url', '用户修改建议', 'verified', item.user_id)
-      on conflict (external_id) do update set name = excluded.name, province = excluded.province, city = excluded.city, address = excluded.address, longitude = excluded.longitude, latitude = excluded.latitude, desc = excluded.desc, background = excluded.background, year = excluded.year, image_url = coalesce(excluded.image_url, public.statues.image_url), verification_status = 'verified', updated_at = now();
+      on conflict (external_id) do update set name = excluded.name, province = excluded.province, city = excluded.city, address = excluded.address, longitude = excluded.longitude, latitude = excluded.latitude, "desc" = excluded."desc", background = excluded.background, year = excluded.year, image_url = coalesce(excluded.image_url, public.statues.image_url), verification_status = 'verified', updated_at = now();
     end if;
   end if;
   update public.contributions set status = next_status, review_comment = comment, reviewed_by = auth.uid(), reviewed_at = now() where id = contribution_id;
@@ -103,7 +103,7 @@ begin
   if nullif(trim(p_payload->>'address'), '') is null or length(p_payload->>'address') > 160 then raise exception '地址无效'; end if;
   if length(coalesce(p_payload->>'desc', '')) > 800 or length(coalesce(p_payload->>'background', '')) > 800 then raise exception '资料内容过长'; end if;
   lng := (p_payload->>'longitude')::double precision; lat := (p_payload->>'latitude')::double precision;
-  if lng not between 73 and 136 or lat not between 3 and 54 then raise exception '坐标无效'; end if;
+  if lng is null or lat is null or lng not between 73 and 136 or lat not between 3 and 54 then raise exception '坐标无效'; end if;
   if p_kind = 'new_statue' then
     select s.name into duplicate_name from public.statues s where s.status = 'approved' and st_dwithin(s.location, st_setsrid(st_makepoint(lng, lat), 4326)::geography, 50) limit 1;
     if duplicate_name is null then select c.payload->>'name' into duplicate_name from public.contributions c where c.status = 'pending_review' and c.kind = 'new_statue' and st_dwithin(st_setsrid(st_makepoint((c.payload->>'longitude')::double precision, (c.payload->>'latitude')::double precision), 4326)::geography, st_setsrid(st_makepoint(lng, lat), 4326)::geography, 50) limit 1; end if;
@@ -122,8 +122,13 @@ create policy "authenticated upload contribution photos" on storage.objects for 
 create policy "public reads contribution photos" on storage.objects for select using (bucket_id = 'contribution-photos');
 create policy "users delete own contribution photos" on storage.objects for delete to authenticated using (bucket_id = 'contribution-photos' and owner_id = auth.uid()::text);
 
-create or replace function public.handle_new_user() returns trigger language plpgsql security definer set search_path = public as $$ begin insert into public.profiles (id, email) values (new.id, new.email); return new; end; $$;
+create or replace function public.handle_new_user() returns trigger language plpgsql security definer set search_path = public as $$ begin insert into public.profiles (id, email) values (new.id, new.email) on conflict (id) do update set email = excluded.email; return new; end; $$;
 create trigger on_auth_user_created after insert on auth.users for each row execute procedure public.handle_new_user();
 
--- 首位管理员：登录后将对应用户 UUID 写入下句并执行。
--- update public.profiles set role = 'admin' where id = 'YOUR-USER-UUID';
+-- Backfill accounts created before this migration was installed.
+insert into public.profiles (id, email)
+select id, email from auth.users
+on conflict (id) do update set email = excluded.email;
+
+-- 首位管理员：用户至少登录一次后，按登录邮箱提升角色。
+-- update public.profiles set role = 'admin' where lower(email) = lower('admin@example.com');
