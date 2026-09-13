@@ -172,7 +172,7 @@ function App() {
       {notice && <div className="toast" role="status"><AlertTriangle size={16} />{notice}</div>}
       {authOpen && <AuthDialog onClose={() => setAuthOpen(false)} onSignIn={auth.signIn} onSignUp={auth.signUp} />}
       {contributionOpen && <ContributionDialog nearby={data.features} existingFeature={editingFeature} onSubmit={handleContribution} onClose={() => { setContributionOpen(false); setEditingFeature(undefined); }} />}
-      {adminOpen && <AdminPanel onClose={() => setAdminOpen(false)} onChanged={reload} />}
+      {adminOpen && <AdminPanel onClose={() => setAdminOpen(false)} onChanged={reload} onLocate={(item) => { const longitude = Number(item.payload.longitude); const latitude = Number(item.payload.latitude); if (!Number.isFinite(longitude) || !Number.isFinite(latitude)) return; setAdminOpen(false); setFocusRequest({ feature: { type: 'Feature', geometry: { type: 'Point', coordinates: [longitude, latitude] }, properties: { id: item.id, name: String(item.payload.name || '待审核点位'), province: String(item.payload.province || ''), city: String(item.payload.city || ''), address: String(item.payload.address || ''), desc: String(item.payload.desc || ''), image: String(item.payload.image_url || ''), verificationStatus: 'user_verified' } }, nonce: Date.now() }); }} />}
       {accountOpen && auth.user && <MyContributionsPanel email={auth.user.email ?? '已登录用户'} onClose={() => setAccountOpen(false)} onSignOut={async () => { await auth.signOut(); setAccountOpen(false); }} />}
     </main>
   );

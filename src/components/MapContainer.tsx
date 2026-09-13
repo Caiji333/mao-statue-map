@@ -154,7 +154,7 @@ export function MapContainer({ features, focusRequest, onReady, onStatus, onSugg
           if (clusterFeatures.length) onClusterSelect?.(clusterFeatures);
         }).catch(() => onStatus('聚合点位列表读取失败，请重试'));
         void source.getClusterExpansionZoom(clusterId).then((zoom) => {
-          map.easeTo({ center: coordinates, zoom });
+    map.easeTo({ center: coordinates, zoom, duration: 850, essential: true });
         });
       });
 
@@ -211,7 +211,9 @@ export function MapContainer({ features, focusRequest, onReady, onStatus, onSugg
     const map = mapRef.current;
     if (!mapReady || !map || !focusRequest) return;
     const { feature } = focusRequest;
-    map.flyTo({ center: feature.geometry.coordinates, zoom: mapConfig.focusZoom, speed: 1.25, curve: 1.4 });
+    const currentZoom = map.getZoom();
+    const targetZoom = Math.max(currentZoom, mapConfig.focusZoom);
+    map.easeTo({ center: feature.geometry.coordinates, zoom: targetZoom, duration: 1100, essential: true });
     map.once('moveend', () => openPopup(map, feature));
   }, [focusRequest, mapReady, openPopup]);
 

@@ -2,6 +2,14 @@ import { supabase } from './supabase';
 import type { ContributionInput } from '../components/ContributionDialog';
 import type { StatueFeature, StatueProperties } from '../types/statue';
 
+export interface PendingContributionPreview { id: string; payload: Record<string, string>; distance_m: number; created_at: string; }
+
+export async function findNearbyPendingContributions(longitude: number, latitude: number): Promise<PendingContributionPreview[]> {
+  if (!supabase || !Number.isFinite(longitude) || !Number.isFinite(latitude)) return [];
+  const { data } = await supabase.rpc('nearby_pending_contributions', { p_lng: longitude, p_lat: latitude, p_radius_m: 50 });
+  return (data ?? []) as PendingContributionPreview[];
+}
+
 export async function submitContribution(input: ContributionInput, userId: string): Promise<string | null> {
   if (!supabase) return '尚未配置 Supabase';
   let imageUrl = '';
