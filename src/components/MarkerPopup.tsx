@@ -1,6 +1,7 @@
 import { CalendarDays, Image as ImageIcon, MapPin, Pencil } from 'lucide-react';
 import { uiText } from '../config/uiText';
 import type { StatueFeature } from '../types/statue';
+import { ImagePreview } from './ImagePreview';
 
 interface MarkerPopupProps {
   feature: StatueFeature;
@@ -16,7 +17,7 @@ export function MarkerPopup({ feature, onSuggestEdit }: MarkerPopupProps) {
     <article className="popup-card">
       <div className="popup-media">
         {properties.image ? (
-          <img src={properties.image} alt={properties.name} />
+          <ImagePreview src={properties.image} alt={properties.name} />
         ) : (
           <div className="popup-media-placeholder">
             <ImageIcon size={22} aria-hidden="true" />
