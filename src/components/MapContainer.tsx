@@ -12,6 +12,7 @@ interface MapContainerProps {
   onReady: () => void;
   onStatus: (message: string | null) => void;
   onSuggestEdit?: (feature: StatueFeature) => void;
+  onClusterSelect?: (features: StatueFeature[]) => void;
 }
 
 const SOURCE_ID = 'statues';
@@ -19,7 +20,7 @@ const CLUSTER_LAYER = 'statue-clusters';
 const CLUSTER_COUNT_LAYER = 'statue-cluster-count';
 const MARKER_LAYER = 'statue-markers';
 
-export function MapContainer({ features, focusRequest, onReady, onStatus, onSuggestEdit }: MapContainerProps) {
+export function MapContainer({ features, focusRequest, onReady, onStatus, onSuggestEdit, onClusterSelect }: MapContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const popupRef = useRef<{ popup: maplibregl.Popup; root: Root } | null>(null);
@@ -146,6 +147,12 @@ export function MapContainer({ features, focusRequest, onReady, onStatus, onSugg
           : undefined;
         const source = map.getSource(SOURCE_ID) as GeoJSONSource;
         if (clusterId === undefined || !coordinates) return;
+        const pointCount = Number(cluster?.properties?.point_count ?? 0);
+        void source.getClusterLeaves(clusterId, pointCount, 0).then((leaves) => {
+          const ids = new Set(leaves.map((leaf) => String(leaf.properties?.id ?? '')));
+          const clusterFeatures = featuresRef.current.filter((item) => ids.has(item.properties.id));
+          if (clusterFeatures.length) onClusterSelect?.(clusterFeatures);
+        }).catch(() => onStatus('聚合点位列表读取失败，请重试'));
         void source.getClusterExpansionZoom(clusterId).then((zoom) => {
           map.easeTo({ center: coordinates, zoom });
         });
@@ -191,7 +198,7 @@ export function MapContainer({ features, focusRequest, onReady, onStatus, onSugg
       map.remove();
       mapRef.current = null;
     };
-  }, [closePopup, onReady, onStatus, openPopup]);
+  }, [closePopup, onClusterSelect, onReady, onStatus, openPopup]);
 
   useEffect(() => {
     if (!mapReady) return;

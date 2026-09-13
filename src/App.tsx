@@ -7,6 +7,7 @@ import { AuthDialog } from './components/AuthDialog';
 import { ContributionDialog, type ContributionInput } from './components/ContributionDialog';
 import { AdminPanel } from './components/AdminPanel';
 import { MyContributionsPanel } from './components/MyContributionsPanel';
+import { ClusterListPanel } from './components/ClusterListPanel';
 import { hasBasemap, mapProvider, mapProviderLabel } from './config/mapConfig';
 import { uiText } from './config/uiText';
 import { useStatues } from './hooks/useStatues';
@@ -29,6 +30,7 @@ function App() {
   const [editingFeature, setEditingFeature] = useState<StatueFeature | undefined>();
   const [adminOpen, setAdminOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
+  const [clusterFeatures, setClusterFeatures] = useState<StatueFeature[]>([]);
 
   const provinces = useMemo(() => getProvinces(data.features), [data.features]);
   const visibleFeatures = useMemo(
@@ -50,6 +52,7 @@ function App() {
   const changeProvince = (nextProvince: string) => {
     setTransitioning(true);
     setProvince(nextProvince);
+    setClusterFeatures([]);
     setFocusRequest(null);
     window.setTimeout(() => setTransitioning(false), 260);
   };
@@ -113,7 +116,10 @@ function App() {
           onReady={handleMapReady}
           onStatus={showNotice}
           onSuggestEdit={(feature) => openContribution(feature)}
+          onClusterSelect={setClusterFeatures}
         />
+
+        {clusterFeatures.length > 0 && <ClusterListPanel features={clusterFeatures} onClose={() => setClusterFeatures([])} onSelect={selectFeature} />}
 
         <div className="map-summary" aria-live="polite">
           <span className="summary-icon"><MapPinned size={18} /></span>
