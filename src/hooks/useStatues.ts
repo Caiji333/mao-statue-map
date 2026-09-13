@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { sanitizeCollection } from '../lib/map';
+import { loadApprovedStatues } from '../lib/contributions';
 import type { StatueCollection } from '../types/statue';
 
 interface StatueState {
@@ -28,7 +29,11 @@ export const useStatues = (): StatueState => {
           cache: 'no-cache',
         });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        setData(sanitizeCollection(await response.json()));
+        const local = sanitizeCollection(await response.json());
+        const remote = await loadApprovedStatues().catch(() => []);
+        const merged = new Map(local.features.map((feature) => [feature.properties.id, feature]));
+        remote.forEach((feature) => merged.set(feature.properties.id, feature));
+        setData({ type: 'FeatureCollection', features: [...merged.values()] });
       } catch (reason) {
         if (reason instanceof DOMException && reason.name === 'AbortError') return;
         setData(EMPTY_COLLECTION);

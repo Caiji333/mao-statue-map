@@ -1,22 +1,34 @@
-import { AlertTriangle, Database, Filter, Landmark, LoaderCircle, MapPinned, RefreshCw, X } from 'lucide-react';
+import { AlertTriangle, Database, Filter, Landmark, LoaderCircle, LogIn, MapPinned, Plus, RefreshCw, ShieldCheck, User, X } from 'lucide-react';
 import { useCallback, useMemo, useState } from 'react';
 import { FilterPanel } from './components/FilterPanel';
 import { MapContainer } from './components/MapContainer';
 import { SearchBar } from './components/SearchBar';
+import { AuthDialog } from './components/AuthDialog';
+import { ContributionDialog, type ContributionInput } from './components/ContributionDialog';
+import { AdminPanel } from './components/AdminPanel';
+import { MyContributionsPanel } from './components/MyContributionsPanel';
 import { hasBasemap, mapProvider, mapProviderLabel } from './config/mapConfig';
 import { uiText } from './config/uiText';
 import { useStatues } from './hooks/useStatues';
 import { filterByProvince, getProvinces } from './lib/map';
 import type { FocusRequest, StatueFeature } from './types/statue';
+import { useAuth } from './hooks/useAuth';
+import { submitContribution } from './lib/contributions';
 
 function App() {
   const { data, loading, error, reload } = useStatues();
+  const auth = useAuth();
   const [province, setProvince] = useState('');
   const [filterOpen, setFilterOpen] = useState(false);
   const [mapReady, setMapReady] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [focusRequest, setFocusRequest] = useState<FocusRequest | null>(null);
   const [transitioning, setTransitioning] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
+  const [contributionOpen, setContributionOpen] = useState(false);
+  const [editingFeature, setEditingFeature] = useState<StatueFeature | undefined>();
+  const [adminOpen, setAdminOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
 
   const provinces = useMemo(() => getProvinces(data.features), [data.features]);
   const visibleFeatures = useMemo(
@@ -42,6 +54,18 @@ function App() {
     window.setTimeout(() => setTransitioning(false), 260);
   };
 
+  const openContribution = useCallback((feature?: StatueFeature) => {
+    if (!auth.user) { setAuthOpen(true); return; }
+    setEditingFeature(feature); setContributionOpen(true);
+  }, [auth.user]);
+
+  const handleContribution = async (input: ContributionInput) => {
+    if (!auth.user) return '请先登录';
+    const result = await submitContribution(input, auth.user.id);
+    if (!result) showNotice('提交成功，管理员审核通过后将立即公开');
+    return result;
+  };
+
   const initialLoading = loading || !mapReady;
 
   return (
@@ -57,15 +81,14 @@ function App() {
 
         <SearchBar features={visibleFeatures} onSelect={selectFeature} onEmptyResult={() => showNotice(uiText.noResults)} />
 
-        <button
-          type="button"
-          className={`filter-toggle ${filterOpen || province ? 'active' : ''}`}
-          onClick={() => setFilterOpen((value) => !value)}
-          aria-expanded={filterOpen}
-        >
-          <Filter size={17} />
-          <span>{province || '筛选'}</span>
-        </button>
+        <div className="top-actions">
+          {auth.user && <button type="button" className="action-button contribute-button" onClick={() => openContribution()}><Plus size={17} /><span>贡献点位</span></button>}
+          {auth.isAdmin && <button type="button" className="action-button" onClick={() => setAdminOpen(true)}><ShieldCheck size={17} /><span>审核</span></button>}
+          <button type="button" className="action-button account-button" onClick={() => auth.user ? setAccountOpen(true) : setAuthOpen(true)} title={auth.user ? auth.user.email : '登录'}>
+            {auth.user ? <User size={17} /> : <LogIn size={17} />}<span>{auth.user ? '我的' : '登录'}</span>
+          </button>
+          <button type="button" className={`filter-toggle ${filterOpen || province ? 'active' : ''}`} onClick={() => setFilterOpen((value) => !value)} aria-expanded={filterOpen}><Filter size={17} /><span>{province || '筛选'}</span></button>
+        </div>
       </header>
 
       {filterOpen && (
@@ -89,6 +112,7 @@ function App() {
           focusRequest={focusRequest}
           onReady={handleMapReady}
           onStatus={showNotice}
+          onSuggestEdit={(feature) => openContribution(feature)}
         />
 
         <div className="map-summary" aria-live="polite">
@@ -140,6 +164,10 @@ function App() {
       )}
 
       {notice && <div className="toast" role="status"><AlertTriangle size={16} />{notice}</div>}
+      {authOpen && <AuthDialog onClose={() => setAuthOpen(false)} onSignIn={auth.signIn} />}
+      {contributionOpen && <ContributionDialog nearby={data.features} existingFeature={editingFeature} onSubmit={handleContribution} onClose={() => { setContributionOpen(false); setEditingFeature(undefined); }} />}
+      {adminOpen && <AdminPanel onClose={() => setAdminOpen(false)} onChanged={reload} />}
+      {accountOpen && auth.user && <MyContributionsPanel email={auth.user.email ?? '已登录用户'} onClose={() => setAccountOpen(false)} onSignOut={async () => { await auth.signOut(); setAccountOpen(false); }} />}
     </main>
   );
 }

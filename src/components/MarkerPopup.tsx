@@ -1,12 +1,13 @@
-import { CalendarDays, Image as ImageIcon, MapPin } from 'lucide-react';
+import { CalendarDays, Image as ImageIcon, MapPin, Pencil } from 'lucide-react';
 import { uiText } from '../config/uiText';
 import type { StatueFeature } from '../types/statue';
 
 interface MarkerPopupProps {
   feature: StatueFeature;
+  onSuggestEdit?: (feature: StatueFeature) => void;
 }
 
-export function MarkerPopup({ feature }: MarkerPopupProps) {
+export function MarkerPopup({ feature, onSuggestEdit }: MarkerPopupProps) {
   const { properties, geometry } = feature;
   const [longitude, latitude] = geometry.coordinates;
   const fallback = uiText.unknown;
@@ -48,6 +49,7 @@ export function MarkerPopup({ feature }: MarkerPopupProps) {
             <dd>{longitude.toFixed(6)}, {latitude.toFixed(6)} · GCJ-02</dd>
           </div>
         </dl>
+        {onSuggestEdit && <button className="popup-edit" type="button" onClick={() => onSuggestEdit(feature)}><Pencil size={14} />提交资料修改建议</button>}
       </div>
     </article>
   );

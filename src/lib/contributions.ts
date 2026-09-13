@@ -1,0 +1,33 @@
+import { supabase } from './supabase';
+import type { ContributionInput } from '../components/ContributionDialog';
+import type { StatueFeature, StatueProperties } from '../types/statue';
+
+export async function submitContribution(input: ContributionInput, userId: string): Promise<string | null> {
+  if (!supabase) return '尚未配置 Supabase';
+  let imageUrl = '';
+  if (input.photo) {
+    if (input.photo.size > 5 * 1024 * 1024) return '图片不能超过 5MB';
+    const extension = input.photo.name.split('.').pop()?.toLowerCase() || 'jpg';
+    const path = `${userId}/${crypto.randomUUID()}.${extension}`;
+    const { error } = await supabase.storage.from('contribution-photos').upload(path, input.photo);
+    if (error) return error.message;
+    imageUrl = supabase.storage.from('contribution-photos').getPublicUrl(path).data.publicUrl;
+  }
+  const payload = { ...input, photo: undefined, external_id: input.existingId, image_url: imageUrl || undefined };
+  const { error } = await supabase.rpc('submit_contribution', { p_kind: input.existingId ? 'edit_suggestion' : 'new_statue', p_statue_id: null, p_payload: payload });
+  if (error && imageUrl) {
+    const path = imageUrl.split('/contribution-photos/')[1];
+    if (path) await supabase.storage.from('contribution-photos').remove([path]);
+  }
+  return error?.message ?? null;
+}
+
+export async function loadApprovedStatues(): Promise<StatueFeature[]> {
+  if (!supabase) return [];
+  const { data, error } = await supabase.from('statues').select('id,external_id,name,province,city,address,longitude,latitude,desc,background,year,image_url,source,verification_status').eq('status', 'approved');
+  if (error) throw error;
+  return (data ?? []).map((item) => ({
+    type: 'Feature', geometry: { type: 'Point', coordinates: [item.longitude, item.latitude] },
+    properties: { id: item.external_id ?? item.id, name: item.name, province: item.province, city: item.city, address: item.address, desc: item.desc ?? undefined, background: item.background ?? undefined, year: item.year ?? undefined, image: item.image_url ?? undefined, source: item.source ?? undefined, verificationStatus: (item.verification_status ?? 'verified') as StatueProperties['verificationStatus'] },
+  }));
+}

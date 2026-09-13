@@ -11,6 +11,7 @@ interface MapContainerProps {
   focusRequest: FocusRequest | null;
   onReady: () => void;
   onStatus: (message: string | null) => void;
+  onSuggestEdit?: (feature: StatueFeature) => void;
 }
 
 const SOURCE_ID = 'statues';
@@ -18,7 +19,7 @@ const CLUSTER_LAYER = 'statue-clusters';
 const CLUSTER_COUNT_LAYER = 'statue-cluster-count';
 const MARKER_LAYER = 'statue-markers';
 
-export function MapContainer({ features, focusRequest, onReady, onStatus }: MapContainerProps) {
+export function MapContainer({ features, focusRequest, onReady, onStatus, onSuggestEdit }: MapContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const popupRef = useRef<{ popup: maplibregl.Popup; root: Root } | null>(null);
@@ -39,7 +40,7 @@ export function MapContainer({ features, focusRequest, onReady, onStatus }: MapC
     closePopup();
     const host = document.createElement('div');
     const root = createRoot(host);
-    root.render(<MarkerPopup feature={feature} />);
+    root.render(<MarkerPopup feature={feature} onSuggestEdit={onSuggestEdit} />);
     const popup = new maplibregl.Popup({
       closeButton: true,
       closeOnClick: true,
@@ -55,7 +56,7 @@ export function MapContainer({ features, focusRequest, onReady, onStatus }: MapC
       if (popupRef.current?.popup === popup) popupRef.current = null;
       window.setTimeout(() => root.unmount(), 0);
     });
-  }, [closePopup]);
+  }, [closePopup, onSuggestEdit]);
 
   useEffect(() => {
     if (!containerRef.current) return;
