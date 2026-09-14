@@ -160,7 +160,7 @@ export function MapContainer({ features, focusRequest, onReady, onStatus, onSugg
         }).catch(() => onStatus('聚合点位列表读取失败，请重试'));
         void source.getClusterExpansionZoom(clusterId).then((zoom) => {
           map.easeTo({ center: coordinates, zoom, duration: 850, essential: true });
-        });
+        }).catch(() => onStatus('聚合点位缩放失败，请重试'));
       });
 
       map.on('click', MARKER_LAYER, (event) => {

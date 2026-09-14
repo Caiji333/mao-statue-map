@@ -122,7 +122,7 @@ function App() {
           focusRequest={focusRequest}
           onReady={handleMapReady}
           onStatus={showNotice}
-          onSuggestEdit={(feature) => openContribution(feature)}
+          onSuggestEdit={openContribution}
           onClusterSelect={setClusterFeatures}
           onPickCoordinates={pickCoordinates}
         />
