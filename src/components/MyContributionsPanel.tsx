@@ -1,4 +1,4 @@
-import { CheckCircle2, Clock3, KeyRound, LogOut, X, XCircle } from 'lucide-react';
+import { CheckCircle2, Clock3, KeyRound, LogOut, UserRoundPen, X, XCircle } from 'lucide-react';
 import { type FormEvent, useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 
@@ -8,12 +8,37 @@ const statusText = { pending_review: '待审核', approved: '已通过', rejecte
 
 export function MyContributionsPanel({ email, onClose, onSignOut }: Props) {
   const [items, setItems] = useState<Item[]>([]); const [loading, setLoading] = useState(true);
+  const [usernameOpen, setUsernameOpen] = useState(false);
+  const [username, setUsername] = useState('');
+  const [usernameMessage, setUsernameMessage] = useState('');
+  const [savingUsername, setSavingUsername] = useState(false);
   const [passwordOpen, setPasswordOpen] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordAgain, setPasswordAgain] = useState('');
   const [passwordMessage, setPasswordMessage] = useState('');
   const [savingPassword, setSavingPassword] = useState(false);
-  useEffect(() => { if (!supabase) return; void supabase.from('contributions').select('id,kind,payload,status,review_comment,created_at').order('created_at', { ascending: false }).then(({ data }) => { setItems((data ?? []) as Item[]); setLoading(false); }); }, []);
+  useEffect(() => {
+    if (!supabase) return;
+    void Promise.all([
+      supabase.from('contributions').select('id,kind,payload,status,review_comment,created_at').order('created_at', { ascending: false }),
+      supabase.from('profiles').select('username').single(),
+    ]).then(([contributions, profile]) => {
+      setItems((contributions.data ?? []) as Item[]);
+      setUsername(profile.data?.username ?? '');
+      setLoading(false);
+    });
+  }, []);
+  const saveUsername = async (event: FormEvent) => {
+    event.preventDefault(); setUsernameMessage('');
+    const normalized = username.trim();
+    if (normalized.length < 2 || normalized.length > 24) { setUsernameMessage('用户名需要 2 至 24 个字符'); return; }
+    if (!supabase) return;
+    setSavingUsername(true);
+    const { data, error } = await supabase.rpc('update_my_username', { p_username: normalized });
+    setSavingUsername(false);
+    if (error) { setUsernameMessage(error.message.includes('用户名') ? error.message : '用户名修改失败，请稍后重试'); return; }
+    setUsername(String(data ?? normalized)); setUsernameOpen(false); setUsernameMessage('用户名已更新');
+  };
   const savePassword = async (event: FormEvent) => {
     event.preventDefault(); setPasswordMessage('');
     if (password.length < 6) { setPasswordMessage('密码至少需要 6 位'); return; }
@@ -25,5 +50,5 @@ export function MyContributionsPanel({ email, onClose, onSignOut }: Props) {
     if (error) { setPasswordMessage(error.message); return; }
     setPassword(''); setPasswordAgain(''); setPasswordOpen(false); setPasswordMessage('密码已更新');
   };
-  return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="account-modal" role="dialog" aria-modal="true"><button className="modal-close" type="button" onClick={onClose} aria-label="关闭"><X size={18} /></button><div className="modal-kicker">我的账户</div><h2>贡献记录</h2><div className="account-email"><span>{email}</span><div><button type="button" onClick={() => { setPasswordOpen((value) => !value); setPasswordMessage(''); }}><KeyRound size={14} />修改密码</button><button type="button" onClick={() => void onSignOut()}><LogOut size={14} />退出登录</button></div></div>{passwordOpen && <form className="password-form" onSubmit={savePassword}><label>新密码<input type="password" minLength={6} required value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="new-password" /></label><label>再次输入<input type="password" minLength={6} required value={passwordAgain} onChange={(event) => setPasswordAgain(event.target.value)} autoComplete="new-password" /></label><button className="modal-primary" type="submit" disabled={savingPassword}>{savingPassword ? '保存中…' : '保存密码'}</button></form>}{passwordMessage && <p className={passwordMessage === '密码已更新' ? 'form-success' : 'form-error'}>{passwordMessage}</p>}{loading ? <div className="admin-empty"><Clock3 size={18} />读取记录…</div> : items.length === 0 ? <div className="admin-empty">尚未提交过点位资料</div> : <div className="review-list">{items.map((item) => <article className="contribution-history" key={item.id}><span className={`history-status ${item.status}`}>{item.status === 'approved' ? <CheckCircle2 size={14} /> : item.status === 'rejected' ? <XCircle size={14} /> : <Clock3 size={14} />}{statusText[item.status]}</span><div><strong>{item.payload.name || '未命名点位'}</strong><small>{item.kind === 'new_statue' ? '新增点位' : '修改建议'} · {new Date(item.created_at).toLocaleString('zh-CN')}</small>{item.review_comment && <p>审核意见：{item.review_comment}</p>}</div></article>)}</div>}</section></div>;
+  return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="account-modal" role="dialog" aria-modal="true"><button className="modal-close" type="button" onClick={onClose} aria-label="关闭"><X size={18} /></button><div className="modal-kicker">我的账户</div><h2>贡献记录</h2><div className="account-email"><span>{email}</span><div><button type="button" onClick={() => { setUsernameOpen((value) => !value); setPasswordOpen(false); setUsernameMessage(''); setPasswordMessage(''); }}><UserRoundPen size={14} />修改用户名</button><button type="button" onClick={() => { setPasswordOpen((value) => !value); setUsernameOpen(false); setPasswordMessage(''); setUsernameMessage(''); }}><KeyRound size={14} />修改密码</button><button type="button" onClick={() => void onSignOut()}><LogOut size={14} />退出登录</button></div></div>{usernameOpen && <form className="password-form username-form" onSubmit={saveUsername}><label>新用户名<input required minLength={2} maxLength={24} value={username} onChange={(event) => setUsername(event.target.value)} autoComplete="username" /></label><button className="modal-primary" type="submit" disabled={savingUsername}>{savingUsername ? '保存中…' : '保存用户名'}</button></form>}{usernameMessage && <p className={usernameMessage === '用户名已更新' ? 'form-success' : 'form-error'}>{usernameMessage}</p>}{passwordOpen && <form className="password-form" onSubmit={savePassword}><label>新密码<input type="password" minLength={6} required value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="new-password" /></label><label>再次输入<input type="password" minLength={6} required value={passwordAgain} onChange={(event) => setPasswordAgain(event.target.value)} autoComplete="new-password" /></label><button className="modal-primary" type="submit" disabled={savingPassword}>{savingPassword ? '保存中…' : '保存密码'}</button></form>}{passwordMessage && <p className={passwordMessage === '密码已更新' ? 'form-success' : 'form-error'}>{passwordMessage}</p>}{loading ? <div className="admin-empty"><Clock3 size={18} />读取记录…</div> : items.length === 0 ? <div className="admin-empty">尚未提交过点位资料</div> : <div className="review-list">{items.map((item) => <article className="contribution-history" key={item.id}><span className={`history-status ${item.status}`}>{item.status === 'approved' ? <CheckCircle2 size={14} /> : item.status === 'rejected' ? <XCircle size={14} /> : <Clock3 size={14} />}{statusText[item.status]}</span><div><strong>{item.payload.name || '未命名点位'}</strong><small>{item.kind === 'new_statue' ? '新增点位' : '修改建议'} · {new Date(item.created_at).toLocaleString('zh-CN')}</small>{item.review_comment && <p>审核意见：{item.review_comment}</p>}</div></article>)}</div>}</section></div>;
 }
