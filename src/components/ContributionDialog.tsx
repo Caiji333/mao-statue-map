@@ -4,7 +4,7 @@ import type { StatueFeature } from '../types/statue';
 import { findNearbyPendingContributions, resolveAmapShareUrl, type PendingContributionPreview } from '../lib/contributions';
 import { ImagePreview } from './ImagePreview';
 
-export interface ContributionInput { name: string; province: string; city: string; address: string; longitude: number; latitude: number; desc: string; background: string; year: string; photo: File | null; existingId?: string; }
+export interface ContributionInput { name: string; province: string; city: string; address: string; longitude: number; latitude: number; desc: string; background: string; year: string; photo: File | null; existingId?: string; existingDatabaseId?: string; }
 interface Props { onClose: () => void; onSubmit: (input: ContributionInput) => Promise<string | null>; nearby: StatueFeature[]; existingFeature?: StatueFeature; initialCoordinates?: [number, number]; }
 
 export function ContributionDialog({ onClose, onSubmit, nearby, existingFeature, initialCoordinates }: Props) {
@@ -15,7 +15,7 @@ export function ContributionDialog({ onClose, onSubmit, nearby, existingFeature,
   const [pendingNearby, setPendingNearby] = useState<PendingContributionPreview[]>([]);
   const [amapUrl, setAmapUrl] = useState(''); const [resolvingAmap, setResolvingAmap] = useState(false); const [amapError, setAmapError] = useState('');
   const update = (key: keyof typeof form, value: string) => setForm((current) => ({ ...current, [key]: value }));
-  const submit = async (event: FormEvent) => { event.preventDefault(); setSending(true); setError(''); const result = await onSubmit({ ...form, longitude: Number(form.longitude), latitude: Number(form.latitude), photo, existingId: existingFeature?.properties.id }); setSending(false); if (result) setError(result); else onClose(); };
+  const submit = async (event: FormEvent) => { event.preventDefault(); setSending(true); setError(''); const result = await onSubmit({ ...form, longitude: Number(form.longitude), latitude: Number(form.latitude), photo, existingId: existingFeature?.properties.id, existingDatabaseId: existingFeature?.properties.databaseId }); setSending(false); if (result) setError(result); else onClose(); };
   const closest = nearby.find((feature) => {
     if (existingFeature || !form.longitude || !form.latitude) return false;
     const [lng, lat] = feature.geometry.coordinates; const scale = Math.cos(Number(form.latitude) * Math.PI / 180);

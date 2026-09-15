@@ -1,5 +1,6 @@
 export interface StatueProperties {
   id: string;
+  databaseId?: string;
   name: string;
   province: string;
   city: string;
@@ -13,6 +14,7 @@ export interface StatueProperties {
   sourceType?: string;
   verificationStatus?: 'verified' | 'user_verified' | 'amap_unverified';
   collectedAt?: string;
+  contributors?: string[];
 }
 
 export interface StatueGeometry {

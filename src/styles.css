@@ -168,6 +168,9 @@ button { cursor: pointer; }
 .popup-body dl > div:first-child { margin-top: 0; }
 .popup-body dt { color: #8b877e; font-size: 10px; }
 .popup-body dd { margin: 0; color: #4d504b; font-size: 11px; line-height: 1.55; }
+.popup-contributors { min-width: 0; }
+.popup-contributors span { overflow-wrap: anywhere; }
+.popup-contributors button { margin-left: 7px; padding: 0; border: 0; color: #315f57; background: transparent; font-size: 10px; text-decoration: underline; text-underline-offset: 2px; }
 .popup-edit { width: 100%; height: 34px; margin-top: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid #c8d8d2; border-radius: 5px; color: #315f57; background: #f2f7f5; font-size: 11px; }
 .popup-edit:hover { background: #e5f0ec; }
 

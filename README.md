@@ -60,7 +60,7 @@ Vite 的 `base` 已配置为相对路径，可部署到 GitHub Pages、Vercel、
 
 协作功能使用 Supabase。未配置时游客地图仍可正常浏览，但登录和贡献功能不会启用。
 
-1. 创建 Supabase 项目，在 SQL Editor 中先执行 `supabase/migrations/202609130001_contributions.sql`，再执行 `supabase/migrations/202609130002_admin_users.sql`，最后执行 `supabase/seed.sql`。
+1. 创建 Supabase 项目，在 SQL Editor 中按文件名顺序执行 `supabase/migrations` 下的全部 SQL 迁移，再执行 `supabase/seed.sql`。
 2. 在 Authentication > Providers > Email 中开启邮箱密码登录；如需免邮件直接注册，将 Confirm email 关闭。这样用户使用邮箱和密码注册后可立即登录，不消耗邮件额度。
 3. 在 `.env.local` 或部署平台配置 `VITE_SUPABASE_URL` 与 `VITE_SUPABASE_ANON_KEY`。
 4. 使用邮箱和密码注册一次，让系统创建对应的用户资料。
