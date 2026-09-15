@@ -15,6 +15,7 @@ interface MapContainerProps {
   onSuggestEdit?: (feature: StatueFeature) => void;
   onClusterSelect?: (features: StatueFeature[]) => void;
   onPickCoordinates?: (coordinates: [number, number]) => void;
+  onInteraction?: () => void;
 }
 
 const SOURCE_ID = 'statues';
@@ -22,17 +23,19 @@ const CLUSTER_LAYER = 'statue-clusters';
 const CLUSTER_COUNT_LAYER = 'statue-cluster-count';
 const MARKER_LAYER = 'statue-markers';
 
-export function MapContainer({ features, focusRequest, onReady, onStatus, onSuggestEdit, onClusterSelect, onPickCoordinates }: MapContainerProps) {
+export function MapContainer({ features, focusRequest, onReady, onStatus, onSuggestEdit, onClusterSelect, onPickCoordinates, onInteraction }: MapContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const popupRef = useRef<{ popup: maplibregl.Popup; root: Root } | null>(null);
   const pickPopupRef = useRef<{ popup: maplibregl.Popup; root: Root } | null>(null);
   const pickHandlerRef = useRef(onPickCoordinates);
+  const interactionHandlerRef = useRef(onInteraction);
   const featuresRef = useRef(features);
   const [mapReady, setMapReady] = useState(false);
 
   featuresRef.current = features;
   pickHandlerRef.current = onPickCoordinates;
+  interactionHandlerRef.current = onInteraction;
 
   const closePopup = useCallback(() => {
     const active = popupRef.current;
@@ -119,6 +122,23 @@ export function MapContainer({ features, focusRequest, onReady, onStatus, onSugg
           'circle-opacity': 0.94,
         },
       });
+
+      const showContributionPrompt = (coordinates: [number, number]) => {
+        const active = pickPopupRef.current;
+        if (active) active.popup.remove();
+        const host = document.createElement('div');
+        const root = createRoot(host);
+        const popup = new maplibregl.Popup({ closeButton: true, closeOnClick: true, offset: 12, className: 'map-pick-popup' })
+          .setLngLat(coordinates)
+          .setDOMContent(host)
+          .addTo(map);
+        root.render(<MapContributionPrompt coordinates={coordinates} onContribute={() => { popup.remove(); pickHandlerRef.current?.(coordinates); }} />);
+        pickPopupRef.current = { popup, root };
+        popup.once('close', () => {
+          if (pickPopupRef.current?.popup === popup) pickPopupRef.current = null;
+          window.setTimeout(() => root.unmount(), 0);
+        });
+      };
       map.addLayer({
         id: CLUSTER_COUNT_LAYER,
         type: 'symbol',
@@ -170,23 +190,20 @@ export function MapContainer({ features, focusRequest, onReady, onStatus, onSugg
         if (feature) openPopup(map, feature);
       });
 
-      map.on('contextmenu', (event) => {
+      map.on('click', (event) => {
+        interactionHandlerRef.current?.();
+        const interactiveFeatures = map.queryRenderedFeatures(event.point, { layers: [CLUSTER_LAYER, CLUSTER_COUNT_LAYER, MARKER_LAYER] });
+        if (interactiveFeatures.length > 0) return;
         const coordinates: [number, number] = [event.lngLat.lng, event.lngLat.lat];
-        const active = pickPopupRef.current;
-        if (active) active.popup.remove();
-        const host = document.createElement('div');
-        const root = createRoot(host);
-        const popup = new maplibregl.Popup({ closeButton: true, closeOnClick: true, offset: 12, className: 'map-pick-popup' })
-          .setLngLat(coordinates)
-          .setDOMContent(host)
-          .addTo(map);
-        root.render(<MapContributionPrompt coordinates={coordinates} onContribute={() => { popup.remove(); pickHandlerRef.current?.(coordinates); }} />);
-        pickPopupRef.current = { popup, root };
-        popup.once('close', () => {
-          if (pickPopupRef.current?.popup === popup) pickPopupRef.current = null;
-          window.setTimeout(() => root.unmount(), 0);
-        });
+        showContributionPrompt(coordinates);
       });
+
+      map.on('contextmenu', (event) => {
+        interactionHandlerRef.current?.();
+        showContributionPrompt([event.lngLat.lng, event.lngLat.lat]);
+      });
+
+      map.on('movestart', () => interactionHandlerRef.current?.());
 
       const clusterTooltip = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 20 });
       map.on('mouseenter', CLUSTER_LAYER, (event) => {

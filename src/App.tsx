@@ -1,5 +1,5 @@
 import { AlertTriangle, Database, Filter, Landmark, LoaderCircle, LogIn, MapPinned, Plus, RefreshCw, ShieldCheck, User, X } from 'lucide-react';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FilterPanel } from './components/FilterPanel';
 import { MapContainer } from './components/MapContainer';
 import { SearchBar } from './components/SearchBar';
@@ -33,6 +33,8 @@ function App() {
   const [clusterFeatures, setClusterFeatures] = useState<StatueFeature[]>([]);
   const [contributionCoordinates, setContributionCoordinates] = useState<[number, number] | undefined>();
   const [pendingPickedCoordinates, setPendingPickedCoordinates] = useState<[number, number] | undefined>();
+  const [mapSummaryCollapsed, setMapSummaryCollapsed] = useState(false);
+  const [isCompactViewport, setIsCompactViewport] = useState(() => window.matchMedia('(max-width: 640px)').matches);
 
   const provinces = useMemo(() => getProvinces(data.features), [data.features]);
   const visibleFeatures = useMemo(
@@ -45,6 +47,19 @@ function App() {
     if (message) window.setTimeout(() => setNotice((current) => current === message ? null : current), 4200);
   }, []);
   const handleMapReady = useCallback(() => setMapReady(true), []);
+  const handleMapInteraction = useCallback(() => {
+    if (isCompactViewport) setMapSummaryCollapsed(true);
+  }, [isCompactViewport]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 640px)');
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsCompactViewport(event.matches);
+      if (!event.matches) setMapSummaryCollapsed(false);
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   const selectFeature = (feature: StatueFeature) => {
     if (province && feature.properties.province !== province) setProvince('');
@@ -125,11 +140,12 @@ function App() {
           onSuggestEdit={openContribution}
           onClusterSelect={setClusterFeatures}
           onPickCoordinates={pickCoordinates}
+          onInteraction={handleMapInteraction}
         />
 
         {clusterFeatures.length > 0 && <ClusterListPanel features={clusterFeatures} onClose={() => setClusterFeatures([])} onSelect={selectFeature} />}
 
-        <div className="map-summary" aria-live="polite">
+        <button type="button" className={`map-summary${isCompactViewport && mapSummaryCollapsed ? ' collapsed' : ''}`} aria-live="polite" aria-label={isCompactViewport && mapSummaryCollapsed ? '展开点位统计' : '点位统计'} aria-expanded={isCompactViewport ? !mapSummaryCollapsed : undefined} onClick={() => { if (isCompactViewport) setMapSummaryCollapsed((value) => !value); }}>
           <span className="summary-icon"><MapPinned size={18} /></span>
           <div>
             <small>{province || '全国范围'}</small>
@@ -140,7 +156,7 @@ function App() {
             <small>覆盖区域</small>
             <strong>{province ? 1 : provinces.length}<em>个</em></strong>
           </div>
-        </div>
+        </button>
 
         <div className="map-caption">
           <Database size={13} />
