@@ -127,7 +127,7 @@ button { cursor: pointer; }
 .cluster-list-icon { width: 28px; height: 28px; display: grid; place-items: center; flex: none; border-radius: 50%; color: #9f3036; background: #f4e9e6; }
 .cluster-list button > span:last-child { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
 .cluster-list strong { overflow: hidden; color: #343833; font-size: 12px; white-space: nowrap; text-overflow: ellipsis; }
-.trust-badges { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 0 0 8px; vertical-align: middle; }
+.trust-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 0 0 8px; vertical-align: middle; }
 .trust-badges.compact { margin: 0 0 0 5px; gap: 3px; vertical-align: 1px; }
 .trust-badge { display: inline-flex; align-items: center; height: 19px; padding: 0 6px; border: 1px solid transparent; border-radius: 4px; font-size: 9px; font-weight: 600; line-height: 1; white-space: nowrap; }
 .trust-badges.compact .trust-badge { height: 17px; padding: 0 4px; font-size: 8px; }

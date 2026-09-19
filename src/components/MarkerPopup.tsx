@@ -36,9 +36,6 @@ export function MarkerPopup({ feature, onSuggestEdit }: MarkerPopupProps) {
         <div className="popup-kicker">{properties.province} · {properties.city}</div>
         <h2>{properties.name}</h2>
         <StatueTrustBadges properties={properties} />
-        {properties.verificationStatus === 'amap_unverified' && (
-          <span className="popup-verification">高德地图收录 · 待人工核验</span>
-        )}
         {properties.verificationStatus === 'user_verified' && (
           <span className="popup-verification verified">用户现场确认</span>
         )}
