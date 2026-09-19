@@ -127,6 +127,13 @@ button { cursor: pointer; }
 .cluster-list-icon { width: 28px; height: 28px; display: grid; place-items: center; flex: none; border-radius: 50%; color: #9f3036; background: #f4e9e6; }
 .cluster-list button > span:last-child { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
 .cluster-list strong { overflow: hidden; color: #343833; font-size: 12px; white-space: nowrap; text-overflow: ellipsis; }
+.trust-badges { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 0 0 8px; vertical-align: middle; }
+.trust-badges.compact { margin: 0 0 0 5px; gap: 3px; vertical-align: 1px; }
+.trust-badge { display: inline-flex; align-items: center; height: 19px; padding: 0 6px; border: 1px solid transparent; border-radius: 4px; font-size: 9px; font-weight: 600; line-height: 1; white-space: nowrap; }
+.trust-badges.compact .trust-badge { height: 17px; padding: 0 4px; font-size: 8px; }
+.trust-badge.high { color: #285c52; border-color: #a9c9c0; background: #edf7f3; }
+.trust-badge.photo { color: #76551e; border-color: #dcc8a3; background: #fff8e7; }
+.trust-badge.pending { color: #6f7170; border-color: #c8cbc7; background: #f1f2ef; }
 .cluster-list small { overflow: hidden; color: #7c7b74; font-size: 10px; white-space: nowrap; text-overflow: ellipsis; }
 .filter-transition { position: absolute; z-index: 8; inset: 0; display: grid; place-items: center; pointer-events: none; background: rgba(243,241,235,.23); }
 .filter-transition svg { color: #315f57; animation: spin .8s linear infinite; }

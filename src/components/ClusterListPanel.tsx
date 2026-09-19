@@ -1,5 +1,6 @@
 import { List, MapPin, X } from 'lucide-react';
 import type { StatueFeature } from '../types/statue';
+import { StatueTrustBadges } from './StatueTrustBadges';
 
 interface Props {
   features: StatueFeature[];
@@ -16,7 +17,7 @@ export function ClusterListPanel({ features, onClose, onSelect }: Props) {
     <div className="cluster-list">
       {features.map((feature) => <button type="button" key={feature.properties.id} onClick={() => onSelect(feature)}>
         <span className="cluster-list-icon"><MapPin size={16} /></span>
-        <span><strong>{feature.properties.name}</strong><small>{[feature.properties.city, feature.properties.address].filter(Boolean).join(' · ')}</small></span>
+        <span><strong>{feature.properties.name} <StatueTrustBadges properties={feature.properties} compact /></strong><small>{[feature.properties.city, feature.properties.address].filter(Boolean).join(' · ')}</small></span>
       </button>)}
     </div>
   </aside>;

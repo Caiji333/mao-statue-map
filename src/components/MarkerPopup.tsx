@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { uiText } from '../config/uiText';
 import type { StatueFeature } from '../types/statue';
 import { ImagePreview } from './ImagePreview';
+import { StatueTrustBadges } from './StatueTrustBadges';
 
 interface MarkerPopupProps {
   feature: StatueFeature;
@@ -34,6 +35,7 @@ export function MarkerPopup({ feature, onSuggestEdit }: MarkerPopupProps) {
       <div className="popup-body">
         <div className="popup-kicker">{properties.province} · {properties.city}</div>
         <h2>{properties.name}</h2>
+        <StatueTrustBadges properties={properties} />
         {properties.verificationStatus === 'amap_unverified' && (
           <span className="popup-verification">高德地图收录 · 待人工核验</span>
         )}
