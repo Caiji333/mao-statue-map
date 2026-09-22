@@ -1,6 +1,6 @@
 import { KeyRound, LogIn, UserPlus, X } from 'lucide-react';
 import { type FormEvent, useState } from 'react';
-import { hasSupabase } from '../lib/supabase';
+import { hasPocketBase } from '../lib/pocketbase';
 
 interface Props {
   onClose: () => void;
@@ -40,8 +40,8 @@ export function AuthDialog({ onClose, onAuthenticated, onSignIn, onSignUp }: Pro
         <p className="modal-copy">{mode === 'signIn' ? '登录后可以提交点位、补充资料和上传现场照片。' : '注册后即可参与资料补充，所有贡献都需要管理员审核后才会公开。'}</p>
         <form onSubmit={submit}>{mode === 'signUp' && <label><span className="password-label"><span>用户名</span><small>2 至 24 个字符</small></span><input type="text" required minLength={2} maxLength={24} value={username} onChange={(event) => setUsername(event.target.value)} placeholder="请输入用户名" autoComplete="username" autoFocus /></label>}<label>邮箱地址<input type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" autoFocus={mode === 'signIn'} /></label>
           <label><span className="password-label"><span>密码</span><small>至少 6 位</small></span><input type="password" required minLength={6} value={password} onChange={(event) => setPassword(event.target.value)} placeholder="请输入密码" autoComplete={mode === 'signIn' ? 'current-password' : 'new-password'} /></label>
-          {error && <p className="form-error">{error}</p>}{!hasSupabase && <p className="form-hint">尚未配置 Supabase，当前只能浏览地图。</p>}
-          <button className="modal-primary" disabled={submitting || !hasSupabase} type="submit">{submitting ? '处理中…' : mode === 'signIn' ? '登录' : '注册'}</button>
+          {error && <p className="form-error">{error}</p>}{!hasPocketBase && <p className="form-hint">尚未配置 PocketBase，当前只能浏览地图。</p>}
+          <button className="modal-primary" disabled={submitting || !hasPocketBase} type="submit">{submitting ? '处理中…' : mode === 'signIn' ? '登录' : '注册'}</button>
         </form>
         <button className="auth-switch" type="button" onClick={() => { setMode(mode === 'signIn' ? 'signUp' : 'signIn'); setError(''); }}>{mode === 'signIn' ? <><UserPlus size={15} />还没有账号？注册</> : <><KeyRound size={15} />已有账号？登录</>}</button>
       </>}

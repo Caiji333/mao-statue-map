@@ -10,10 +10,9 @@
     "lint": "eslint .",
     "collect:amap": "node scripts/collect-amap-pois.mjs",
     "merge:amap": "node scripts/merge-amap-pois.mjs",
-    "seed:supabase": "node scripts/generate-supabase-seed.mjs"
+    "migrate:pocketbase": "node scripts/migrate-supabase-to-pocketbase.mjs"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.49.1",
     "lucide-react": "^0.468.0",
     "maplibre-gl": "^5.1.0",
     "react": "^18.3.1",

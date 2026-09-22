@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import type { Session, User } from '@supabase/supabase-js';
-import { supabase } from '../lib/supabase';
+import { pocketbase, type PbAuthRecord } from '../lib/pocketbase';
 
 export interface AuthState {
-  user: User | null;
+  user: PbAuthRecord | null;
   isAdmin: boolean;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
@@ -12,69 +11,67 @@ export interface AuthState {
 }
 
 export function useAuth(): AuthState {
-  const [session, setSession] = useState<Session | null>(null);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [user, setUser] = useState<PbAuthRecord | null>(pocketbase?.authStore.record ?? null);
   const [loading, setLoading] = useState(true);
 
-  const refreshRole = async () => {
-    if (!supabase) return;
-    const { data } = await supabase.from('profiles').select('role').single();
-    setIsAdmin(data?.role === 'admin');
-  };
-
   useEffect(() => {
-    if (!supabase) {
+    if (!pocketbase) {
       setLoading(false);
       return undefined;
     }
-    let active = true;
-    void supabase.auth.getSession().then(({ data }) => {
-      if (!active) return;
-      setSession(data.session);
-      setLoading(false);
-      if (data.session) void refreshRole();
-    });
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, nextSession) => {
-      setSession(nextSession);
-      setLoading(false);
-      if (nextSession) void refreshRole();
-      else setIsAdmin(false);
-    });
+    setUser(pocketbase.authStore.record);
+    setLoading(false);
+    const unsubscribe = pocketbase.authStore.onChange((record) => setUser(record));
     return () => {
-      active = false;
-      listener.subscription.unsubscribe();
+      unsubscribe();
     };
   }, []);
 
+  const isAdmin = user?.role === 'admin';
+
   const signIn = async (email: string, password: string) => {
-    if (!supabase) return { error: '尚未配置 Supabase 登录服务' };
-    const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
-    return { error: error ? translateAuthError(error.message) : null };
+    if (!pocketbase) return { error: '尚未配置 PocketBase 登录服务' };
+    try {
+      await pocketbase.collection('users').authWithPassword(email.trim(), password);
+      return { error: null };
+    } catch (error) {
+      return { error: translateAuthError(error instanceof Error ? error.message : '登录失败') };
+    }
   };
 
   const signUp = async (email: string, password: string, username: string) => {
-    if (!supabase) return { error: '尚未配置 Supabase 登录服务' };
+    if (!pocketbase) return { error: '尚未配置 PocketBase 登录服务' };
     const normalizedUsername = username.trim();
     if (normalizedUsername.length < 2 || normalizedUsername.length > 24) return { error: '用户名需要 2 至 24 个字符' };
-    const { data, error } = await supabase.auth.signUp({ email: email.trim(), password, options: { data: { username: normalizedUsername } } });
-    if (error) return { error: translateAuthError(error.message) };
-    return { error: null, needsEmailConfirmation: !data.session };
+    try {
+      await pocketbase.collection('users').create({
+        email: email.trim(),
+        password,
+        passwordConfirm: password,
+        username: normalizedUsername,
+        role: 'user',
+        emailVisibility: true,
+      });
+      await pocketbase.collection('users').authWithPassword(email.trim(), password);
+      return { error: null };
+    } catch (error) {
+      return { error: translateAuthError(error instanceof Error ? error.message : '注册失败') };
+    }
   };
 
   const signOut = async () => {
-    if (supabase) await supabase.auth.signOut();
+    pocketbase?.clearAuth();
   };
 
-  return { user: session?.user ?? null, isAdmin, loading, signIn, signUp, signOut };
+  return { user, isAdmin, loading, signIn, signUp, signOut };
 }
 
 function translateAuthError(message: string) {
   const normalized = message.toLowerCase();
-  if (normalized.includes('invalid login credentials')) return '邮箱或密码不正确';
-  if (normalized.includes('user already registered')) return '该邮箱已注册，请直接登录';
-  if (normalized.includes('profiles_username_lower_unique') || normalized.includes('duplicate key')) return '该用户名已被使用';
-  if (normalized.includes('password should be at least')) return '密码至少需要 6 位';
-  if (normalized.includes('email not confirmed')) return '邮箱尚未确认，请先完成邮箱确认';
-  if (normalized.includes('rate limit')) return '请求过于频繁，请稍后再试';
+  if (normalized.includes('invalid login') || normalized.includes('failed to authenticate')) return '邮箱或密码不正确';
+  if (normalized.includes('already exists') || normalized.includes('unique') || normalized.includes('duplicate')) return '该邮箱已注册，请直接登录';
+  if (normalized.includes('password') && normalized.includes('at least')) return '密码至少需要 8 位';
+  if (normalized.includes('validation') && normalized.includes('email')) return '邮箱格式不正确';
+  if (normalized.includes('rate limit') || normalized.includes('too many')) return '请求过于频繁，请稍后再试';
   return message;
 }
