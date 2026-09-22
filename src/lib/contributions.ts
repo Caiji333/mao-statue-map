@@ -106,66 +106,115 @@ function startOfTodayIso() {
   return now.toISOString();
 }
 
+function extractAddressFromShareText(raw: string): string {
+  const text = raw.replace(/https?:\/\/\S+/gi, ' ').replace(/[，。；、|]/g, ' ').replace(/\s+/g, ' ').trim();
+  const parts = text.split(/\s+/).filter(Boolean);
+  // 优先取含“号/路/区”的片段，并拼回省市区
+  const addressLike = parts.find((part) => part.length >= 4 && /(省|市|区|县|路|街|道|号|巷)/.test(part));
+  const cityLike = parts.filter((part) => /(省|市|区|县)/.test(part)).join('');
+  if (addressLike && cityLike && !cityLike.includes(addressLike)) return cityLike + addressLike;
+  return addressLike || cityLike || text;
+}
+
+async function geocodeViaAmap(address: string): Promise<AmapShareLocation | null> {
+  const key = import.meta.env.VITE_AMAP_KEY?.trim();
+  if (!key || address.trim().length < 3) return null;
+  const url = `https://restapi.amap.com/v3/geocode/geo?address=${encodeURIComponent(address)}&key=${encodeURIComponent(key)}`;
+  const response = await fetch(url);
+  if (!response.ok) return null;
+  const data = await response.json() as {
+    status?: string;
+    geocodes?: Array<{ location?: string; formatted_address?: string }>;
+  };
+  if (data.status !== '1' || !data.geocodes?.length) return null;
+  const [lngText, latText] = String(data.geocodes[0].location ?? '').split(',');
+  const longitude = Number(lngText);
+  const latitude = Number(latText);
+  if (!Number.isFinite(longitude) || !Number.isFinite(latitude)) return null;
+  if (longitude < CHINA_BOUNDS.minLng || longitude > CHINA_BOUNDS.maxLng || latitude < CHINA_BOUNDS.minLat || latitude > CHINA_BOUNDS.maxLat) return null;
+  return {
+    longitude,
+    latitude,
+    name: data.geocodes[0].formatted_address || address.trim(),
+  };
+}
+
 export async function resolveAmapShareUrl(url: string): Promise<{ data: AmapShareLocation | null; error: string | null }> {
-  // 1) 优先走 PocketBase 服务端解析（无 CORS，原 Edge Function 同款逻辑）
-  if (pocketbase && pocketbase.authStore.token) {
+  const text = String(url ?? '').trim();
+
+  async function tryEndpoint(endpoint: string, headers: Record<string, string>): Promise<AmapShareLocation | null> {
     try {
-      const response = await fetch(`${pocketbase.baseUrl}/api/resolve-amap-share`, {
+      const response = await fetch(endpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: pocketbase.authStore.token,
-        },
-        body: JSON.stringify({ url }),
+        headers: { 'Content-Type': 'application/json', ...headers },
+        body: JSON.stringify({ url: text }),
       });
       const payload = await response.json() as AmapShareLocation & { error?: string };
-      if (response.ok && Number.isFinite(payload?.longitude)) {
-        return { data: { longitude: payload.longitude, latitude: payload.latitude, name: String(payload.name ?? '') }, error: null };
-      }
-      // 服务端未配置钩子（404）时落到本地解析
-      if (response.status !== 404 && payload?.error) {
-        return { data: null, error: String(payload.error) };
+      const longitude = Number(payload?.longitude);
+      const latitude = Number(payload?.latitude);
+      if (response.ok && Number.isFinite(longitude) && Number.isFinite(latitude)) {
+        return { longitude, latitude, name: String(payload.name ?? '') };
       }
     } catch {
-      // fall through to local parse
+      // ignore
+    }
+    return null;
+  }
+
+  // 1) 同源 Vite 中间件（本地/预览服，可解纯短链）
+  const localHit = await tryEndpoint('/api/resolve-amap-share', {});
+  if (localHit) return { data: localHit, error: null };
+
+  // 2) PocketBase 钩子（生产）
+  if (pocketbase && pocketbase.authStore.token) {
+    const pbHit = await tryEndpoint(`${pocketbase.baseUrl}/api/resolve-amap-share`, {
+      Authorization: pocketbase.authStore.token,
+    });
+    if (pbHit) return { data: pbHit, error: null };
+  }
+
+  // 3) 链接自带坐标
+  const match = text.match(/https:\/\/[^\s<>\]）)，。]+/i);
+  if (match) {
+    try {
+      const target = new URL(match[0]);
+      const query = target.searchParams.get('q');
+      if (query) {
+        const [latitudeText, longitudeText, ...nameParts] = query.split(',');
+        const latitude = Number(latitudeText);
+        const longitude = Number(longitudeText);
+        if (Number.isFinite(longitude) && Number.isFinite(latitude)
+          && longitude >= CHINA_BOUNDS.minLng && longitude <= CHINA_BOUNDS.maxLng
+          && latitude >= CHINA_BOUNDS.minLat && latitude <= CHINA_BOUNDS.maxLat) {
+          return { data: { longitude, latitude, name: nameParts.join(',').trim() }, error: null };
+        }
+      }
+      const position = target.searchParams.get('position');
+      if (position) {
+        const [longitudeText, latitudeText] = position.split(',');
+        const longitude = Number(longitudeText);
+        const latitude = Number(latitudeText);
+        if (Number.isFinite(longitude) && Number.isFinite(latitude)
+          && longitude >= CHINA_BOUNDS.minLng && longitude <= CHINA_BOUNDS.maxLng
+          && latitude >= CHINA_BOUNDS.minLat && latitude <= CHINA_BOUNDS.maxLat) {
+          return { data: { longitude, latitude, name: '' }, error: null };
+        }
+      }
+    } catch {
+      // fall through
     }
   }
 
-  // 2) 本地兜底：读链接坐标 / 提示手动填写
-  const text = String(url ?? '').trim();
-  const match = text.match(/https:\/\/(?:surl\.amap\.com|wb\.amap\.com|uri\.amap\.com|www\.amap\.com|amap\.com)\/[^\s<>\]）)，。]+/i);
-  const extractLocation = (target: URL): AmapShareLocation | null => {
-    const query = target.searchParams.get('q');
-    if (query) {
-      const [latitudeText, longitudeText, ...nameParts] = query.split(',');
-      const latitude = Number(latitudeText);
-      const longitude = Number(longitudeText);
-      if (Number.isFinite(longitude) && Number.isFinite(latitude) && longitude >= CHINA_BOUNDS.minLng && longitude <= CHINA_BOUNDS.maxLng && latitude >= CHINA_BOUNDS.minLat && latitude <= CHINA_BOUNDS.maxLat) {
-        return { longitude, latitude, name: nameParts.join(',').trim() };
-      }
-    }
-    const position = target.searchParams.get('position');
-    if (position) {
-      const [longitudeText, latitudeText] = position.split(',');
-      const longitude = Number(longitudeText);
-      const latitude = Number(latitudeText);
-      if (Number.isFinite(longitude) && Number.isFinite(latitude) && longitude >= CHINA_BOUNDS.minLng && longitude <= CHINA_BOUNDS.maxLng && latitude >= CHINA_BOUNDS.minLat && latitude <= CHINA_BOUNDS.maxLat) {
-        return { longitude, latitude, name: '' };
-      }
-    }
-    return null;
-  };
-
-  if (match) {
-    try {
-      const location = extractLocation(new URL(match[0]));
-      if (location) return { data: location, error: null };
-    } catch { /* ignore */ }
+  // 4) 文案地址 → 高德地理编码
+  const address = extractAddressFromShareText(text);
+  if (address && address.replace(/\s/g, '').length >= 4 && !/^https?:\/\//i.test(address)) {
+    const geo = await geocodeViaAmap(address);
+    if (geo) return { data: geo, error: null };
   }
 
   return {
     data: null,
-    error: '无法在浏览器直接解析短链。请确认 PocketBase 已部署 pb_hooks 后重试，或改贴含坐标的长链接',
+    error: '未能定位该分享内容。请改贴含坐标的长链接，或手动填写经纬度',
   };
 }
 
