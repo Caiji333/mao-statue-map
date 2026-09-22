@@ -10,25 +10,18 @@ copy .env.example .env.local
 npm run dev
 ```
 
-底图按运行环境自动选择：
+底图默认使用**高德地图**（个人版，适合日活几十的小流量）：
 
-- `npm run dev` 默认使用免 Key 的高德历史瓦片，便于本地开发预览。
-- `npm run build` 默认使用天地图；正式发布前需要配置天地图浏览器端 Key。
-
-如需显式指定，可在 `.env.local` 或部署平台环境变量中配置：
+- `npm run dev` / `npm run build` 默认走高德栅格瓦片（GCJ-02）。
+- 在高德控制台申请 Key 后写入 `VITE_AMAP_KEY`，并在控制台配置域名白名单。
+- 如需天地图：`VITE_MAP_PROVIDER=tianditu` 并配置 `VITE_TIANDITU_TOKEN`。
 
 ```env
 VITE_MAP_PROVIDER=amap_legacy
+VITE_AMAP_KEY=你的高德Key
 ```
 
-正式环境推荐创建 `.env.production`：
-
-```env
-VITE_MAP_PROVIDER=tianditu
-VITE_TIANDITU_TOKEN=你的天地图Key
-```
-
-天地图浏览器端 Key 可在天地图控制台申请，并应配置允许访问的域名。`amap_legacy` 使用的是非正式高德历史瓦片地址，仅适合开发与个人预览，不建议作为生产服务依赖。天地图未配置 Key 时，应用会使用基础底色展示点位，其他功能仍然可用。
+高德个人开发者日配额对日活 30～40 的地图浏览通常足够（页面会话会请求多张瓦片，控制台按产品配额计）。正式对外若流量上涨，再评估升级或切授权底图。
 
 ## 数据说明
 

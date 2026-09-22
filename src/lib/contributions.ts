@@ -107,6 +107,31 @@ function startOfTodayIso() {
 }
 
 export async function resolveAmapShareUrl(url: string): Promise<{ data: AmapShareLocation | null; error: string | null }> {
+  // 1) 优先走 PocketBase 服务端解析（无 CORS，原 Edge Function 同款逻辑）
+  if (pocketbase && pocketbase.authStore.token) {
+    try {
+      const response = await fetch(`${pocketbase.baseUrl}/api/resolve-amap-share`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: pocketbase.authStore.token,
+        },
+        body: JSON.stringify({ url }),
+      });
+      const payload = await response.json() as AmapShareLocation & { error?: string };
+      if (response.ok && Number.isFinite(payload?.longitude)) {
+        return { data: { longitude: payload.longitude, latitude: payload.latitude, name: String(payload.name ?? '') }, error: null };
+      }
+      // 服务端未配置钩子（404）时落到本地解析
+      if (response.status !== 404 && payload?.error) {
+        return { data: null, error: String(payload.error) };
+      }
+    } catch {
+      // fall through to local parse
+    }
+  }
+
+  // 2) 本地兜底：读链接坐标 / 提示手动填写
   const text = String(url ?? '').trim();
   const match = text.match(/https:\/\/(?:surl\.amap\.com|wb\.amap\.com|uri\.amap\.com|www\.amap\.com|amap\.com)\/[^\s<>\]）)，。]+/i);
   const extractLocation = (target: URL): AmapShareLocation | null => {
@@ -131,48 +156,17 @@ export async function resolveAmapShareUrl(url: string): Promise<{ data: AmapShar
     return null;
   };
 
-  if (!match) {
-    // 支持直接粘贴 uri.amap.com/marker?position=lng,lat 或 query 文本
-    const bare = text.match(/https:\/\/[^\s<>\]）)，。]*(?:uri|www|amap)\.amap\.com[^\s<>\]）)，。]*/i);
-    if (!bare) return { data: null, error: '未找到高德地图链接' };
+  if (match) {
     try {
-      const location = extractLocation(new URL(bare[0]));
-      return location ? { data: location, error: null } : { data: null, error: '该分享链接中未找到有效坐标，请粘贴包含坐标的完整链接' };
-    } catch {
-      return { data: null, error: '高德分享链接格式不正确' };
-    }
+      const location = extractLocation(new URL(match[0]));
+      if (location) return { data: location, error: null };
+    } catch { /* ignore */ }
   }
 
-  try {
-    let current = new URL(match[0]);
-    for (let redirects = 0; redirects <= 4; redirects += 1) {
-      const location = extractLocation(current);
-      if (location) return { data: location, error: null };
-      try {
-        const response = await fetch(current.toString(), { redirect: 'follow' });
-        const next = response.url && response.url !== current.toString() ? response.url : '';
-        if (!next) {
-          // 尝试从响应正文里抠坐标
-          const body = await response.text();
-          const pos = body.match(/position=([\d.]+),([\d.]+)/i) || body.match(/"longitude"\s*:\s*([\d.]+)[\s\S]*?"latitude"\s*:\s*([\d.]+)/i);
-          if (pos) {
-            const longitude = Number(pos[1]);
-            const latitude = Number(pos[2]);
-            if (Number.isFinite(longitude) && Number.isFinite(latitude)) {
-              return { data: { longitude, latitude, name: '' }, error: null };
-            }
-          }
-          break;
-        }
-        current = new URL(next);
-      } catch {
-        break;
-      }
-    }
-    return { data: null, error: '无法解析短链接（跨域限制）。请在高德 App 分享“含坐标”的长链接，或手动填写经纬度' };
-  } catch {
-    return { data: null, error: '高德分享链接格式不正确' };
-  }
+  return {
+    data: null,
+    error: '无法在浏览器直接解析短链。请确认 PocketBase 已部署 pb_hooks 后重试，或改贴含坐标的长链接',
+  };
 }
 
 export async function findNearbyPendingContributions(longitude: number, latitude: number): Promise<PendingContributionPreview[]> {
