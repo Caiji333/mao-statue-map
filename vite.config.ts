@@ -117,19 +117,21 @@ async function resolveAmapShare(input: string) {
   return null;
 }
 
-function readJsonBody(req: import('http').IncomingMessage): Promise<string> {
+function readJsonBody(req: { on: (event: string, cb: (chunk?: unknown) => void) => void }): Promise<string> {
   return new Promise((resolve, reject) => {
-    const chunks: Buffer[] = [];
-    req.on('data', (chunk) => chunks.push(Buffer.from(chunk)));
-    req.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
-    req.on('error', reject);
+    let raw = '';
+    req.on('data', (chunk?: unknown) => {
+      raw += typeof chunk === 'string' ? chunk : String(chunk ?? '');
+    });
+    req.on('end', () => resolve(raw));
+    req.on('error', () => reject(new Error('read body failed')));
   });
 }
 
 function amapSharePlugin(): Plugin {
   const handler = async (
-    req: import('http').IncomingMessage,
-    res: import('http').ServerResponse,
+    req: { method?: string; on: (event: string, cb: (chunk?: unknown) => void) => void },
+    res: { statusCode: number; setHeader: (k: string, v: string) => void; end: (body: string) => void },
   ) => {
     if (req.method !== 'POST') {
       res.statusCode = 405;
@@ -160,10 +162,10 @@ function amapSharePlugin(): Plugin {
   return {
     name: 'amap-share-resolver',
     configureServer(server) {
-      server.middlewares.use('/api/resolve-amap-share', handler);
+      server.middlewares.use('/api/resolve-amap-share', handler as never);
     },
     configurePreviewServer(server) {
-      server.middlewares.use('/api/resolve-amap-share', handler);
+      server.middlewares.use('/api/resolve-amap-share', handler as never);
     },
   };
 }
