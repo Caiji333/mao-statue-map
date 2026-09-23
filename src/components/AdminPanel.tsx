@@ -1,7 +1,11 @@
-import { Check, ChevronLeft, ChevronRight, Clock3, KeyRound, MapPin, Search, Users, X, XCircle } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Clock3, KeyRound, MapPin, Search, ShieldCheck, Users, X, XCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import {
+  adminBatchSetUserRole,
   adminResetUserPassword,
+  adminSetUserRole,
+  isSystemAdmin,
+  formatDisplayTime,
   listAdminContributions,
   listAdminUsers,
   reviewContribution,
@@ -30,7 +34,13 @@ export function AdminPanel({ onClose, onChanged, onLocate }: Props) {
   const [query, setQuery] = useState('');
   const [resetting, setResetting] = useState('');
   const [userMessage, setUserMessage] = useState('');
+  const [selectedUserIds, setSelectedUserIds] = useState<Set<string>>(new Set());
+  const [roleBusy, setRoleBusy] = useState(false);
   const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+
+  const selfEmail = pocketbase?.authStore.record?.email ?? '';
+  const canManageRoles = isSystemAdmin(selfEmail);
+  const allSelected = users.length > 0 && users.every((user) => selectedUserIds.has(user.id));
 
   useEffect(() => {
     if (tab !== 'reviews') return;
@@ -54,6 +64,7 @@ export function AdminPanel({ onClose, onChanged, onLocate }: Props) {
       setUserMessage('');
       try {
         setUsers(await listAdminUsers(query));
+        setSelectedUserIds(new Set());
       } catch (error) {
         setUserMessage(error instanceof Error ? error.message : '读取用户失败');
       }
@@ -91,6 +102,55 @@ export function AdminPanel({ onClose, onChanged, onLocate }: Props) {
     setUserMessage(error ? error : `${user.email ?? '用户'} 的密码已重置为 mao123456`);
   };
 
+  const toggleSelect = (userId: string) => {
+    setSelectedUserIds((current) => {
+      const next = new Set(current);
+      if (next.has(userId)) next.delete(userId);
+      else next.add(userId);
+      return next;
+    });
+  };
+
+  const toggleSelectAll = () => {
+    setSelectedUserIds(allSelected ? new Set() : new Set(users.map((user) => user.id)));
+  };
+
+  const changeOneRole = async (user: AdminUserItem) => {
+    if (!canManageRoles) return;
+    const nextRole = user.role === 'admin' ? 'user' : 'admin';
+    setRoleBusy(true);
+    setUserMessage('');
+    const error = await adminSetUserRole(user.id, nextRole);
+    setRoleBusy(false);
+    if (error) {
+      setUserMessage(error);
+      return;
+    }
+    setUsers((current) => current.map((item) => (item.id === user.id ? { ...item, role: nextRole } : item)));
+    setUserMessage(`${user.email ?? '用户'} 已设为${nextRole === 'admin' ? '管理员' : '普通用户'}`);
+  };
+
+  const batchChangeRole = async (role: 'user' | 'admin') => {
+    if (!canManageRoles) return;
+    const ids = [...selectedUserIds];
+    if (ids.length === 0) {
+      setUserMessage('请先勾选用户');
+      return;
+    }
+    if (!window.confirm(`确认将选中的 ${ids.length} 个账号设为${role === 'admin' ? '管理员' : '普通用户'}？`)) return;
+    setRoleBusy(true);
+    setUserMessage('');
+    const result = await adminBatchSetUserRole(ids, role);
+    setRoleBusy(false);
+    setUsers((current) => current.map((item) => (selectedUserIds.has(item.id) ? { ...item, role } : item)));
+    setSelectedUserIds(new Set());
+    setUserMessage(
+      result.ok > 0
+        ? `已将 ${result.ok} 个账号设为${role === 'admin' ? '管理员' : '普通用户'}${result.error ? `，部分失败：${result.error}` : ''}`
+        : (result.error || '调整角色失败'),
+    );
+  };
+
   return (
     <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <section className="admin-modal" role="dialog" aria-modal="true">
@@ -119,7 +179,7 @@ export function AdminPanel({ onClose, onChanged, onLocate }: Props) {
                   <article className="review-item" key={item.id}>
                     <div className="review-item-head">
                       <strong>{String(item.payload.name || '未命名点位')}</strong>
-                      <small>用户名：{item.submitter_name ?? '未知用户'} · {item.kind === 'new_statue' ? '新增点位' : '修改建议'} · {new Date(item.created_at).toLocaleString('zh-CN')}</small>
+                      <small>用户名：{item.submitter_name ?? '未知用户'} · {item.kind === 'new_statue' ? '新增点位' : '修改建议'} · {formatDisplayTime(item.created_at)}</small>
                     </div>
                     {reviewView === 'reviewed' && (
                       <div className={`review-result ${item.status}`}>
@@ -166,9 +226,26 @@ export function AdminPanel({ onClose, onChanged, onLocate }: Props) {
           <div className="user-admin">
             <div className="user-search">
               <Search size={16} />
-              <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="按邮箱搜索账号" />
+              <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="按邮箱/用户名搜索账号" />
             </div>
-            {userMessage && <p className={userMessage.includes('已重置') ? 'form-success' : 'form-error'}>{userMessage}</p>}
+            {canManageRoles ? (
+              <div className="user-batch-bar">
+                <label className="user-check">
+                  <input type="checkbox" checked={allSelected} onChange={toggleSelectAll} />
+                  <span>全选</span>
+                </label>
+                <span className="user-batch-count">已选 {selectedUserIds.size} 人</span>
+                <button type="button" disabled={roleBusy || selectedUserIds.size === 0} onClick={() => void batchChangeRole('admin')}>
+                  <ShieldCheck size={14} />批量设为管理员
+                </button>
+                <button type="button" disabled={roleBusy || selectedUserIds.size === 0} onClick={() => void batchChangeRole('user')}>
+                  <Users size={14} />批量取消管理员
+                </button>
+              </div>
+            ) : (
+              <p className="modal-copy">仅系统管理员（deqiangli23@gmail.com）可调整管理员角色。</p>
+            )}
+            {userMessage && <p className={userMessage.includes('已设为') || userMessage.includes('已将') ? 'form-success' : 'form-error'}>{userMessage}</p>}
             {userLoading ? (
               <div className="admin-empty"><Clock3 size={18} />读取用户列表…</div>
             ) : users.length === 0 ? (
@@ -177,13 +254,29 @@ export function AdminPanel({ onClose, onChanged, onLocate }: Props) {
               <div className="user-list">
                 {users.map((user) => (
                   <article className="user-row" key={user.id}>
+                    {canManageRoles && (
+                      <label className="user-check">
+                        <input type="checkbox" checked={selectedUserIds.has(user.id)} onChange={() => toggleSelect(user.id)} />
+                      </label>
+                    )}
                     <div>
-                      <strong>{user.username || '未设置用户名'}</strong>
-                      <small>{user.email ?? '未填写邮箱'} · {new Date(user.created_at).toLocaleString('zh-CN')} · {user.role === 'admin' ? '管理员' : '普通用户'}</small>
+                      <strong>
+                        {user.username || '未设置用户名'}
+                        {isSystemAdmin(user.email) && <span className="user-badge-sys">系统管理员</span>}
+                        {user.role === 'admin' && <span className="user-badge">管理员</span>}
+                      </strong>
+                      <small>{user.email ?? '未填写邮箱'} · {formatDisplayTime(user.created_at)} · {user.role === 'admin' ? '管理员' : '普通用户'}</small>
                     </div>
-                    <button type="button" disabled={resetting === user.id} onClick={() => void resetPassword(user)}>
-                      <KeyRound size={14} />{resetting === user.id ? '重置中…' : '重置密码'}
-                    </button>
+                    <div className="user-row-actions">
+                      {canManageRoles && !isSystemAdmin(user.email) && (
+                        <button type="button" disabled={roleBusy} onClick={() => void changeOneRole(user)}>
+                          <ShieldCheck size={14} />{user.role === 'admin' ? '取消管理员' : '设为管理员'}
+                        </button>
+                      )}
+                      <button type="button" disabled={resetting === user.id} onClick={() => void resetPassword(user)}>
+                        <KeyRound size={14} />{resetting === user.id ? '重置中…' : '重置密码'}
+                      </button>
+                    </div>
                   </article>
                 ))}
               </div>

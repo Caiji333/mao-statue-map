@@ -1,6 +1,7 @@
 import { CheckCircle2, Clock3, KeyRound, LogOut, UserRoundPen, X, XCircle } from 'lucide-react';
 import { type FormEvent, useEffect, useState } from 'react';
 import {
+  formatDisplayTime,
   listMyContributions,
   updateMyPassword,
   updateMyUsername,
@@ -127,7 +128,7 @@ export function MyContributionsPanel({ email, onClose, onSignOut }: Props) {
               <article className="review-item" key={item.id}>
                 <div className="review-item-head">
                   <strong>{String(item.payload.name || '未命名点位')}</strong>
-                  <small>{item.kind === 'new_statue' ? '新增点位' : '修改建议'} · {new Date(item.created_at).toLocaleString('zh-CN')}</small>
+                  <small>{item.kind === 'new_statue' ? '新增点位' : '修改建议'} · {formatDisplayTime(item.created_at)}</small>
                 </div>
                 <div className={`review-result ${item.status}`}>
                   <span>{statusText[item.status] ?? item.status}</span>

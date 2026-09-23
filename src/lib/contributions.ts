@@ -58,6 +58,23 @@ function displayName(record: PbAuthRecord | PbRecord | null | undefined) {
   return username || email || '未设置用户名';
 }
 
+function pickTimestamp(...values: unknown[]): string {
+  for (const value of values) {
+    const raw = Array.isArray(value) ? '' : String(value ?? '').trim();
+    if (!raw || raw === '[]') continue;
+    const iso = raw.includes('T') ? raw : raw.replace(' ', 'T');
+    const date = new Date(iso);
+    if (Number.isFinite(date.getTime())) return date.toISOString();
+  }
+  return '';
+}
+
+export function formatDisplayTime(value: unknown): string {
+  const iso = pickTimestamp(value);
+  if (!iso) return '—';
+  return new Date(iso).toLocaleString('zh-CN');
+}
+
 function photoUrl(record: PbRecord): string {
   const direct = String(record.image_url ?? '');
   if (direct) return direct;
@@ -75,8 +92,8 @@ export function mapContribution(record: PbRecord, users?: Map<string, PbAuthReco
     payload: { ...payload, longitude: Number(record.longitude ?? payload.longitude), latitude: Number(record.latitude ?? payload.latitude) },
     status: record.status as ContributionListItem['status'],
     review_comment: record.review_comment ? String(record.review_comment) : null,
-    created_at: String(record.created ?? ''),
-    reviewed_at: record.reviewed_at ? String(record.reviewed_at) : null,
+    created_at: pickTimestamp(record.created, record.reviewed_at, record.updated),
+    reviewed_at: pickTimestamp(record.reviewed_at),
     reviewed_by: record.reviewed_by ? String(record.reviewed_by) : null,
     user: record.user ? String(record.user) : '',
     submitter_name: users?.get(String(record.user)) ? displayName(users.get(String(record.user))) : undefined,
@@ -520,6 +537,36 @@ export interface AdminUserItem {
   username: string | null;
   role: 'user' | 'admin';
   created_at: string;
+}
+
+/** 系统管理员：只有该账号可在用户管理里调整管理员角色 */
+export const SYSTEM_ADMIN_EMAIL = 'deqiangli23@gmail.com';
+
+export function isSystemAdmin(email: string | null | undefined): boolean {
+  return String(email ?? '').trim().toLowerCase() === SYSTEM_ADMIN_EMAIL;
+}
+
+export async function adminSetUserRole(userId: string, role: 'user' | 'admin'): Promise<string | null> {
+  if (!pocketbase) return '尚未配置 PocketBase';
+  try {
+    await pocketbase.collection('users').update(userId, { role });
+    return null;
+  } catch (error) {
+    return error instanceof Error ? error.message : '调整角色失败';
+  }
+}
+
+export async function adminBatchSetUserRole(userIds: string[], role: 'user' | 'admin'): Promise<{ ok: number; error: string | null }> {
+  if (!pocketbase) return { ok: 0, error: '尚未配置 PocketBase' };
+  if (userIds.length === 0) return { ok: 0, error: '请先勾选用户' };
+  let ok = 0;
+  let lastError: string | null = null;
+  for (const userId of userIds) {
+    const error = await adminSetUserRole(userId, role);
+    if (error) lastError = error;
+    else ok += 1;
+  }
+  return { ok, error: lastError };
 }
 
 export async function listAdminUsers(query: string): Promise<AdminUserItem[]> {
