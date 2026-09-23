@@ -100,12 +100,6 @@ async function loadUserMap(ids: string[]): Promise<Map<string, PbAuthRecord>> {
   return map;
 }
 
-function startOfTodayIso() {
-  const now = new Date();
-  now.setHours(0, 0, 0, 0);
-  return now.toISOString();
-}
-
 function extractAddressFromShareText(raw: string): string {
   const text = raw.replace(/https?:\/\/\S+/gi, ' ').replace(/[，。；、|]/g, ' ').replace(/\s+/g, ' ').trim();
   const parts = text.split(/\s+/).filter(Boolean);
@@ -226,7 +220,7 @@ export async function findNearbyPendingContributions(longitude: number, latitude
   try {
     const result = await pocketbase.collection('contributions').getList({
       filter: `status = 'pending_review' && kind = 'new_statue' && longitude >= ${longitude - dLng} && longitude <= ${longitude + dLng} && latitude >= ${latitude - dLat} && latitude <= ${latitude + dLat}`,
-      sort: '-created',
+      sort: '-id',
       perPage: 20,
     });
     return result.items
@@ -251,11 +245,18 @@ export async function findNearbyPendingContributions(longitude: number, latitude
 async function assertDailyLimits(userId: string) {
   if (!pocketbase) throw new Error('尚未配置 PocketBase');
   const result = await pocketbase.collection('contributions').getList({
-    filter: `user = '${userId}' && created >= '${startOfTodayIso()}'`,
-    perPage: 20,
+    filter: `user = '${userId}'`,
+    sort: '-id',
+    perPage: 50,
   });
-  if (result.totalItems >= 5) throw new Error('今日提交次数已达上限');
-  const withPhoto = result.items.filter((item) => item.photo || item.image_url).length;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const todayItems = result.items.filter((item) => {
+    const created = new Date(String(item.created ?? item.updated ?? ''));
+    return Number.isFinite(created.getTime()) && created.getTime() >= today.getTime();
+  });
+  if (todayItems.length >= 5) throw new Error('今日提交次数已达上限');
+  const withPhoto = todayItems.filter((item) => item.photo || item.image_url).length;
   return withPhoto;
 }
 
@@ -398,7 +399,7 @@ export async function listMyContributions(userId: string): Promise<ContributionL
   if (!pocketbase) return [];
   const result = await pocketbase.collection('contributions').getList({
     filter: `user = '${userId}'`,
-    sort: '-created',
+    sort: '-id',
     perPage: 200,
   });
   const self = pocketbase?.authStore.record as PbAuthRecord | null | undefined;
@@ -416,7 +417,7 @@ export async function listAdminContributions(options: {
   const filter = options.status === 'pending' ? "status = 'pending_review'" : "status = 'approved' || status = 'rejected'";
   const result = await pocketbase.collection('contributions').getList({
     filter,
-    sort: '-created',
+    sort: '-id',
     page: options.page,
     perPage: options.pageSize,
   });
@@ -528,7 +529,7 @@ export async function listAdminUsers(query: string): Promise<AdminUserItem[]> {
     : '';
   const result = await pocketbase.collection('users').getList({
     filter: filter || undefined,
-    sort: '-created',
+    sort: '-id',
     perPage: 100,
   });
   return result.items.map((item) => ({
