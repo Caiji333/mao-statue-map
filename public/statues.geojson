@@ -98,7 +98,10 @@
         "address": "武昌区八一路299号武汉大学",
         "desc": "塑像位于武汉大学校园中心区域。",
         "background": "毛泽东曾多次到访武汉，塑像承载了特定时期的校园记忆。",
-        "year": "1967年"
+        "year": "1967年",
+        "image": "images/hb-wuhan-01-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕像",
+        "image_poi": "B001B1BXHF"
       }
     },
     {
@@ -138,7 +141,10 @@
         "address": "科学大道100号郑州大学主校区",
         "desc": "位于校园公共空间的纪念塑像。",
         "background": "作为校园人文景观，记录学校建设与时代变迁。",
-        "year": "暂无相关资料"
+        "year": "暂无相关资料",
+        "image": "images/ha-zhengzhou-01-amap-1.jpg",
+        "image_source": "高德POI:人民广场毛主席雕像",
+        "image_poi": "B0FFL8VVXN"
       }
     },
     {
@@ -237,7 +243,10 @@
         "address": "青羊区人民南路一段天府广场",
         "desc": "高大的毛泽东挥手雕像，是成都中心城区的标志性城市景观。",
         "background": "雕像与四川科技馆建筑共同构成天府广场北侧界面。",
-        "year": "1968年"
+        "year": "1968年",
+        "image": "images/sc-chengdu-02-amap-1.jpg",
+        "image_source": "高德POI:四川科技馆-毛主席雕像(打卡点)",
+        "image_poi": "B0M2SH5T1B"
       }
     },
     {
@@ -275,7 +284,10 @@
         "city": "贵阳市",
         "address": "花溪区贵州大学北校区",
         "desc": "贵州大学校园内的毛泽东塑像。",
-        "background": "作为校园历史景观保留至今。"
+        "background": "作为校园历史景观保留至今。",
+        "image": "images/gz-guiyang-01-amap-1.jpg",
+        "image_source": "高德POI:人民广场毛泽东塑像",
+        "image_poi": "B0MUHZNHUG"
       }
     },
     {
@@ -390,7 +402,10 @@
         "city": "长春市",
         "address": "朝阳区前进大街2699号",
         "desc": "位于校园内的纪念塑像。",
-        "background": "点位资料由公开信息整理，细节持续校核。"
+        "background": "点位资料由公开信息整理，细节持续校核。",
+        "image": "images/jl-changchun-01-amap-1.jpg",
+        "image_source": "高德POI:长影旧址博物馆-毛主席塑像",
+        "image_poi": "B0FFHYW7H5"
       }
     },
     {
@@ -428,7 +443,10 @@
         "city": "大连市",
         "address": "甘井子区凌工路2号",
         "desc": "位于学校主校区公共空间的纪念塑像。",
-        "background": "与校园主轴景观相联系。"
+        "background": "与校园主轴景观相联系。",
+        "image": "images/ln-dalian-01-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕像",
+        "image_poi": "B019B10DWQ"
       }
     },
     {
@@ -504,7 +522,10 @@
         "city": "杭州市",
         "address": "西湖区浙大路38号",
         "desc": "浙江大学玉泉校区内的纪念塑像。",
-        "background": "是校园公共艺术与校史环境的一部分。"
+        "background": "是校园公共艺术与校史环境的一部分。",
+        "image": "images/zj-hangzhou-01-amap-1.jpg",
+        "image_source": "高德POI:浙江大学玉泉校区毛主席雕像",
+        "image_poi": "B023B18DKR"
       }
     },
     {
@@ -523,7 +544,10 @@
         "city": "合肥市",
         "address": "金寨路96号",
         "desc": "校园公共空间内的毛泽东塑像。",
-        "background": "塑像见证了学校南迁合肥后的建设历程。"
+        "background": "塑像见证了学校南迁合肥后的建设历程。",
+        "image": "images/ah-hefei-01-amap-1.jpg",
+        "image_source": "高德POI:安徽医科大学-毛泽东雕塑",
+        "image_poi": "B0FFFSSPF1"
       }
     },
     {
@@ -662,7 +686,10 @@
         "sourceId": "B0FFKJA6FQ",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffkja6fq-amap-1.jpg",
+        "image_source": "高德POI:赭山公园-毛泽东同志雕像",
+        "image_poi": "B0FFKJA6FQ"
       }
     },
     {
@@ -712,7 +739,10 @@
         "sourceId": "B000AA3YSS",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b000aa3yss-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕像",
+        "image_poi": "B000AA3YSS"
       }
     },
     {
@@ -737,7 +767,10 @@
         "sourceId": "B0FFF57PDX",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0fff57pdx-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕像",
+        "image_poi": "B0FFF57PDX"
       }
     },
     {
@@ -762,7 +795,10 @@
         "sourceId": "B0FFFDKW91",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0fffdkw91-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0FFFDKW91"
       }
     },
     {
@@ -787,7 +823,10 @@
         "sourceId": "B0MGP7174H",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0mgp7174h-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0MGP7174H"
       }
     },
     {
@@ -812,7 +851,10 @@
         "sourceId": "B0FFKZWK7W",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffkzwk7w-amap-1.jpg",
+        "image_source": "高德POI:毛主席纪念雕像",
+        "image_poi": "B0FFKZWK7W"
       }
     },
     {
@@ -837,7 +879,10 @@
         "sourceId": "B0M167ON31",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0m167on31-amap-1.jpg",
+        "image_source": "高德POI:中共中央党校-我们的老校长毛主席塑像",
+        "image_poi": "B0M167ON31"
       }
     },
     {
@@ -862,7 +907,10 @@
         "sourceId": "B0FFFA0BE3",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0fffa0be3-amap-1.jpg",
+        "image_source": "高德POI:重庆大学B区毛泽东雕像",
+        "image_poi": "B0FFFA0BE3"
       }
     },
     {
@@ -887,7 +935,10 @@
         "sourceId": "B0FFF9J4UZ",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0fff9j4uz-amap-1.jpg",
+        "image_source": "高德POI:西南大学(北碚校区)毛泽东雕像",
+        "image_poi": "B0FFF9J4UZ"
       }
     },
     {
@@ -912,7 +963,10 @@
         "sourceId": "B0MD4HJ1DR",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0md4hj1dr-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像(巴蜀古代建筑博物馆)",
+        "image_poi": "B0MD4HJ1DR"
       }
     },
     {
@@ -937,7 +991,10 @@
         "sourceId": "B0GDF5XNTQ",
         "sourceType": "风景名胜;公园广场;城市广场",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0gdf5xntq-amap-1.jpg",
+        "image_source": "高德POI:毛主席挥手雕塑广场",
+        "image_poi": "B0GDF5XNTQ"
       }
     },
     {
@@ -962,7 +1019,10 @@
         "sourceId": "B0LRVAIMVH",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0lrvaimvh-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0LRVAIMVH"
       }
     },
     {
@@ -987,7 +1047,10 @@
         "sourceId": "B0LUBSF0S1",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0lubsf0s1-amap-1.jpg",
+        "image_source": "高德POI:贵钢毛主席塑像",
+        "image_poi": "B0LUBSF0S1"
       }
     },
     {
@@ -1012,7 +1075,10 @@
         "sourceId": "B0KRNZAVA1",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0krnzava1-amap-1.jpg",
+        "image_source": "高德POI:毛泽东同志雕像",
+        "image_poi": "B0KRNZAVA1"
       }
     },
     {
@@ -1062,7 +1128,10 @@
         "sourceId": "B0L3GCHJCO",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0l3gchjco-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0L3GCHJCO"
       }
     },
     {
@@ -1087,7 +1156,10 @@
         "sourceId": "B01370WEMB",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b01370wemb-amap-1.jpg",
+        "image_source": "高德POI:人民广场-毛主席雕像",
+        "image_poi": "B01370WEMB"
       }
     },
     {
@@ -1162,7 +1234,10 @@
         "sourceId": "B0KUBRP0UH",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0kubrp0uh-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕塑",
+        "image_poi": "B0KUBRP0UH"
       }
     },
     {
@@ -1187,7 +1262,10 @@
         "sourceId": "B0LG0L2HOZ",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0lg0l2hoz-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0LG0L2HOZ"
       }
     },
     {
@@ -1212,7 +1290,10 @@
         "sourceId": "B0LUNZ5LAN",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0lunz5lan-amap-1.jpg",
+        "image_source": "高德POI:毛主席塑像",
+        "image_poi": "B0LUNZ5LAN"
       }
     },
     {
@@ -1237,7 +1318,10 @@
         "sourceId": "B0FFL8VVXN",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffl8vvxn-amap-1.jpg",
+        "image_source": "高德POI:人民广场毛主席雕像",
+        "image_poi": "B0FFL8VVXN"
       }
     },
     {
@@ -1262,7 +1346,10 @@
         "sourceId": "B0LG0L1UKU",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0lg0l1uku-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0LG0L1UKU"
       }
     },
     {
@@ -1287,7 +1374,10 @@
         "sourceId": "B0LBS58Y8C",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0lbs58y8c-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0LBS58Y8C"
       }
     },
     {
@@ -1312,7 +1402,10 @@
         "sourceId": "B0LBMHTM56",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0lbmhtm56-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0LBMHTM56"
       }
     },
     {
@@ -1362,7 +1455,10 @@
         "sourceId": "B0KUBRYJMW",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0kubryjmw-amap-1.jpg",
+        "image_source": "高德POI:工人文化宫毛泽东塑像",
+        "image_poi": "B0KUBRYJMW"
       }
     },
     {
@@ -1387,7 +1483,10 @@
         "sourceId": "B0KUL7GSWI",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0kul7gswi-amap-1.jpg",
+        "image_source": "高德POI:文化宫毛主席塑像",
+        "image_poi": "B0KUL7GSWI"
       }
     },
     {
@@ -1412,7 +1511,10 @@
         "sourceId": "B0FFI93U1F",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffi93u1f-amap-1.jpg",
+        "image_source": "高德POI:毛主席石雕像",
+        "image_poi": "B0FFI93U1F"
       }
     },
     {
@@ -1462,7 +1564,10 @@
         "sourceId": "B0L0JCG27P",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0l0jcg27p-amap-1.jpg",
+        "image_source": "高德POI:武昌湾毛主席雕像",
+        "image_poi": "B0L0JCG27P"
       }
     },
     {
@@ -1512,7 +1617,10 @@
         "sourceId": "B02DC0NRR2",
         "sourceType": "风景名胜;风景名胜;红色景区",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b02dc0nrr2-amap-1.jpg",
+        "image_source": "高德POI:毛泽东同志青年塑像公园",
+        "image_poi": "B02DC0NRR2"
       }
     },
     {
@@ -1562,7 +1670,10 @@
         "sourceId": "B0FFF9DYCK",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0fff9dyck-amap-1.jpg",
+        "image_source": "高德POI:毛泽东塑像",
+        "image_poi": "B0FFF9DYCK"
       }
     },
     {
@@ -1587,7 +1698,10 @@
         "sourceId": "B0FFI0XH3V",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffi0xh3v-amap-1.jpg",
+        "image_source": "高德POI:吉林世纪广场毛主席塑像",
+        "image_poi": "B0FFI0XH3V"
       }
     },
     {
@@ -1612,7 +1726,10 @@
         "sourceId": "B01AF11QYK",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b01af11qyk-amap-1.jpg",
+        "image_source": "高德POI:长春市胜利公园-毛主席雕像",
+        "image_poi": "B01AF11QYK"
       }
     },
     {
@@ -1637,7 +1754,10 @@
         "sourceId": "B0FFHYW7H5",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffhyw7h5-amap-1.jpg",
+        "image_source": "高德POI:长影旧址博物馆-毛主席塑像",
+        "image_poi": "B0FFHYW7H5"
       }
     },
     {
@@ -1662,7 +1782,10 @@
         "sourceId": "B0FFLFLXC9",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0fflflxc9-amap-1.jpg",
+        "image_source": "高德POI:毛泽东塑像",
+        "image_poi": "B0FFLFLXC9"
       }
     },
     {
@@ -1687,7 +1810,10 @@
         "sourceId": "B0MU4Z9O2M",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0mu4z9o2m-amap-1.jpg",
+        "image_source": "高德POI:毛泽东塑像",
+        "image_poi": "B0MU4Z9O2M"
       }
     },
     {
@@ -1712,7 +1838,10 @@
         "sourceId": "B00190CRAP",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b00190crap-amap-1.jpg",
+        "image_source": "高德POI:十月村毛泽东塑像",
+        "image_poi": "B00190CRAP"
       }
     },
     {
@@ -1762,7 +1891,10 @@
         "sourceId": "B0FFG2HV01",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffg2hv01-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕像",
+        "image_poi": "B0FFG2HV01"
       }
     },
     {
@@ -1787,7 +1919,10 @@
         "sourceId": "B0FFG2506U",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffg2506u-amap-1.jpg",
+        "image_source": "高德POI:毛泽东与贺子珍雕像",
+        "image_poi": "B0FFG2506U"
       }
     },
     {
@@ -1812,7 +1947,10 @@
         "sourceId": "B0FFL1CE0F",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffl1ce0f-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0FFL1CE0F"
       }
     },
     {
@@ -1862,7 +2000,10 @@
         "sourceId": "B0FFHSFT3I",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffhsft3i-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0FFHSFT3I"
       }
     },
     {
@@ -1912,7 +2053,10 @@
         "sourceId": "B0FFGYBAZ4",
         "sourceType": "风景名胜;公园广场;城市广场",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffgybaz4-amap-1.jpg",
+        "image_source": "高德POI:毛主席塑像",
+        "image_poi": "B0FFGYBAZ4"
       }
     },
     {
@@ -1937,7 +2081,10 @@
         "sourceId": "B0LAO9TD48",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0lao9td48-amap-1.jpg",
+        "image_source": "高德POI:毛泽东同志塑像",
+        "image_poi": "B0LAO9TD48"
       }
     },
     {
@@ -1962,7 +2109,10 @@
         "sourceId": "B0L6HHG96I",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0l6hhg96i-amap-1.jpg",
+        "image_source": "高德POI:毛主席塑像",
+        "image_poi": "B0L6HHG96I"
       }
     },
     {
@@ -1987,7 +2137,10 @@
         "sourceId": "B0L0HPPL4G",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0l0hppl4g-amap-1.jpg",
+        "image_source": "高德POI:母亲河公园-毛主席雕像",
+        "image_poi": "B0L0HPPL4G"
       }
     },
     {
@@ -2012,7 +2165,10 @@
         "sourceId": "B0MA9A8WGJ",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ma9a8wgj-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0MA9A8WGJ"
       }
     },
     {
@@ -2162,7 +2318,10 @@
         "sourceId": "B0KRNAJB2K",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0krnajb2k-amap-1.jpg",
+        "image_source": "高德POI:毛泽东塑像",
+        "image_poi": "B0KRNAJB2K"
       }
     },
     {
@@ -2187,7 +2346,10 @@
         "sourceId": "B0J3BUXVSW",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0j3buxvsw-amap-1.jpg",
+        "image_source": "高德POI:山西大学毛泽东塑像(山西大学坞城校区)",
+        "image_poi": "B0J3BUXVSW"
       }
     },
     {
@@ -2212,7 +2374,10 @@
         "sourceId": "B0FFMCT7NF",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffmct7nf-amap-1.jpg",
+        "image_source": "高德POI:毛泽东同志塑像",
+        "image_poi": "B0FFMCT7NF"
       }
     },
     {
@@ -2287,7 +2452,10 @@
         "sourceId": "B0FFGA7YF4",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0ffga7yf4-amap-1.jpg",
+        "image_source": "高德POI:袁家村关中印象体验地-毛主席塑像",
+        "image_poi": "B0FFGA7YF4"
       }
     },
     {
@@ -2312,7 +2480,10 @@
         "sourceId": "B0MDHUS9BZ",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0mdhus9bz-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕塑",
+        "image_poi": "B0MDHUS9BZ"
       }
     },
     {
@@ -2337,7 +2508,10 @@
         "sourceId": "B0FFFPJI93",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0fffpji93-amap-1.jpg",
+        "image_source": "高德POI:东方绿舟-毛泽东雕像",
+        "image_poi": "B0FFFPJI93"
       }
     },
     {
@@ -2362,7 +2536,10 @@
         "sourceId": "B0L2AA0LM5",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0l2aa0lm5-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0L2AA0LM5"
       }
     },
     {
@@ -2387,7 +2564,10 @@
         "sourceId": "B00156YKXM",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b00156ykxm-amap-1.jpg",
+        "image_source": "高德POI:华东师范大学普陀校区毛主席雕塑",
+        "image_poi": "B00156YKXM"
       }
     },
     {
@@ -2462,7 +2642,10 @@
         "sourceId": "B0LKZADX5E",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0lkzadx5e-amap-1.jpg",
+        "image_source": "高德POI:库尔班大叔与毛主席会见雕像",
+        "image_poi": "B0LKZADX5E"
       }
     },
     {
@@ -2487,7 +2670,10 @@
         "sourceId": "B0FFLKY80Y",
         "sourceType": "风景名胜;风景名胜相关;旅游景点",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0fflky80y-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0FFLKY80Y"
       }
     },
     {
@@ -2512,7 +2698,10 @@
         "sourceId": "B0J3AZJLT8",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0j3azjlt8-amap-1.jpg",
+        "image_source": "高德POI:雅山东方红广场毛主席雕像",
+        "image_poi": "B0J3AZJLT8"
       }
     },
     {
@@ -2537,7 +2726,10 @@
         "sourceId": "B0J13UNNFE",
         "sourceType": "风景名胜;风景名胜;风景名胜",
         "verificationStatus": "verified",
-        "collectedAt": "2026-09-11"
+        "collectedAt": "2026-09-11",
+        "image": "images/amap-b0j13unnfe-amap-1.jpg",
+        "image_source": "高德POI:杭州第二棉纺织厂旧址毛主席塑像",
+        "image_poi": "B0J13UNNFE"
       }
     },
     {
@@ -2564,6 +2756,4059 @@
         "sourceType": "用户实地提供",
         "verificationStatus": "user_verified",
         "collectedAt": "2026-09-12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.936594,
+          27.71837
+        ]
+      },
+      "properties": {
+        "id": "list-0001",
+        "name": "茅草铺客运站",
+        "province": "贵州",
+        "city": "遵义市",
+        "address": "深圳路丰盛苑119号",
+        "desc": "来源：全国雕像清单。原文：遵义市茅草铺客运站",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.93053,
+          27.684577
+        ]
+      },
+      "properties": {
+        "id": "list-0002",
+        "name": "毛主席住居陈列馆",
+        "province": "贵州",
+        "city": "遵义市",
+        "address": "中华南路",
+        "desc": "来源：全国雕像清单。原文：遵义市红花岗区毛主席居住陈列馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.920039,
+          27.688374
+        ]
+      },
+      "properties": {
+        "id": "list-0003",
+        "name": "遵义会议会址-毛主席诗词碑",
+        "province": "贵州",
+        "city": "遵义市",
+        "address": "子尹路96号遵义会议纪念馆内(西侧)",
+        "desc": "来源：全国雕像清单。原文：遵义市遵义会议陈列馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.732277,
+          27.812854
+        ]
+      },
+      "properties": {
+        "id": "list-0004",
+        "name": "毛石镇人民政府",
+        "province": "贵州",
+        "city": "遵义市",
+        "address": "河滨路与人和路交叉口北140米",
+        "desc": "来源：全国雕像清单。原文：遵义市播州区毛石镇",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.893788,
+          27.96643
+        ]
+      },
+      "properties": {
+        "id": "list-0005",
+        "name": "毛泽东诗词馆",
+        "province": "贵州",
+        "city": "遵义市",
+        "address": "娄山关风景区",
+        "desc": "来源：全国雕像清单。原文：遵义市汇川区板桥镇娄山关景区内",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.365357,
+          27.797252
+        ]
+      },
+      "properties": {
+        "id": "list-0006",
+        "name": "红军四渡赤水战役旧址梅子坳毛泽东住地旧址",
+        "province": "贵州",
+        "city": "遵义市",
+        "address": "酒都大道249号",
+        "desc": "来源：全国雕像清单。原文：遵义市习水县茅镇红军四渡赤水纪念园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.712475,
+          26.568325
+        ]
+      },
+      "properties": {
+        "id": "list-0007",
+        "name": "人民广场毛泽东塑像",
+        "province": "贵州",
+        "city": "贵阳市",
+        "address": "瑞金南路与箭道街交叉口北120米",
+        "desc": "来源：全国雕像清单。原文：贵阳市南明区筑城广场民族博物馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0007-amap-1.jpg",
+        "image_source": "高德POI:人民广场毛泽东塑像",
+        "image_poi": "B0MUHZNHUG"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.722791,
+          26.589274
+        ]
+      },
+      "properties": {
+        "id": "list-0008",
+        "name": "贵州师范大学宝山校区马克思主义学院",
+        "province": "贵州",
+        "city": "贵阳市",
+        "address": "宝山北路180号",
+        "desc": "来源：全国雕像清单。原文：贵阳市云岩区贵州师范大学宝山校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.581692,
+          26.603229
+        ]
+      },
+      "properties": {
+        "id": "list-0009",
+        "name": "西南国际商贸城毛主席像",
+        "province": "贵州",
+        "city": "贵阳市",
+        "address": "杭州路贵阳西南国际商贸城(南侧)",
+        "desc": "来源：全国雕像清单。原文：贵阳市观山湖区杭州路西南国际商贸城广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.925941,
+          27.742687
+        ]
+      },
+      "properties": {
+        "id": "list-0010",
+        "name": "董公寺十字铺珍酒厂",
+        "province": "贵州",
+        "city": "遵义市",
+        "address": "210国道与珍酒路交叉口东南260米",
+        "desc": "来源：全国雕像清单。原文：遵义市汇川区董公寺镇珍酒石子铺厂区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.122891,
+          30.262172
+        ]
+      },
+      "properties": {
+        "id": "list-0011",
+        "name": "浙江大学玉泉校区毛主席雕像",
+        "province": "浙江",
+        "city": "杭州市",
+        "address": "浙大路38浙江大学玉泉校区",
+        "desc": "来源：全国雕像清单。原文：杭州市西湖区浙大路浙江大学玉泉校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0011-amap-1.jpg",
+        "image_source": "高德POI:浙江大学玉泉校区毛主席雕像",
+        "image_poi": "B023B18DKR"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.260895,
+          28.666014
+        ]
+      },
+      "properties": {
+        "id": "list-0012",
+        "name": "台州科技职业学院",
+        "province": "浙江",
+        "city": "台州市",
+        "address": "嘉木路288号",
+        "desc": "来源：全国雕像清单。原文：台州市黄岩区台州科技职业学院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.118222,
+          29.651264
+        ]
+      },
+      "properties": {
+        "id": "list-0013",
+        "name": "布达拉宫广场",
+        "province": "西藏",
+        "city": "拉萨市",
+        "address": "北京东路167号",
+        "desc": "来源：全国雕像清单。原文：拉萨市城关区北京中路布达拉宫广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.308234,
+          26.075206
+        ]
+      },
+      "properties": {
+        "id": "list-0014",
+        "name": "五一广场",
+        "province": "福建",
+        "city": "福州市",
+        "address": "古田路32号",
+        "desc": "来源：全国雕像清单。原文：福州市鼓楼区古田路五一广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0014-amap-1.jpg",
+        "image_source": "高德POI:毛主席雕像",
+        "image_poi": "B0LRVAIMVH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.032417,
+          25.101076
+        ]
+      },
+      "properties": {
+        "id": "list-0015",
+        "name": "龙岩博物馆-毛泽东同志旧居",
+        "province": "福建",
+        "city": "龙岩市",
+        "address": "龙岩博物馆",
+        "desc": "来源：全国雕像清单。原文：龙岩市上杭县古田会议旧址",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.188138,
+          26.168877
+        ]
+      },
+      "properties": {
+        "id": "list-0016",
+        "name": "尤溪县城关镇人大主席团",
+        "province": "福建",
+        "city": "三明市",
+        "address": "新建路6号",
+        "desc": "来源：全国雕像清单。原文：三明市清流县城关镇英山",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.268017,
+          33.790772
+        ]
+      },
+      "properties": {
+        "id": "list-0017",
+        "name": "军民中心村",
+        "province": "江苏",
+        "city": "淮安市",
+        "address": "涟城街道炎黄西大道44号",
+        "desc": "来源：全国雕像清单。原文：淮安市涟水县军民中心村",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.184852,
+          34.248478
+        ]
+      },
+      "properties": {
+        "id": "list-0018",
+        "name": "云龙山公园毛泽东主席登临处",
+        "province": "江苏",
+        "city": "徐州市",
+        "address": "云龙山公园内",
+        "desc": "来源：全国雕像清单。原文：徐州市铜山区黄集小镇东",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.306084,
+          31.549849
+        ]
+      },
+      "properties": {
+        "id": "list-0019",
+        "name": "无锡博物院",
+        "province": "江苏",
+        "city": "无锡市",
+        "address": "钟书路100号",
+        "desc": "来源：全国雕像清单。原文：无锡市江阴市华士镇天华文体博物馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.5199,
+          31.287204
+        ]
+      },
+      "properties": {
+        "id": "list-0020",
+        "name": "红枫商业广场",
+        "province": "江苏",
+        "city": "苏州市",
+        "address": "金山南路与茶坞山路交叉口北160米",
+        "desc": "来源：全国雕像清单。原文：苏州市吴中区木渎镇红枫商业广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.841919,
+          35.499559
+        ]
+      },
+      "properties": {
+        "id": "list-0021",
+        "name": "人民广场-毛主席像",
+        "province": "山西",
+        "city": "晋城市",
+        "address": "新市西街1141号人民广场(东北角)",
+        "desc": "来源：全国雕像清单。原文：晋城市城区新市西街人民广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.498885,
+          36.675746
+        ]
+      },
+      "properties": {
+        "id": "list-0022",
+        "name": "红军东征永和纪念馆",
+        "province": "山西",
+        "city": "临汾市",
+        "address": "阁底乡东征旅游路红军东征永和纪念馆",
+        "desc": "来源：全国雕像清单。原文：临汾市永和县东征村东征纪念馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.823895,
+          37.29267
+        ]
+      },
+      "properties": {
+        "id": "list-0023",
+        "name": "贾家庄镇人民政府",
+        "province": "山西",
+        "city": "吕梁市",
+        "address": "郭宏线贾家庄镇政府贾家庄镇委",
+        "desc": "来源：全国雕像清单。原文：吕梁市汾阳市贾家庄镇贾家庄村",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.712101,
+          37.673484
+        ]
+      },
+      "properties": {
+        "id": "list-0024",
+        "name": "晋中经纬新科机械有限公司",
+        "province": "山西",
+        "city": "晋中市",
+        "address": "经纬路150号",
+        "desc": "来源：全国雕像清单。原文：晋中市榆次区经纬中学校校内",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.373937,
+          37.076572
+        ]
+      },
+      "properties": {
+        "id": "list-0025",
+        "name": "毛泽东纪念馆",
+        "province": "山西",
+        "city": "晋中市",
+        "address": "辽州古街与王家巷交叉口东120米",
+        "desc": "来源：全国雕像清单。原文：晋中市榆次区经纬中学大门口",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.10047,
+          36.447437
+        ]
+      },
+      "properties": {
+        "id": "list-0026",
+        "name": "毛主席纪念馆",
+        "province": "山西",
+        "city": "长治市",
+        "address": "店上镇常庄村",
+        "desc": "来源：全国雕像清单。原文：长治市潞城区原泉村",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.813395,
+          37.265463
+        ]
+      },
+      "properties": {
+        "id": "list-0027",
+        "name": "古贤社区",
+        "province": "山西",
+        "city": "汾阳市",
+        "address": "222省道与东湖南路交叉口东南380米",
+        "desc": "来源：全国雕像清单。原文：汾阳市三泉镇古贤村",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.958325,
+          39.067782
+        ]
+      },
+      "properties": {
+        "id": "list-0028",
+        "name": "毛主席路居纪念馆",
+        "province": "山西",
+        "city": "忻州市",
+        "address": "代州古城内(西侧)",
+        "desc": "来源：全国雕像清单。原文：忻州市忻府区红旗广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.087697,
+          37.944486
+        ]
+      },
+      "properties": {
+        "id": "list-0029",
+        "name": "古交市梭峪乡人大主席团",
+        "province": "山西",
+        "city": "太原市",
+        "address": "梭闹线梭峪乡政府",
+        "desc": "来源：全国雕像清单。原文：太原市古交市梭峪乡梭峪乡政府院内",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.116717,
+          36.19855
+        ]
+      },
+      "properties": {
+        "id": "list-0030",
+        "name": "锦江之星(长治八一广场店)",
+        "province": "山西",
+        "city": "长治市",
+        "address": "紫金西街5号",
+        "desc": "来源：全国雕像清单。原文：长治市潞州区八一广场影壁",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.588319,
+          37.80049
+        ]
+      },
+      "properties": {
+        "id": "list-0031",
+        "name": "山西大学坞城校区",
+        "province": "山西",
+        "city": "太原市",
+        "address": "坞城街道山西大学社区坞城路92号",
+        "desc": "来源：全国雕像清单。原文：太原市小店区山西大学坞城校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0031-amap-1.jpg",
+        "image_source": "高德POI:山西大学毛泽东塑像(山西大学坞城校区)",
+        "image_poi": "B0J3BUXVSW"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.231071,
+          26.880248
+        ]
+      },
+      "properties": {
+        "id": "list-0032",
+        "name": "红太阳商业广场",
+        "province": "云南",
+        "city": "丽江市",
+        "address": "民主路191号",
+        "desc": "来源：全国雕像清单。原文：丽江市古城区红太阳商业广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.816133,
+          27.318321
+        ]
+      },
+      "properties": {
+        "id": "list-0033",
+        "name": "小中段",
+        "province": "云南",
+        "city": "昭通市",
+        "address": "昭阳区",
+        "desc": "来源：全国雕像清单。原文：昭通市昭阳区人民街龙湖路中段",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.225807,
+          26.866302
+        ]
+      },
+      "properties": {
+        "id": "list-0034",
+        "name": "金凯广场",
+        "province": "云南",
+        "city": "丽江市",
+        "address": "长水路",
+        "desc": "来源：全国雕像清单。原文：丽江市古城区西安街道金凯广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.714455,
+          27.341298
+        ]
+      },
+      "properties": {
+        "id": "list-0035",
+        "name": "毛主席广场",
+        "province": "云南",
+        "city": "昭通市",
+        "address": "公园路47号",
+        "desc": "来源：全国雕像清单。原文：昭通市镇雄县中山路镇雄人民公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.70215,
+          27.817984
+        ]
+      },
+      "properties": {
+        "id": "list-0036",
+        "name": "红太阳广场",
+        "province": "云南",
+        "city": "云南",
+        "address": "长征大道",
+        "desc": "来源：全国雕像清单。原文：迪庆藏族自治州香格里拉镇红太阳广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.98853,
+          22.754775
+        ]
+      },
+      "properties": {
+        "id": "list-0037",
+        "name": "梅子湖公园",
+        "province": "云南",
+        "city": "普洱市",
+        "address": "南屏镇梅园路",
+        "desc": "来源：全国雕像清单。原文：普洱市思茅区梅子湖公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.880946,
+          27.628975
+        ]
+      },
+      "properties": {
+        "id": "list-0038",
+        "name": "萍乡学院",
+        "province": "江西",
+        "city": "萍乡市",
+        "address": "萍安北大道211号",
+        "desc": "来源：全国雕像清单。原文：萍乡市安源区萍乡学院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.401437,
+          27.805244
+        ]
+      },
+      "properties": {
+        "id": "list-0039",
+        "name": "宜春市体育广场停车点",
+        "province": "江西",
+        "city": "宜春市",
+        "address": "明月北路宜春市体育广场内(北侧)",
+        "desc": "来源：全国雕像清单。原文：宜春市铜鼓县秋收起义纪念地广场广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.552215,
+          28.058845
+        ]
+      },
+      "properties": {
+        "id": "list-0040",
+        "name": "希岸酒店(樟树药都路店)",
+        "province": "江西",
+        "city": "樟树市",
+        "address": "药都路3号",
+        "desc": "来源：全国雕像清单。原文：樟树市滨江西岸广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.918841,
+          28.600829
+        ]
+      },
+      "properties": {
+        "id": "list-0041",
+        "name": "程允贤雕塑艺术馆",
+        "province": "江西",
+        "city": "南昌市",
+        "address": "昌南大道与青云谱路交叉口八大山人梅湖景区",
+        "desc": "来源：全国雕像清单。原文：南昌市青云谱区程允贤雕塑艺术馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.345428,
+          26.306648
+        ]
+      },
+      "properties": {
+        "id": "list-0042",
+        "name": "将军园",
+        "province": "江西",
+        "city": "赣州市",
+        "address": "将军大道南端",
+        "desc": "来源：全国雕像清单。原文：赣州市兴国县潋江镇将军大道将军园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.339879,
+          26.319294
+        ]
+      },
+      "properties": {
+        "id": "list-0043",
+        "name": "兴国和睦公园",
+        "province": "江西",
+        "city": "赣州市",
+        "address": "平阳路与和睦大道交叉口东120米",
+        "desc": "来源：全国雕像清单。原文：赣州市兴国县潋江镇和睦大道和睦公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.896302,
+          27.603745
+        ]
+      },
+      "properties": {
+        "id": "list-0044",
+        "name": "安源路矿工人运动纪念馆-毛泽东塑像",
+        "province": "江西",
+        "city": "萍乡市",
+        "address": "安源镇安源路安源路矿工人运动纪念馆附近",
+        "desc": "来源：全国雕像清单。原文：萍乡市安源区安源路矿工人运动纪念馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0044-amap-1.jpg",
+        "image_source": "高德POI:安源路矿工人运动纪念馆-毛泽东塑像",
+        "image_poi": "B0FFG0M74W"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.147909,
+          26.616436
+        ]
+      },
+      "properties": {
+        "id": "list-0045",
+        "name": "井冈山风景名胜区",
+        "province": "江西",
+        "city": "吉安市",
+        "address": "茨坪镇",
+        "desc": "来源：全国雕像清单。原文：吉安市井冈山市茨坪井冈山风景名胜区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.672631,
+          34.694123
+        ]
+      },
+      "properties": {
+        "id": "list-0046",
+        "name": "佛岗新居",
+        "province": "河南",
+        "city": "郑州市",
+        "address": "京广路街道连云路99号",
+        "desc": "来源：全国雕像清单。原文：郑州市二七区佛岗新居连云路99号",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.919864,
+          35.32752
+        ]
+      },
+      "properties": {
+        "id": "list-0047",
+        "name": "河南师范大学东区",
+        "province": "河南",
+        "city": "新乡市",
+        "address": "牧野镇建设东路46号",
+        "desc": "来源：全国雕像清单。原文：新乡市牧野区河南师范大学院内",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.927478,
+          35.317764
+        ]
+      },
+      "properties": {
+        "id": "list-0048",
+        "name": "宏力大道(东)",
+        "province": "河南",
+        "city": "新乡市",
+        "address": "牧野区",
+        "desc": "来源：全国雕像清单。原文：新乡市宏力大道与胜利路交叉口老文化宫君山广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.646725,
+          33.779775
+        ]
+      },
+      "properties": {
+        "id": "list-0049",
+        "name": "栾川县",
+        "province": "河南",
+        "city": "洛阳市",
+        "address": "君山东路与坪西路交叉口西南140米",
+        "desc": "来源：全国雕像清单。原文：洛阳市栾川县君山路金景量贩河南店内君山路",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.583008,
+          33.003245
+        ]
+      },
+      "properties": {
+        "id": "list-0050",
+        "name": "南阳市人防办小区门前停车场",
+        "province": "河南",
+        "city": "南阳市",
+        "address": "南阳市人防办小区",
+        "desc": "来源：全国雕像清单。原文：南阳市宛城区林溪谷小区大门门前街头公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.244137,
+          35.243007
+        ]
+      },
+      "properties": {
+        "id": "list-0051",
+        "name": "新华书店(焦作市图书大厦店)",
+        "province": "河南",
+        "city": "焦作市",
+        "address": "塔南路45号焦作市图书大厦F1层",
+        "desc": "来源：全国雕像清单。原文：焦作市解放区东方红广场旁新华书店楼顶",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.248389,
+          35.213934
+        ]
+      },
+      "properties": {
+        "id": "list-0052",
+        "name": "东于村村委会",
+        "province": "河南",
+        "city": "焦作市",
+        "address": "人民路867号",
+        "desc": "来源：全国雕像清单。原文：焦作市修武县东关村村委会",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.960154,
+          33.804394
+        ]
+      },
+      "properties": {
+        "id": "list-0053",
+        "name": "毛主席像",
+        "province": "河南",
+        "city": "漯河市",
+        "address": "城关镇南街村景区东方红广场东方红广场内",
+        "desc": "来源：全国雕像清单。原文：漯河市临颍县南街村",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.380336,
+          34.672248
+        ]
+      },
+      "properties": {
+        "id": "list-0054",
+        "name": "毛主席像",
+        "province": "河南",
+        "city": "洛阳市",
+        "address": "建设路154号",
+        "desc": "来源：全国雕像清单。原文：洛阳市涧西区建设路中国重托一厂",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.880178,
+          33.465599
+        ]
+      },
+      "properties": {
+        "id": "list-0055",
+        "name": "项城市第三高级中学(西校区)",
+        "province": "河南",
+        "city": "周口市",
+        "address": "人民路1号",
+        "desc": "来源：全国雕像清单。原文：周口市项城市项城市第三高级中学老校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.60862,
+          33.531532
+        ]
+      },
+      "properties": {
+        "id": "list-0056",
+        "name": "商水一高(公交站)",
+        "province": "河南",
+        "city": "周口市",
+        "address": "商水3A路",
+        "desc": "来源：全国雕像清单。原文：周口市商水县商水一高",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.669817,
+          35.258982
+        ]
+      },
+      "properties": {
+        "id": "list-0057",
+        "name": "毛泽东纪念馆",
+        "province": "河南",
+        "city": "新乡市",
+        "address": "南干道与福兴街交叉口东北80米",
+        "desc": "来源：全国雕像清单。原文：新乡市获嘉县史庄镇",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.439314,
+          34.82446
+        ]
+      },
+      "properties": {
+        "id": "list-0058",
+        "name": "孟津区第一中学",
+        "province": "河南",
+        "city": "洛阳市",
+        "address": "新华路与桂花大道交叉口西南200米",
+        "desc": "来源：全国雕像清单。原文：洛阳市孟津县第一中学",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.346758,
+          34.789321
+        ]
+      },
+      "properties": {
+        "id": "list-0059",
+        "name": "开封府-仪门",
+        "province": "河南",
+        "city": "开封市",
+        "address": "州桥街道延庆街7号开封府",
+        "desc": "来源：全国雕像清单。原文：开封市顺河回族区开封化肥厂大门",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.528665,
+          33.012311
+        ]
+      },
+      "properties": {
+        "id": "list-0060",
+        "name": "主席像柴油机厂家属院",
+        "province": "河南",
+        "city": "南阳市",
+        "address": "林溪谷西南门",
+        "desc": "来源：全国雕像清单。原文：南阳市卧龙区林溪谷小区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.181024,
+          35.897581
+        ]
+      },
+      "properties": {
+        "id": "list-0061",
+        "name": "毛主席像",
+        "province": "河南",
+        "city": "鹤壁市",
+        "address": "红旗街与春雷路交叉口西北20米",
+        "desc": "来源：全国雕像清单。原文：鹤壁市鹤山区红旗街老区红旗街",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.530256,
+          33.011517
+        ]
+      },
+      "properties": {
+        "id": "list-0062",
+        "name": "毛主席像",
+        "province": "河南",
+        "city": "南阳市",
+        "address": "常绿·林溪谷附近",
+        "desc": "来源：全国雕像清单。原文：南阳市社旗县社旗一高",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.264925,
+          35.183625
+        ]
+      },
+      "properties": {
+        "id": "list-0063",
+        "name": "河南理工大学南门自助点",
+        "province": "河南",
+        "city": "焦作市",
+        "address": "世纪路与凯旋路交叉口西280米",
+        "desc": "来源：全国雕像清单。原文：焦作市高新区河南理工大学南门",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.256831,
+          33.746251
+        ]
+      },
+      "properties": {
+        "id": "list-0064",
+        "name": "平顶山市毛泽东书法协会(春华国际茗都西北)",
+        "province": "河南",
+        "city": "平顶山市",
+        "address": "白鹭洲国家城市湿地公园",
+        "desc": "来源：全国雕像清单。原文：平顶山市汝州市临汝镇东营村",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.950511,
+          35.313122
+        ]
+      },
+      "properties": {
+        "id": "list-0065",
+        "name": "新乡市新工人文化宫(建设中)",
+        "province": "河南",
+        "city": "新乡市",
+        "address": "新七街与中原东路交叉口西南100米",
+        "desc": "来源：全国雕像清单。原文：新乡市长垣市大王庄工人文化宫",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.912242,
+          35.327798
+        ]
+      },
+      "properties": {
+        "id": "list-0066",
+        "name": "河南师范大学(西区)",
+        "province": "河南",
+        "city": "新乡市",
+        "address": "牧野镇建设东路46号",
+        "desc": "来源：全国雕像清单。原文：新乡市牧野区河南师范大学西区主楼前广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.371373,
+          34.793776
+        ]
+      },
+      "properties": {
+        "id": "list-0067",
+        "name": "伟大领袖毛泽东像",
+        "province": "河南",
+        "city": "开封市",
+        "address": "顺城南街11号汴京公园内(南侧)",
+        "desc": "来源：全国雕像清单。原文：开封市顺河回族区汴京公园轴承厂",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.397528,
+          34.667267
+        ]
+      },
+      "properties": {
+        "id": "list-0068",
+        "name": "洛轴集团有限公司高级技工学校",
+        "province": "河南",
+        "city": "洛阳市",
+        "address": "建设路96号",
+        "desc": "来源：全国雕像清单。原文：洛阳市涧西区建设路96号原洛轴厂",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0068-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕塑",
+        "image_poi": "B0KUBRP0UH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.379313,
+          34.671795
+        ]
+      },
+      "properties": {
+        "id": "list-0069",
+        "name": "东方红农耕博物馆",
+        "province": "河南",
+        "city": "洛阳市",
+        "address": "建设路154号",
+        "desc": "来源：全国雕像清单。原文：洛阳市涧西区东方红农耕博物馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.457911,
+          38.879862
+        ]
+      },
+      "properties": {
+        "id": "list-0070",
+        "name": "河北建设家园",
+        "province": "河北",
+        "city": "保定市",
+        "address": "新市场街道五四西路329号",
+        "desc": "来源：全国雕像清单。原文：保定市竞秀区河北建设家园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0070-amap-1.jpg",
+        "image_source": "高德POI:毛泽东主席雕像",
+        "image_poi": "B0HBBK0IGN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.609948,
+          39.212827
+        ]
+      },
+      "properties": {
+        "id": "list-0071",
+        "name": "河北科技学院(曹妃甸校区)",
+        "province": "河北",
+        "city": "唐山市",
+        "address": "东海路209号(华北理工大学曹妃甸校区东侧)",
+        "desc": "来源：全国雕像清单。原文：唐山市曹妃甸区河北科技学院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.457555,
+          38.878383
+        ]
+      },
+      "properties": {
+        "id": "list-0072",
+        "name": "毛泽东主席雕像",
+        "province": "河北",
+        "city": "保定市",
+        "address": "五四西路与向阳北大街交叉口西240米",
+        "desc": "来源：全国雕像清单。原文：保定市竞秀区五四西路",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0072-amap-1.jpg",
+        "image_source": "高德POI:毛泽东主席雕像",
+        "image_poi": "B0HBBK0IGN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.818074,
+          38.282252
+        ]
+      },
+      "properties": {
+        "id": "list-0073",
+        "name": "沧州市第一中学东校区",
+        "province": "河北",
+        "city": "沧州市",
+        "address": "开元南大道与九河西路交叉口西北200米",
+        "desc": "来源：全国雕像清单。原文：沧州市任丘市第一中学高三校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.846571,
+          38.300025
+        ]
+      },
+      "properties": {
+        "id": "list-0074",
+        "name": "沧州国学院",
+        "province": "河北",
+        "city": "沧州市",
+        "address": "河北省沧州市运河区浮阳南大道33号后身",
+        "desc": "来源：全国雕像清单。原文：沧州市任丘市任丘中学",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.528499,
+          39.836484
+        ]
+      },
+      "properties": {
+        "id": "list-0075",
+        "name": "毛泽东塑像",
+        "province": "河北",
+        "city": "秦皇岛市",
+        "address": "鸽子窝公园-主席像广场",
+        "desc": "来源：全国雕像清单。原文：秦皇岛市北戴河区鸽子窝公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0075-amap-1.jpg",
+        "image_source": "高德POI:毛泽东塑像",
+        "image_poi": "B0FFG1W8PN"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.197017,
+          36.691782
+        ]
+      },
+      "properties": {
+        "id": "list-0076",
+        "name": "武安新世纪广场",
+        "province": "河北",
+        "city": "邯郸市",
+        "address": "中兴路939号",
+        "desc": "来源：全国雕像清单。原文：邯郸市武安市新世纪商业广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.527836,
+          36.63001
+        ]
+      },
+      "properties": {
+        "id": "list-0077",
+        "name": "百果园(丛台区恒大名都店)",
+        "province": "河北",
+        "city": "邯郸市",
+        "address": "兼庄乡油漆厂路邯郸市恒大名都南门东16号楼104",
+        "desc": "来源：全国雕像清单。原文：邯郸市丛台区联纺路大名都南院大门",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.192218,
+          39.631111
+        ]
+      },
+      "properties": {
+        "id": "list-0078",
+        "name": "唐山博物馆",
+        "province": "河北",
+        "city": "唐山市",
+        "address": "龙泽南路22号",
+        "desc": "来源：全国雕像清单。原文：唐山市路北区唐山博物馆广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.18935,
+          39.631033
+        ]
+      },
+      "properties": {
+        "id": "list-0079",
+        "name": "凤凰山公园",
+        "province": "河北",
+        "city": "唐山市",
+        "address": "乔屯街道乔屯街道文化路29号",
+        "desc": "来源：全国雕像清单。原文：唐山市路北区凤凰山公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.883848,
+          40.817783
+        ]
+      },
+      "properties": {
+        "id": "list-0080",
+        "name": "文化广场",
+        "province": "河北",
+        "city": "张家口市",
+        "address": "清水河中路张家口市展览馆",
+        "desc": "来源：全国雕像清单。原文：张家口市桥西区文化广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.884652,
+          40.789195
+        ]
+      },
+      "properties": {
+        "id": "list-0081",
+        "name": "张家口中泰奥特莱斯美仑国际酒店",
+        "province": "河北",
+        "city": "张家口市",
+        "address": "钻石中路10号奥特莱斯美仑国际B座",
+        "desc": "来源：全国雕像清单。原文：张家口市桥西区中泰奥特莱斯商场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.522656,
+          38.040616
+        ]
+      },
+      "properties": {
+        "id": "list-0082",
+        "name": "河北博物院",
+        "province": "河北",
+        "city": "石家庄市",
+        "address": "东大街4号(博物院地铁站C西南口步行360米)",
+        "desc": "来源：全国雕像清单。原文：石家庄市长安区河北省博物院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0082-amap-1.jpg",
+        "image_source": "高德POI:人民广场-毛主席雕像",
+        "image_poi": "B01370WEMB"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.644206,
+          38.032485
+        ]
+      },
+      "properties": {
+        "id": "list-0083",
+        "name": "石家庄博安煤矿机械分公司",
+        "province": "河北",
+        "city": "石家庄市",
+        "address": "裕华区高新区湘江道260号",
+        "desc": "来源：全国雕像清单。原文：石家庄市长安区河北石美集煤机械厂",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.462365,
+          38.137841
+        ]
+      },
+      "properties": {
+        "id": "list-0084",
+        "name": "河北政法职业学院友谊校区(校本部)",
+        "province": "河北",
+        "city": "石家庄市",
+        "address": "杜北街道友谊北大街569号",
+        "desc": "来源：全国雕像清单。原文：石家庄市长安区河北政法职业学院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.829152,
+          38.297572
+        ]
+      },
+      "properties": {
+        "id": "list-0085",
+        "name": "沧州泰合商业广场8号楼",
+        "province": "河北",
+        "city": "沧州市",
+        "address": "泰合商业广场",
+        "desc": "来源：全国雕像清单。原文：沧州市运河区国贸商厦商业广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.884195,
+          40.81865
+        ]
+      },
+      "properties": {
+        "id": "list-0086",
+        "name": "张家口市展览馆(清水河中路)",
+        "province": "河北",
+        "city": "张家口市",
+        "address": "清水河中路",
+        "desc": "来源：全国雕像清单。原文：张家口市桥西区清水河中路展览馆广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.539623,
+          38.076193
+        ]
+      },
+      "properties": {
+        "id": "list-0087",
+        "name": "北二环东路",
+        "province": "河北",
+        "city": "石家庄市",
+        "address": "长安区",
+        "desc": "来源：全国雕像清单。原文：石家庄市长安区北道原国棉六厂广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.022155,
+          33.061295
+        ]
+      },
+      "properties": {
+        "id": "list-0088",
+        "name": "汉中路街道汉江路社区",
+        "province": "陕西",
+        "city": "汉中市",
+        "address": "南一环路与汉南新街交叉口西160米",
+        "desc": "来源：全国雕像清单。原文：汉中市洋县纸坊街道巩家槽社区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.88965,
+          34.347856
+        ]
+      },
+      "properties": {
+        "id": "list-0089",
+        "name": "席王村村委会",
+        "province": "陕西",
+        "city": "西安市",
+        "address": "汉城街道丰产路",
+        "desc": "来源：全国雕像清单。原文：西安市鄠邑区草堂村委会广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.750212,
+          38.294881
+        ]
+      },
+      "properties": {
+        "id": "list-0090",
+        "name": "水利商业步行街",
+        "province": "陕西",
+        "city": "榆林市",
+        "address": "新建北路73号",
+        "desc": "来源：全国雕像清单。原文：榆林市定边县步行街",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.796601,
+          38.353805
+        ]
+      },
+      "properties": {
+        "id": "list-0091",
+        "name": "毛泽东纪念广场",
+        "province": "陕西",
+        "city": "榆林市",
+        "address": "榆林市定边县马莲滩沙漠公园",
+        "desc": "来源：全国雕像清单。原文：榆林市定边县马莲滩沙漠公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.515172,
+          37.974229
+        ]
+      },
+      "properties": {
+        "id": "list-0092",
+        "name": "谭家坪毛泽东旧居",
+        "province": "陕西",
+        "city": "榆林市",
+        "address": "沿黄观光路",
+        "desc": "来源：全国雕像清单。原文：榆林市横山区马掌湾村",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.716471,
+          34.07189
+        ]
+      },
+      "properties": {
+        "id": "list-0093",
+        "name": "鄠邑东区圆通速递(草堂千吨冷库店)",
+        "province": "陕西",
+        "city": "西安市",
+        "address": "草堂街道草庙村五组168号",
+        "desc": "来源：全国雕像清单。原文：西安市鄠邑区草堂村",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.13005,
+          34.325605
+        ]
+      },
+      "properties": {
+        "id": "list-0094",
+        "name": "西安铁道职业学校",
+        "province": "陕西",
+        "city": "西安市",
+        "address": "洪庆街道朝阳工业园",
+        "desc": "来源：全国雕像清单。原文：西安市莲湖区洪庆街道西安铁道职业学院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.477373,
+          36.609322
+        ]
+      },
+      "properties": {
+        "id": "list-0095",
+        "name": "延安革命纪念馆",
+        "province": "陕西",
+        "city": "延安市",
+        "address": "西北延河东岸王家坪",
+        "desc": "来源：全国雕像清单。原文：延安市宝塔区延安革命纪念馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0095-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕塑",
+        "image_poi": "B0MDHUS9BZ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.065774,
+          30.658453
+        ]
+      },
+      "properties": {
+        "id": "list-0096",
+        "name": "四川科技馆-毛主席雕像(打卡点)",
+        "province": "四川",
+        "city": "成都市",
+        "address": "人民中路一段16号四川科技馆",
+        "desc": "来源：全国雕像清单。原文：成都市青羊区四川科技馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0096-amap-1.jpg",
+        "image_source": "高德POI:四川科技馆-毛主席雕像(打卡点)",
+        "image_poi": "B0M2SH5T1B"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.090794,
+          30.631735
+        ]
+      },
+      "properties": {
+        "id": "list-0097",
+        "name": "四川大学望江校区毛泽东像",
+        "province": "四川",
+        "city": "成都市",
+        "address": "望江路51号四川大学",
+        "desc": "来源：全国雕像清单。原文：成都市武侯区四川大学望江校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.94358,
+          30.773104
+        ]
+      },
+      "properties": {
+        "id": "list-0098",
+        "name": "毛主席像",
+        "province": "四川",
+        "city": "成都市",
+        "address": "红光广场内(东侧)",
+        "desc": "来源：全国雕像清单。原文：成都市郫都区红光街道",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.276481,
+          23.127544
+        ]
+      },
+      "properties": {
+        "id": "list-0099",
+        "name": "毛泽东同志主办农民运动讲习所旧址纪念馆-彭湃雕像",
+        "province": "广东",
+        "city": "广州市",
+        "address": "中山四路42号毛泽东同志主办农民运动讲习所旧址纪念馆",
+        "desc": "来源：全国雕像清单。原文：广州市越秀区广州农讲所",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0099-amap-1.jpg",
+        "image_source": "高德POI:毛泽东同志主办农民运动讲习所旧址纪念馆-彭湃雕像",
+        "image_poi": "B0GKPR1IIO"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.355929,
+          30.552484
+        ]
+      },
+      "properties": {
+        "id": "list-0100",
+        "name": "毛泽东雕像",
+        "province": "湖北",
+        "city": "武汉市",
+        "address": "武汉大学医学部杏林路",
+        "desc": "来源：全国雕像清单。原文：武汉市武昌区武昌1956公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0100-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕像",
+        "image_poi": "B001B1BXHF"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.428318,
+          30.33698
+        ]
+      },
+      "properties": {
+        "id": "list-0101",
+        "name": "仙桃职业学院",
+        "province": "湖北",
+        "city": "仙桃市",
+        "address": "纺织大道8号",
+        "desc": "来源：全国雕像清单。原文：仙桃市纺织大道8号仙桃职业学院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.282321,
+          30.728014
+        ]
+      },
+      "properties": {
+        "id": "list-0102",
+        "name": "西坝广场",
+        "province": "湖北",
+        "city": "宜昌市",
+        "address": "建设路3号",
+        "desc": "来源：全国雕像清单。原文：宜昌市西陵区西坝街道西坝广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.113788,
+          30.853255
+        ]
+      },
+      "properties": {
+        "id": "list-0103",
+        "name": "夷陵区乐天溪镇下岸溪村民委员会",
+        "province": "湖北",
+        "city": "宜昌市",
+        "address": "下岸溪村一组138号",
+        "desc": "来源：全国雕像清单。原文：宜昌市夷陵区乐天溪镇下岸溪809旧址",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.912141,
+          30.919887
+        ]
+      },
+      "properties": {
+        "id": "list-0104",
+        "name": "华为授权体验店(孝感商场)",
+        "province": "湖北",
+        "city": "孝感市",
+        "address": "北正街1号(孝感商场1楼)",
+        "desc": "来源：全国雕像清单。原文：孝感市孝南区北正街1号孝感商场旧址",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.13822,
+          32.045581
+        ]
+      },
+      "properties": {
+        "id": "list-0105",
+        "name": "拓新小区",
+        "province": "湖北",
+        "city": "襄阳市",
+        "address": "谷山北路与风华路交叉口西北80米",
+        "desc": "来源：全国雕像清单。原文：襄阳市樊城区风华路拓新小区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.129554,
+          41.112238
+        ]
+      },
+      "properties": {
+        "id": "list-0106",
+        "name": "锦州市古塔区医院",
+        "province": "辽宁",
+        "city": "锦州市",
+        "address": "东二里53号",
+        "desc": "来源：全国雕像清单。原文：锦州市古塔区锦州市委原40军大院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.99624,
+          40.713811
+        ]
+      },
+      "properties": {
+        "id": "list-0107",
+        "name": "渤海造船厂",
+        "province": "辽宁",
+        "city": "葫芦岛市",
+        "address": "葫芦岛街道",
+        "desc": "来源：全国雕像清单。原文：葫芦岛市龙港区渤海造船厂",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.528113,
+          38.878093
+        ]
+      },
+      "properties": {
+        "id": "list-0108",
+        "name": "大连理工大学伯川图书馆",
+        "province": "辽宁",
+        "city": "大连市",
+        "address": "凌工路2号",
+        "desc": "来源：全国雕像清单。原文：大连市甘井子区大连理工大学伯川图书馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0108-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕像",
+        "image_poi": "B019B10DWQ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          124.387618,
+          40.124123
+        ]
+      },
+      "properties": {
+        "id": "list-0109",
+        "name": "丹东站",
+        "province": "辽宁",
+        "city": "丹东市",
+        "address": "十纬路1号",
+        "desc": "来源：全国雕像清单。原文：丹东市振兴区丹东火车站",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          123.410682,
+          41.796952
+        ]
+      },
+      "properties": {
+        "id": "list-0110",
+        "name": "中山广场-毛泽东雕像",
+        "province": "辽宁",
+        "city": "沈阳市",
+        "address": "太原街街道太原街街道太原街街道开封街3号巷中山广场",
+        "desc": "来源：全国雕像清单。原文：沈阳市和平区中山广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0110-amap-1.jpg",
+        "image_source": "高德POI:中山广场-毛泽东雕像",
+        "image_poi": "B0FFH223GJ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.187919,
+          37.517329
+        ]
+      },
+      "properties": {
+        "id": "list-0111",
+        "name": "红太阳广场-中卫城市公共厕所",
+        "province": "宁夏",
+        "city": "中卫市",
+        "address": "鼓楼北街与雍楼路交叉口西200米",
+        "desc": "来源：全国雕像清单。原文：中卫市沙坡头红太阳广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.523313,
+          38.907137
+        ]
+      },
+      "properties": {
+        "id": "list-0112",
+        "name": "宁夏回族自治区平罗中学",
+        "province": "宁夏",
+        "city": "石嘴山市",
+        "address": "团结西路185号",
+        "desc": "来源：全国雕像清单。原文：石嘴山市平罗县平罗中学团结西路185号",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.340158,
+          22.783734
+        ]
+      },
+      "properties": {
+        "id": "list-0113",
+        "name": "邕州老街",
+        "province": "广西",
+        "city": "南宁市",
+        "address": "江南大道与白沙南二里交叉口东南20米",
+        "desc": "来源：全国雕像清单。原文：南宁市江南区福建园街道邕州老街",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.310809,
+          22.76164
+        ]
+      },
+      "properties": {
+        "id": "list-0114",
+        "name": "玫瑰园",
+        "province": "广西",
+        "city": "南宁市",
+        "address": "星光大道238号(江南客运站旁)",
+        "desc": "来源：全国雕像清单。原文：南宁市江南区玫瑰园福满大道26",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.616577,
+          35.019741
+        ]
+      },
+      "properties": {
+        "id": "list-0115",
+        "name": "停车场(西北铝加工厂职工医院西南)",
+        "province": "甘肃",
+        "city": "定西市",
+        "address": "陇西县公安局西郊派出所西南侧280米",
+        "desc": "来源：全国雕像清单。原文：定西市陇西县西北铝加工职工医院西",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.712661,
+          36.109958
+        ]
+      },
+      "properties": {
+        "id": "list-0116",
+        "name": "航空工业兰州万里航空机电有限责任公司",
+        "province": "甘肃",
+        "city": "兰州市",
+        "address": "万新北路139号",
+        "desc": "来源：全国雕像清单。原文：兰州市安宁区万新路139号万里厂区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.443154,
+          36.176481
+        ]
+      },
+      "properties": {
+        "id": "list-0117",
+        "name": "兰州河口古镇",
+        "province": "甘肃",
+        "city": "兰州市",
+        "address": "北滨河路与312国道交叉口西420米",
+        "desc": "来源：全国雕像清单。原文：兰州市西固区河口古镇",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.835338,
+          36.062332
+        ]
+      },
+      "properties": {
+        "id": "list-0118",
+        "name": "兰州市民广场",
+        "province": "甘肃",
+        "city": "兰州市",
+        "address": "南滨河东路526号",
+        "desc": "来源：全国雕像清单。原文：兰州市西固区河口古镇广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.222344,
+          34.05473
+        ]
+      },
+      "properties": {
+        "id": "list-0119",
+        "name": "电尕中心广场",
+        "province": "甘肃",
+        "city": "甘肃",
+        "address": "腊子口街192号附近",
+        "desc": "来源：全国雕像清单。原文：甘南藏族自治州舟曲县电尕镇电尕中心广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.563409,
+          31.348665
+        ]
+      },
+      "properties": {
+        "id": "list-0120",
+        "name": "六安市毛坦厂中学",
+        "province": "安徽",
+        "city": "六安市",
+        "address": "学府路1号",
+        "desc": "来源：全国雕像清单。原文：六安市金安区毛坦厂中学",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.536545,
+          31.744324
+        ]
+      },
+      "properties": {
+        "id": "list-0121",
+        "name": "六安市毛坦厂中学实验学校",
+        "province": "安徽",
+        "city": "六安市",
+        "address": "郝岗路",
+        "desc": "来源：全国雕像清单。原文：六安市金安区毛坦厂中学新校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.535677,
+          31.754499
+        ]
+      },
+      "properties": {
+        "id": "list-0122",
+        "name": "安徽省六安第一中学东校区",
+        "province": "安徽",
+        "city": "六安市",
+        "address": "皖西大道767号",
+        "desc": "来源：全国雕像清单。原文：六安市金安区六安一中东校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.404279,
+          32.91904
+        ]
+      },
+      "properties": {
+        "id": "list-0123",
+        "name": "南北雕塑",
+        "province": "安徽",
+        "city": "蚌埠市",
+        "address": "东海大道与于环湖西路交界处蚌埠龙子湖公园",
+        "desc": "来源：全国雕像清单。原文：蚌埠市禹会区宏业街道",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.741493,
+          33.901511
+        ]
+      },
+      "properties": {
+        "id": "list-0124",
+        "name": "安徽省濉溪中学",
+        "province": "安徽",
+        "city": "淮北市",
+        "address": "玉兰路12号",
+        "desc": "来源：全国雕像清单。原文：淮北市濉溪县濉溪中学综合楼门口台阶中间",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.037673,
+          30.508227
+        ]
+      },
+      "properties": {
+        "id": "list-0125",
+        "name": "安庆市第一中学(龙门校区)",
+        "province": "安徽",
+        "city": "安庆市",
+        "address": "龙门口街38号",
+        "desc": "来源：全国雕像清单。原文：安庆市大观区龙门口街安庆一中龙园校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.066944,
+          30.513865
+        ]
+      },
+      "properties": {
+        "id": "list-0126",
+        "name": "科技广场",
+        "province": "安徽",
+        "city": "安庆市",
+        "address": "菱湖南路108号安庆市菱湖风景区(东南角)",
+        "desc": "来源：全国雕像清单。原文：安庆市迎江区菱湖南路菱湖景区科技广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.010225,
+          34.148725
+        ]
+      },
+      "properties": {
+        "id": "list-0127",
+        "name": "萧县龙城镇毛营小学",
+        "province": "安徽",
+        "city": "宿州市",
+        "address": "毛郢馨苑安置小区附近",
+        "desc": "来源：全国雕像清单。原文：宿州市萧县龙城镇萧县第一实验小学",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.834464,
+          32.903477
+        ]
+      },
+      "properties": {
+        "id": "list-0128",
+        "name": "颍泉区毛巾总汇",
+        "province": "安徽",
+        "city": "阜阳市",
+        "address": "河滨中路与人民东路交叉口南60米",
+        "desc": "来源：全国雕像清单。原文：阜阳市颍州区三里湾街道",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.819436,
+          32.901781
+        ]
+      },
+      "properties": {
+        "id": "list-0129",
+        "name": "阜阳市东关清真寺",
+        "province": "安徽",
+        "city": "阜阳市",
+        "address": "中兴路与中承商业街交叉口西南100米",
+        "desc": "来源：全国雕像清单。原文：阜阳市颍州区三里湾街道阜阳东关小学影壁",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.860205,
+          28.202435
+        ]
+      },
+      "properties": {
+        "id": "list-0130",
+        "name": "东方红梅溪枫林",
+        "province": "湖南",
+        "city": "长沙市",
+        "address": "岳麓区高新区长科路与高宁路交汇处西南角",
+        "desc": "来源：全国雕像清单。原文：长沙市岳麓区岳麓山东方红广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.936104,
+          28.183601
+        ]
+      },
+      "properties": {
+        "id": "list-0131",
+        "name": "岳麓山风景名胜区",
+        "province": "湖南",
+        "city": "长沙市",
+        "address": "登高路58号",
+        "desc": "来源：全国雕像清单。原文：长沙市岳麓区岳麓山东方红广场院内广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.904349,
+          28.372309
+        ]
+      },
+      "properties": {
+        "id": "list-0132",
+        "name": "丁字湾街道社区卫生服务中心",
+        "province": "湖南",
+        "city": "长沙市",
+        "address": "丁字湾街道",
+        "desc": "来源：全国雕像清单。原文：长沙市望城区丁字湾街道原丁字镇政府",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.989231,
+          28.200364
+        ]
+      },
+      "properties": {
+        "id": "list-0133",
+        "name": "清水塘毛泽东杨开慧故居",
+        "province": "湖南",
+        "city": "长沙市",
+        "address": "八一路538号",
+        "desc": "来源：全国雕像清单。原文：长沙市开福区清水塘中共湘区委员会旧址",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.963081,
+          28.196505
+        ]
+      },
+      "properties": {
+        "id": "list-0134",
+        "name": "橘子洲风景名胜区",
+        "province": "湖南",
+        "city": "长沙市",
+        "address": "橘子洲头2号",
+        "desc": "来源：全国雕像清单。原文：长沙市天心区橘子洲",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.527779,
+          27.922773
+        ]
+      },
+      "properties": {
+        "id": "list-0135",
+        "name": "韶山毛泽东塑像管理所",
+        "province": "湖南",
+        "city": "湘潭市",
+        "address": "清溪路毛泽东同志青年塑像公园(东侧)",
+        "desc": "来源：全国雕像清单。原文：湘潭市雨湖区东山学校",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.941165,
+          28.163333
+        ]
+      },
+      "properties": {
+        "id": "list-0136",
+        "name": "湖南省长沙市岳麓区湖南大学时钟广场",
+        "province": "湖南",
+        "city": "长沙市",
+        "address": "湖南省长沙市岳麓区湖南大学时钟广场",
+        "desc": "来源：全国雕像清单。原文：长沙市岳麓区湖南大学操场上边时钟广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0136-amap-1.jpg",
+        "image_source": "高德POI:毛泽东青年艺术雕塑",
+        "image_poi": "B02DB0W8QW"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.945413,
+          28.180337
+        ]
+      },
+      "properties": {
+        "id": "list-0137",
+        "name": "湖南大学体育场",
+        "province": "湖南",
+        "city": "长沙市",
+        "address": "麓山南路2号湖南大学",
+        "desc": "来源：全国雕像清单。原文：长沙市岳麓区湖南大学体育场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.960324,
+          28.167602
+        ]
+      },
+      "properties": {
+        "id": "list-0138",
+        "name": "毛泽东青年艺术雕塑",
+        "province": "湖南",
+        "city": "长沙市",
+        "address": "橘子洲头2号橘子洲景区内",
+        "desc": "来源：全国雕像清单。原文：长沙市开福区开福科创谷内长沙烈士站",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0138-amap-1.jpg",
+        "image_source": "高德POI:毛泽东青年艺术雕塑",
+        "image_poi": "B02DB0W8QW"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.492608,
+          27.90732
+        ]
+      },
+      "properties": {
+        "id": "list-0139",
+        "name": "韶山风景名胜区毛泽东广场",
+        "province": "湖南",
+        "city": "湘潭市",
+        "address": "韶山乡韶山冲引凤山下",
+        "desc": "来源：全国雕像清单。原文：湘潭市雨湖区湘潭广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.940805,
+          28.180397
+        ]
+      },
+      "properties": {
+        "id": "list-0140",
+        "name": "岳麓书院",
+        "province": "湖南",
+        "city": "长沙市",
+        "address": "麓山路273号",
+        "desc": "来源：全国雕像清单。原文：长沙市岳麓区岳麓山岳麓书院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.09206,
+          27.34756
+        ]
+      },
+      "properties": {
+        "id": "list-0141",
+        "name": "隆回屋顶免费光伏发电安装",
+        "province": "湖南",
+        "city": "邵阳市",
+        "address": "240省道与334省道交叉口南160米",
+        "desc": "来源：全国雕像清单。原文：邵阳市隆回县隆回电厂",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.621225,
+          26.919775
+        ]
+      },
+      "properties": {
+        "id": "list-0142",
+        "name": "衡阳电厂篮球场",
+        "province": "湖南",
+        "city": "衡阳市",
+        "address": "五一路与望城路交叉口东120米",
+        "desc": "来源：全国雕像清单。原文：衡阳市珠晖区衡阳电厂",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.849722,
+          45.621169
+        ]
+      },
+      "properties": {
+        "id": "list-0143",
+        "name": "洮北区人民政府",
+        "province": "吉林",
+        "city": "白城市",
+        "address": "青年南大街14号楼",
+        "desc": "来源：全国雕像清单。原文：白城市洮北区洮北区政府平台基地",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          125.329729,
+          43.823092
+        ]
+      },
+      "properties": {
+        "id": "list-0144",
+        "name": "长春世界雕塑园-友谊喷泉广场",
+        "province": "吉林",
+        "city": "长春市",
+        "address": "人民大街9518号长春世界雕塑公园内",
+        "desc": "来源：全国雕像清单。原文：长春市朝阳区人民大街长春电影广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.847238,
+          37.138888
+        ]
+      },
+      "properties": {
+        "id": "list-0145",
+        "name": "阿其吾斯塘",
+        "province": "新疆",
+        "city": "和田市",
+        "address": "和田市",
+        "desc": "来源：全国雕像清单。原文：和田市洛浦县依格孜吾斯塘小镇门口",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.001423,
+          37.107867
+        ]
+      },
+      "properties": {
+        "id": "list-0146",
+        "name": "和田市玉龙喀什镇阿亚克依格孜艾日克村社会保障服务岗",
+        "province": "新疆",
+        "city": "和田市",
+        "address": "玉龙喀什镇阿亚克依格孜艾日克村140号",
+        "desc": "来源：全国雕像清单。原文：和田市洛浦县依格孜吾斯塘广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.082385,
+          29.616746
+        ]
+      },
+      "properties": {
+        "id": "list-0147",
+        "name": "西藏毛主席像章博物馆",
+        "province": "西藏",
+        "city": "拉萨市",
+        "address": "北京大道21号",
+        "desc": "来源：全国雕像清单。原文：拉萨市柳梧新区毛主席像章博物馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.750627,
+          36.649692
+        ]
+      },
+      "properties": {
+        "id": "list-0148",
+        "name": "红太阳超市(西宁供销小区店)",
+        "province": "青海",
+        "city": "西宁市",
+        "address": "建北巷49号",
+        "desc": "来源：全国雕像清单。原文：西宁市城中区上新庄红太阳纪念馆",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0148-amap-1.jpg",
+        "image_source": "高德POI:毛主席塑像",
+        "image_poi": "B0L6HHG96I"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.389071,
+          46.793703
+        ]
+      },
+      "properties": {
+        "id": "list-0149",
+        "name": "佳木斯市水源山公园",
+        "province": "黑龙江",
+        "city": "佳木斯市",
+        "address": "胜利东路117号",
+        "desc": "来源：全国雕像清单。原文：佳木斯市向阳区儿童公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.534125,
+          46.743325
+        ]
+      },
+      "properties": {
+        "id": "list-0150",
+        "name": "友谊农场",
+        "province": "黑龙江",
+        "city": "双鸭山市",
+        "address": "027乡道东侧",
+        "desc": "来源：全国雕像清单。原文：双鸭山市友谊县友谊农场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.656477,
+          45.619179
+        ]
+      },
+      "properties": {
+        "id": "list-0151",
+        "name": "哈尔滨医大药业股份有限公司",
+        "province": "黑龙江",
+        "city": "哈尔滨市",
+        "address": "平房经济技术开发区哈平路集中区渤海路29号",
+        "desc": "来源：全国雕像清单。原文：哈尔滨市南岗区哈尔滨局集团有限公司大院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.620083,
+          45.701283
+        ]
+      },
+      "properties": {
+        "id": "list-0152",
+        "name": "哈尔滨医科大学",
+        "province": "黑龙江",
+        "city": "哈尔滨市",
+        "address": "保健路157号",
+        "desc": "来源：全国雕像清单。原文：哈尔滨市南岗区哈尔滨医科大学",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.622923,
+          45.781092
+        ]
+      },
+      "properties": {
+        "id": "list-0153",
+        "name": "松花江·尚",
+        "province": "黑龙江",
+        "city": "哈尔滨市",
+        "address": "斯大林街道地文街36号",
+        "desc": "来源：全国雕像清单。原文：哈尔滨市南岗区松花江边上军分区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.601982,
+          45.761885
+        ]
+      },
+      "properties": {
+        "id": "list-0154",
+        "name": "毛主席宝像传奇",
+        "province": "黑龙江",
+        "city": "哈尔滨市",
+        "address": "上海街与爱建路交叉口",
+        "desc": "来源：全国雕像清单。原文：哈尔滨市南岗区哈尔滨滨江站",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.382991,
+          46.820354
+        ]
+      },
+      "properties": {
+        "id": "list-0155",
+        "name": "展设广场",
+        "province": "黑龙江",
+        "city": "佳木斯市",
+        "address": "佳木斯市沿江公园内(东侧)",
+        "desc": "来源：全国雕像清单。原文：佳木斯市向阳区杏林湖公园广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.291075,
+          47.344975
+        ]
+      },
+      "properties": {
+        "id": "list-0156",
+        "name": "鹤岗煤矿集团公司",
+        "province": "黑龙江",
+        "city": "鹤岗市",
+        "address": "光明路与市场街交叉口西北40米",
+        "desc": "来源：全国雕像清单。原文：鹤岗市鹤山区第一煤矿矿区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.614975,
+          45.731595
+        ]
+      },
+      "properties": {
+        "id": "list-0157",
+        "name": "西大直街",
+        "province": "黑龙江",
+        "city": "哈尔滨市",
+        "address": "南岗区",
+        "desc": "来源：全国雕像清单。原文：哈尔滨市南岗区西大直街哈尔滨铁路局大院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          123.609539,
+          47.195216
+        ]
+      },
+      "properties": {
+        "id": "list-0158",
+        "name": "黑龙江省齐齐哈尔市富拉尔基区中国一重(新东门)",
+        "province": "黑龙江",
+        "city": "齐齐哈尔市",
+        "address": "黑龙江省齐齐哈尔市富拉尔基区中国一重(新东门)",
+        "desc": "来源：全国雕像清单。原文：齐齐哈尔市富拉尔基区中国一重厂前广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.330149,
+          39.109963
+        ]
+      },
+      "properties": {
+        "id": "list-0159",
+        "name": "健身广场",
+        "province": "天津",
+        "city": "天津",
+        "address": "新立街道朝鲜村新立郊野公园(北侧)",
+        "desc": "来源：全国雕像清单。原文：东丽区新立街新立广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.17125,
+          39.12952
+        ]
+      },
+      "properties": {
+        "id": "list-0160",
+        "name": "天津市南开中学",
+        "province": "天津",
+        "city": "天津市",
+        "address": "南开四马路22号(二纬路地铁站C口步行340米)",
+        "desc": "来源：全国雕像清单。原文：天津市南开区天津中学操场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.278872,
+          39.12799
+        ]
+      },
+      "properties": {
+        "id": "list-0161",
+        "name": "汽研中心家属院",
+        "province": "天津",
+        "city": "天津市",
+        "address": "成林道218号",
+        "desc": "来源：全国雕像清单。原文：天津市河东区成林道军事交通学院家属院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.143786,
+          35.320255
+        ]
+      },
+      "properties": {
+        "id": "list-0162",
+        "name": "毛泽东思想永放光芒纪念会山东省东明分会",
+        "province": "山东",
+        "city": "菏泽市",
+        "address": "车通汽修西南侧60米",
+        "desc": "来源：全国雕像清单。原文：菏泽市东明县天宁镇黄大院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.455345,
+          35.238013
+        ]
+      },
+      "properties": {
+        "id": "list-0163",
+        "name": "圣雪心服饰",
+        "province": "山东",
+        "city": "菏泽市",
+        "address": "万家新城D区西南门旁",
+        "desc": "来源：全国雕像清单。原文：菏泽市巨野县青龙街道开发区D区南门",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.340368,
+          35.115959
+        ]
+      },
+      "properties": {
+        "id": "list-0164",
+        "name": "曲沂社区金颐社区d区d13号楼1单元",
+        "province": "山东",
+        "city": "临沂市",
+        "address": "广州路27号靠近金颐社区D区",
+        "desc": "来源：全国雕像清单。原文：临沂市兰山区柳青街道曲沂社区D区南门",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.08107,
+          36.886711
+        ]
+      },
+      "properties": {
+        "id": "list-0165",
+        "name": "山东工业职业学院",
+        "province": "山东",
+        "city": "淄博市",
+        "address": "果里镇张北路69号",
+        "desc": "来源：全国雕像清单。原文：淄博市桓台县山东工业职业学院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.99819,
+          36.638718
+        ]
+      },
+      "properties": {
+        "id": "list-0166",
+        "name": "毛泽东雕像(装修中)",
+        "province": "山东",
+        "city": "济南市",
+        "address": "英雄山路18号英雄山风景区内(西侧)",
+        "desc": "来源：全国雕像清单。原文：济南市市中区英雄山赤霞广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0166-amap-1.jpg",
+        "image_source": "高德POI:毛泽东雕像(装修中)",
+        "image_poi": "B0FFL2Z1J6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.10692,
+          36.718855
+        ]
+      },
+      "properties": {
+        "id": "list-0167",
+        "name": "幸福柳广场",
+        "province": "山东",
+        "city": "济南市",
+        "address": "工业北路大辛庄中心幸福柳路1-8号(近奥体中路)",
+        "desc": "来源：全国雕像清单。原文：济南市历城区王舍人街道幸福柳广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.036601,
+          36.650626
+        ]
+      },
+      "properties": {
+        "id": "list-0168",
+        "name": "济南中医肿瘤医院",
+        "province": "山东",
+        "city": "济南市",
+        "address": "历山路177号",
+        "desc": "来源：全国雕像清单。原文：济南市槐荫区腊山街道省肿瘤医院",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": [],
+        "image": "images/list-0168-amap-1.jpg",
+        "image_source": "高德POI:毛泽东塑像",
+        "image_poi": "B0FFFPUS2L"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          117.719183,
+          36.770119
+        ]
+      },
+      "properties": {
+        "id": "list-0169",
+        "name": "鹤伴山",
+        "province": "山东",
+        "city": "滨州市",
+        "address": "邹平市",
+        "desc": "来源：全国雕像清单。原文：滨州市邹平县鹤伴山公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.597323,
+          35.401114
+        ]
+      },
+      "properties": {
+        "id": "list-0170",
+        "name": "建设南路",
+        "province": "山东",
+        "city": "济宁市",
+        "address": "任城区",
+        "desc": "来源：全国雕像清单。原文：济宁市任城区越河街道建设南路",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.595549,
+          35.395424
+        ]
+      },
+      "properties": {
+        "id": "list-0171",
+        "name": "济宁医学院(任城校区)",
+        "province": "山东",
+        "city": "济宁市",
+        "address": "建设南路45号",
+        "desc": "来源：全国雕像清单。原文：济宁市任城区山东艺术学院老校区东方红广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.981925,
+          39.097436
+        ]
+      },
+      "properties": {
+        "id": "list-0172",
+        "name": "鄂尔多斯银行(乌兰镇支行)",
+        "province": "内蒙古",
+        "city": "鄂尔多斯市",
+        "address": "乌兰镇都斯图路利仁医药大楼1号",
+        "desc": "来源：全国雕像清单。原文：鄂尔多斯市伊金霍洛旗乌兰镇",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.931278,
+          40.628027
+        ]
+      },
+      "properties": {
+        "id": "list-0173",
+        "name": "雕塑广场",
+        "province": "内蒙古",
+        "city": "包头市",
+        "address": "青福镇建华路12号奥林匹克公园内(南侧)",
+        "desc": "来源：全国雕像清单。原文：包头市青山区一木一广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.739122,
+          49.158278
+        ]
+      },
+      "properties": {
+        "id": "list-0174",
+        "name": "呼伦贝尔烈胤茺士市纪念广场",
+        "province": "内蒙古",
+        "city": "呼伦贝尔市",
+        "address": "维纳河路",
+        "desc": "来源：全国雕像清单。原文：呼伦贝尔市牙克石市免渡河镇中心小广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.865713,
+          42.218022
+        ]
+      },
+      "properties": {
+        "id": "list-0175",
+        "name": "赤峰毛泽东造像博物馆",
+        "province": "内蒙古",
+        "city": "赤峰市",
+        "address": "经纬大厦",
+        "desc": "来源：全国雕像清单。原文：赤峰市红山区大庙镇大庙镇大庙广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.914288,
+          40.668547
+        ]
+      },
+      "properties": {
+        "id": "list-0176",
+        "name": "内蒙古第一机械集团股份有限公司",
+        "province": "内蒙古",
+        "city": "包头市",
+        "address": "兵工路一机集团",
+        "desc": "来源：全国雕像清单。原文：包头市青山区兵工路一机集团正门内广场",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.683371,
+          40.815821
+        ]
+      },
+      "properties": {
+        "id": "list-0177",
+        "name": "内蒙古自治区呼和浩特市赛罕区内蒙古文化大厦",
+        "province": "内蒙古",
+        "city": "呼和浩特市",
+        "address": "内蒙古自治区呼和浩特市赛罕区内蒙古文化大厦",
+        "desc": "来源：全国雕像清单。原文：呼和浩特市赛罕区乌兰布和内蒙古文化大厦",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.049306,
+          19.247873
+        ]
+      },
+      "properties": {
+        "id": "list-0178",
+        "name": "矿山公园",
+        "province": "海南",
+        "city": "海南",
+        "address": "矿山路与东园路交叉口西南40米",
+        "desc": "来源：全国雕像清单。原文：昌江黎族自治县矿山公园",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.041175,
+          19.251075
+        ]
+      },
+      "properties": {
+        "id": "list-0179",
+        "name": "昌江黎族自治县石碌镇矿山社区",
+        "province": "海南",
+        "city": "海南",
+        "address": "705县道与南钢路交叉口西380米",
+        "desc": "来源：全国雕像清单。原文：昌江黎族自治县石碌镇海南铁矿门口",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.170718,
+          19.660878
+        ]
+      },
+      "properties": {
+        "id": "list-0180",
+        "name": "中国海南海花岛",
+        "province": "海南",
+        "city": "儋州市",
+        "address": "白马井滨海新区滨海大道100号",
+        "desc": "来源：全国雕像清单。原文：儋州市滨海新区海花岛",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.206984,
+          19.761721
+        ]
+      },
+      "properties": {
+        "id": "list-0181",
+        "name": "儋州市洋浦经济开发区",
+        "province": "海南",
+        "city": "儋州市",
+        "address": "庆洋路与纸浆堆场东路交叉口西南460米",
+        "desc": "来源：全国雕像清单。原文：儋州市洋浦经济开发区白马井镇",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.348638,
+          39.998043
+        ]
+      },
+      "properties": {
+        "id": "list-0182",
+        "name": "中国矿业大学(北京)学院路校区",
+        "province": "北京",
+        "city": "北京",
+        "address": "学院路丁11号院中国矿业大学内",
+        "desc": "来源：全国雕像清单。原文：海淀区学院路中国农业大学东区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.359265,
+          39.990384
+        ]
+      },
+      "properties": {
+        "id": "list-0183",
+        "name": "北京科技大学",
+        "province": "北京",
+        "city": "北京",
+        "address": "学院路30号",
+        "desc": "来源：全国雕像清单。原文：海淀区学院路北京科技大学",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.358104,
+          39.961554
+        ]
+      },
+      "properties": {
+        "id": "list-0184",
+        "name": "北京邮电大学(海淀校区)",
+        "province": "北京",
+        "city": "北京",
+        "address": "西土城路10号",
+        "desc": "来源：全国雕像清单。原文：海淀区学院路29号北京邮电大学",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.504945,
+          31.283117
+        ]
+      },
+      "properties": {
+        "id": "list-0185",
+        "name": "同济大学四平路校区毛主席像",
+        "province": "上海",
+        "city": "上海",
+        "address": "赤峰路50号同济大学四平路校区",
+        "desc": "来源：全国雕像清单。原文：杨浦区四平路同济大学四平路校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.424696,
+          31.143492
+        ]
+      },
+      "properties": {
+        "id": "list-0186",
+        "name": "华东理工大学徐汇校区",
+        "province": "上海",
+        "city": "上海",
+        "address": "梅陇路130号",
+        "desc": "来源：全国雕像清单。原文：徐汇区梅陇路华东理工大学徐汇校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.557222,
+          31.288373
+        ]
+      },
+      "properties": {
+        "id": "list-0187",
+        "name": "上海理工大学军工路校区南校区",
+        "province": "上海",
+        "city": "上海",
+        "address": "军工路334号",
+        "desc": "来源：全国雕像清单。原文：杨浦区邯郸路上海理工大学军工路校区",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.475895,
+          31.219809
+        ]
+      },
+      "properties": {
+        "id": "list-0188",
+        "name": "中国共产党第一次全国代表大会纪念馆",
+        "province": "上海",
+        "city": "上海",
+        "address": "兴业路1号",
+        "desc": "来源：全国雕像清单。原文：黄浦区兴业路中共一大会址",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.460555,
+          31.226303
+        ]
+      },
+      "properties": {
+        "id": "list-0189",
+        "name": "上海毛泽东旧居陈列馆",
+        "province": "上海",
+        "city": "上海",
+        "address": "茂名北路120弄5-9号",
+        "desc": "来源：全国雕像清单。原文：普陀区真南路76号上海橡胶厂旧址",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.506943,
+          31.303979
+        ]
+      },
+      "properties": {
+        "id": "list-0190",
+        "name": "五角场",
+        "province": "上海",
+        "city": "上海",
+        "address": "杨浦区",
+        "desc": "来源：全国雕像清单。原文：杨浦区五角场15号上海橡胶厂旧址",
+        "source": "全国雕像清单导入",
+        "verificationStatus": "amap_unverified",
+        "contributors": []
       }
     }
   ]
