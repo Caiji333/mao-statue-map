@@ -107,7 +107,7 @@ function App() {
     return result;
   };
 
-  const initialLoading = loading || !mapReady;
+  const initialLoading = loading || auth.loading || !mapReady;
 
   return (
     <main className="app-shell">

@@ -11,7 +11,7 @@ export interface AuthState {
 }
 
 export function useAuth(): AuthState {
-  const [user, setUser] = useState<PbAuthRecord | null>(pocketbase?.authStore.record ?? null);
+  const [user, setUser] = useState<PbAuthRecord | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,10 +19,28 @@ export function useAuth(): AuthState {
       setLoading(false);
       return undefined;
     }
-    setUser(pocketbase.authStore.record);
-    setLoading(false);
-    const unsubscribe = pocketbase.authStore.onChange((record) => setUser(record));
+    const client = pocketbase;
+    const unsubscribe = client.authStore.onChange((record) => setUser(record));
+    let cancelled = false;
+
+    const validateStoredSession = async () => {
+      if (client.authStore.token) {
+        try {
+          // 本地缓存只代表曾经登录过；以服务端刷新结果作为当前权限依据。
+          await client.collection('users').authRefresh();
+        } catch {
+          client.clearAuth();
+        }
+      }
+      if (!cancelled) {
+        setUser(client.authStore.record);
+        setLoading(false);
+      }
+    };
+
+    void validateStoredSession();
     return () => {
+      cancelled = true;
       unsubscribe();
     };
   }, []);
