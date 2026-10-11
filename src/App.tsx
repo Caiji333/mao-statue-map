@@ -1,6 +1,6 @@
-import { AlertTriangle, Database, Filter, Landmark, LoaderCircle, LogIn, MapPinned, Plus, RefreshCw, ShieldCheck, User, X } from 'lucide-react';
+import { AlertTriangle, Database, Filter, Landmark, List, LoaderCircle, LogIn, MapPinned, Plus, RefreshCw, ShieldCheck, User, X } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { FilterPanel } from './components/FilterPanel';
+import { FilterPanel, type StatuteFilters } from './components/FilterPanel';
 import { MapContainer } from './components/MapContainer';
 import { SearchBar } from './components/SearchBar';
 import { AuthDialog } from './components/AuthDialog';
@@ -11,16 +11,29 @@ import { ClusterListPanel } from './components/ClusterListPanel';
 import { hasBasemap, mapProvider, mapProviderLabel } from './config/mapConfig';
 import { uiText } from './config/uiText';
 import { useStatues } from './hooks/useStatues';
-import { filterByProvince, getProvinces } from './lib/map';
+import { getProvinces } from './lib/map';
 import type { FocusRequest, StatueFeature } from './types/statue';
 import { useAuth } from './hooks/useAuth';
 import { submitContribution } from './lib/contributions';
 
+const emptyFilters: StatuteFilters = { province: '', hasImage: false, highTrust: false };
+
+function applyFilters(features: StatueFeature[], filters: StatuteFilters): StatueFeature[] {
+  return features.filter((feature) => {
+    const props = feature.properties;
+    if (filters.province && props.province !== filters.province) return false;
+    if (filters.hasImage && !props.image) return false;
+    if (filters.highTrust && !(props.verificationStatus === 'verified' || props.verificationStatus === 'user_verified')) return false;
+    return true;
+  });
+}
+
 function App() {
   const { data, loading, error, reload } = useStatues();
   const auth = useAuth();
-  const [province, setProvince] = useState('');
+  const [filters, setFilters] = useState<StatuteFilters>(emptyFilters);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [listOpen, setListOpen] = useState(false);
   const [mapReady, setMapReady] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [focusRequest, setFocusRequest] = useState<FocusRequest | null>(null);
@@ -38,8 +51,8 @@ function App() {
 
   const provinces = useMemo(() => getProvinces(data.features), [data.features]);
   const visibleFeatures = useMemo(
-    () => filterByProvince(data.features, province),
-    [data.features, province],
+    () => applyFilters(data.features, filters),
+    [data.features, filters],
   );
 
   const showNotice = useCallback((message: string | null) => {
@@ -62,13 +75,16 @@ function App() {
   }, []);
 
   const selectFeature = (feature: StatueFeature) => {
-    if (province && feature.properties.province !== province) setProvince('');
+    if (filters.province && feature.properties.province !== filters.province) {
+      setFilters((current) => ({ ...current, province: '' }));
+    }
     setFocusRequest({ feature, nonce: Date.now() });
+    if (isCompactViewport) setListOpen(false);
   };
 
-  const changeProvince = (nextProvince: string) => {
+  const changeFilters = (next: StatuteFilters) => {
     setTransitioning(true);
-    setProvince(nextProvince);
+    setFilters(next);
     setClusterFeatures([]);
     setFocusRequest(null);
     window.setTimeout(() => setTransitioning(false), 260);
@@ -112,7 +128,12 @@ function App() {
           <button type="button" className="action-button account-button" onClick={() => auth.user ? setAccountOpen(true) : setAuthOpen(true)} title={auth.user ? auth.user.email : '登录'}>
             {auth.user ? <User size={17} /> : <LogIn size={17} />}<span>{auth.user ? '我的' : '登录'}</span>
           </button>
-          <button type="button" className={`filter-toggle ${filterOpen || province ? 'active' : ''}`} onClick={() => setFilterOpen((value) => !value)} aria-expanded={filterOpen}><Filter size={17} /><span>{province || '筛选'}</span></button>
+          <button type="button" className={`action-button ${listOpen ? 'active' : ''}`} onClick={() => setListOpen((value) => !value)} title="点位列表">
+            <List size={17} /><span>列表</span>
+          </button>
+          <button type="button" className={`filter-toggle ${filterOpen || filters.province || filters.hasImage || filters.highTrust ? 'active' : ''}`} onClick={() => setFilterOpen((value) => !value)} aria-expanded={filterOpen}>
+            <Filter size={17} /><span>{filters.province || '筛选'}</span>
+          </button>
         </div>
       </header>
 
@@ -120,10 +141,10 @@ function App() {
         <div className="filter-drawer">
           <div className="filter-drawer-inner">
             <div>
-              <strong>区域筛选</strong>
-              <small>按省级行政区查看收录点位</small>
+              <strong>筛选点位</strong>
+              <small>按省份、图片与可信度缩小范围</small>
             </div>
-            <FilterPanel provinces={provinces} value={province} onChange={changeProvince} />
+            <FilterPanel provinces={provinces} value={filters} onChange={changeFilters} />
             <button type="button" className="icon-button" onClick={() => setFilterOpen(false)} aria-label="关闭筛选" title="关闭筛选">
               <X size={18} />
             </button>
@@ -145,16 +166,39 @@ function App() {
 
         {clusterFeatures.length > 0 && <ClusterListPanel features={clusterFeatures} onClose={() => setClusterFeatures([])} onSelect={selectFeature} />}
 
+        {listOpen && (
+          <aside className="statue-list-panel" aria-label="点位列表">
+            <div className="statue-list-head">
+              <strong>点位列表</strong>
+              <small>{visibleFeatures.length} 处</small>
+              <button type="button" className="icon-button" onClick={() => setListOpen(false)} aria-label="关闭列表"><X size={16} /></button>
+            </div>
+            <div className="statue-list-body">
+              {visibleFeatures.length === 0 && <p className="list-empty">没有符合条件的点位</p>}
+              {visibleFeatures.map((feature) => (
+                <button type="button" className="statue-list-item" key={feature.properties.id} onClick={() => selectFeature(feature)}>
+                  <span className="list-name">{feature.properties.name}</span>
+                  <span className="list-meta">{feature.properties.province} · {feature.properties.city}</span>
+                  <span className="list-tags">
+                    {feature.properties.image ? <i>有图</i> : <i className="muted">待补图</i>}
+                    {(feature.properties.verificationStatus === 'verified' || feature.properties.verificationStatus === 'user_verified') && <i>高可信</i>}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </aside>
+        )}
+
         <button type="button" className={`map-summary${isCompactViewport && mapSummaryCollapsed ? ' collapsed' : ''}`} aria-live="polite" aria-label={isCompactViewport && mapSummaryCollapsed ? '展开点位统计' : '点位统计'} aria-expanded={isCompactViewport ? !mapSummaryCollapsed : undefined} onClick={() => { if (isCompactViewport) setMapSummaryCollapsed((value) => !value); }}>
           <span className="summary-icon"><MapPinned size={18} /></span>
           <div>
-            <small>{province || '全国范围'}</small>
+            <small>{filters.province || '全国范围'}</small>
             <strong>{visibleFeatures.length}<em>处点位</em></strong>
           </div>
           <span className="summary-separator" />
           <div className="summary-meta">
             <small>覆盖区域</small>
-            <strong>{province ? 1 : provinces.length}<em>个</em></strong>
+            <strong>{filters.province ? 1 : provinces.length}<em>个</em></strong>
           </div>
         </button>
 
@@ -171,8 +215,8 @@ function App() {
         {!loading && !error && visibleFeatures.length === 0 && (
           <div className="empty-state">
             <MapPinned size={28} />
-            <strong>{province ? '该省份暂无收录点位' : uiText.noData}</strong>
-            {province && <button type="button" onClick={() => changeProvince('')}>查看全国点位</button>}
+            <strong>{filters.province ? '该省份暂无收录点位' : uiText.noData}</strong>
+            {filters.province && <button type="button" onClick={() => changeFilters(emptyFilters)}>查看全国点位</button>}
           </div>
         )}
 

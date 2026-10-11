@@ -1,4 +1,4 @@
-import { CalendarDays, Image as ImageIcon, MapPin, Pencil } from 'lucide-react';
+import { CalendarDays, Copy, Image as ImageIcon, MapPin, Navigation, Pencil } from 'lucide-react';
 import { useState } from 'react';
 import { uiText } from '../config/uiText';
 import type { StatueFeature } from '../types/statue';
@@ -16,8 +16,21 @@ export function MarkerPopup({ feature, onSuggestEdit }: MarkerPopupProps) {
   const fallback = uiText.unknown;
   const contributors = properties.contributors ?? [];
   const [contributorsExpanded, setContributorsExpanded] = useState(false);
+  const [copied, setCopied] = useState(false);
   const hasMoreContributors = contributors.length > 3;
   const visibleContributors = contributorsExpanded ? contributors : contributors.slice(0, 3);
+  const amapNav = `https://uri.amap.com/marker?position=${longitude},${latitude}&name=${encodeURIComponent(properties.name || '雕像点位')}`;
+
+  const copyCoords = async () => {
+    const text = `${longitude.toFixed(6)}, ${latitude.toFixed(6)}`;
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1600);
+    } catch {
+      setCopied(false);
+    }
+  };
 
   return (
     <article className="popup-card">
@@ -31,6 +44,9 @@ export function MarkerPopup({ feature, onSuggestEdit }: MarkerPopupProps) {
           </div>
         )}
         <span className="popup-year"><CalendarDays size={13} />{properties.year || fallback}</span>
+        {properties.imageSource && (
+          <span className="popup-image-source" title="图片由高德地图 POI 提供，仅供展示参考">图片来源：{properties.imageSource}</span>
+        )}
       </div>
       <div className="popup-body">
         <div className="popup-kicker">{properties.province} · {properties.city}</div>
@@ -51,7 +67,20 @@ export function MarkerPopup({ feature, onSuggestEdit }: MarkerPopupProps) {
           </div>
           <div>
             <dt>坐标</dt>
-            <dd>{longitude.toFixed(6)}, {latitude.toFixed(6)} · GCJ-02</dd>
+            <dd className="popup-coords">
+              <span>{longitude.toFixed(6)}, {latitude.toFixed(6)} · GCJ-02</span>
+              <button type="button" onClick={() => void copyCoords()} title="复制坐标">
+                <Copy size={12} />{copied ? '已复制' : '复制'}
+              </button>
+            </dd>
+          </div>
+          <div>
+            <dt>导航</dt>
+            <dd>
+              <a className="popup-nav" href={amapNav} target="_blank" rel="noopener noreferrer">
+                <Navigation size={13} />在高德地图打开
+              </a>
+            </dd>
           </div>
           <div>
             <dt>贡献人</dt>

@@ -5,6 +5,7 @@ interface ImportMetaEnv {
   readonly VITE_MAP_PROVIDER?: 'amap_legacy' | 'tianditu';
   readonly VITE_TIANDITU_TOKEN?: string;
   readonly VITE_AMAP_KEY?: string;
+  readonly VITE_SYSTEM_ADMIN_EMAIL?: string;
 }
 
 interface ImportMeta {

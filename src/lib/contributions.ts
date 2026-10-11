@@ -540,11 +540,14 @@ export interface AdminUserItem {
 }
 
 /** 系统管理员：只有该账号可在用户管理里调整管理员角色 */
-export const SYSTEM_ADMIN_EMAIL = 'deqiangli23@gmail.com';
+export const SYSTEM_ADMIN_EMAIL =
+  (import.meta.env.VITE_SYSTEM_ADMIN_EMAIL?.trim() || 'deqiangli23@gmail.com');
 
 export function isSystemAdmin(email: string | null | undefined): boolean {
-  return String(email ?? '').trim().toLowerCase() === SYSTEM_ADMIN_EMAIL;
+  return String(email ?? '').trim().toLowerCase() === SYSTEM_ADMIN_EMAIL.trim().toLowerCase();
 }
+
+export const isSystemAdminEmail = isSystemAdmin;
 
 export async function adminSetUserRole(userId: string, role: 'user' | 'admin'): Promise<string | null> {
   if (!pocketbase) return '尚未配置 PocketBase';
@@ -585,6 +588,38 @@ export async function listAdminUsers(query: string): Promise<AdminUserItem[]> {
     username: item.username ? String(item.username) : null,
     role: item.role === 'admin' ? 'admin' : 'user',
     created_at: String(item.created ?? ''),
+  }));
+}
+
+export interface AdminDataItem {
+  id: string;
+  external_id: string | null;
+  name: string;
+  province: string;
+  city: string;
+  address: string;
+  hasImage: boolean;
+  verificationStatus: string;
+  source: string | null;
+}
+
+export async function listStatuesForReview(): Promise<AdminDataItem[]> {
+  if (!pocketbase) return [];
+  const result = await pocketbase.collection('statues').getList({
+    filter: "status = 'approved'",
+    sort: 'name',
+    perPage: 500,
+  });
+  return result.items.map((item) => ({
+    id: item.id,
+    external_id: item.external_id ? String(item.external_id) : null,
+    name: String(item.name ?? ''),
+    province: String(item.province ?? ''),
+    city: String(item.city ?? ''),
+    address: String(item.address ?? ''),
+    hasImage: Boolean(item.image_url),
+    verificationStatus: String(item.verification_status ?? ''),
+    source: item.source ? String(item.source) : null,
   }));
 }
 

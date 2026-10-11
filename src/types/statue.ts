@@ -9,6 +9,8 @@ export interface StatueProperties {
   background?: string;
   year?: string;
   image?: string;
+  imageSource?: string;
+  imagePoi?: string;
   source?: string;
   sourceId?: string;
   sourceType?: string;

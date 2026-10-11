@@ -487,3 +487,113 @@ button { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+.contribute-steps {
+  margin: 0 0 12px;
+  padding: 10px 12px 10px 28px;
+  border: 1px solid #d8d4cb;
+  border-radius: 6px;
+  background: #f7f6f2;
+  color: #5e615b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.popup-image-source {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  color: #8f272c;
+  opacity: .85;
+}
+.popup-coords {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.popup-coords button {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid #cdc8be;
+  border-radius: 4px;
+  background: #fff;
+  color: #315f57;
+  padding: 2px 6px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.popup-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #315f57;
+  text-decoration: none;
+}
+.popup-nav:hover { text-decoration: underline; }
+.filter-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #5e615b;
+  white-space: nowrap;
+}
+.statue-list-panel {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: min(320px, calc(100vw - 24px));
+  max-height: min(62vh, 520px);
+  display: flex;
+  flex-direction: column;
+  background: #fffdf8;
+  border: 1px solid #e4ddd0;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  z-index: 20;
+  overflow: hidden;
+}
+.statue-list-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e4ddd0;
+}
+.statue-list-head strong { font-size: 13px; }
+.statue-list-head small { color: #6b6560; flex: 1; }
+.statue-list-body {
+  overflow: auto;
+  padding: 6px;
+}
+.list-empty {
+  padding: 16px;
+  color: #6b6560;
+  font-size: 12px;
+  text-align: center;
+}
+.statue-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: transparent;
+  cursor: pointer;
+}
+.statue-list-item:hover { background: #f3eee4; }
+.list-name { font-size: 13px; font-weight: 600; color: #1c1a16; }
+.list-meta { font-size: 11px; color: #6b6560; }
+.list-tags { display: flex; gap: 4px; margin-top: 2px; }
+.list-tags i {
+  font-style: normal;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #e4f0ec;
+  color: #2f675c;
+}
+.list-tags i.muted { background: #efeae1; color: #8a847c; }

@@ -8,7 +8,9 @@ import {
   formatDisplayTime,
   listAdminContributions,
   listAdminUsers,
+  listStatuesForReview,
   reviewContribution,
+  type AdminDataItem,
   type AdminUserItem,
   type ContributionListItem,
 } from '../lib/contributions';
@@ -20,7 +22,9 @@ interface Props { onClose: () => void; onChanged: () => void; onLocate: (item: C
 const PAGE_SIZE = 10;
 
 export function AdminPanel({ onClose, onChanged, onLocate }: Props) {
-  const [tab, setTab] = useState<'reviews' | 'users'>('reviews');
+  const [tab, setTab] = useState<'reviews' | 'users' | 'data'>('reviews');
+  const [dataItems, setDataItems] = useState<AdminDataItem[]>([]);
+  const [dataLoading, setDataLoading] = useState(false);
   const [reviewView, setReviewView] = useState<'pending' | 'reviewed'>('pending');
   const [reviewPage, setReviewPage] = useState(1);
   const [reviewReload, setReviewReload] = useState(0);
@@ -72,6 +76,23 @@ export function AdminPanel({ onClose, onChanged, onLocate }: Props) {
     }, 250);
     return () => window.clearTimeout(timer);
   }, [query, tab]);
+
+  useEffect(() => {
+    if (tab !== 'data') return;
+    let cancelled = false;
+    const load = async () => {
+      setDataLoading(true);
+      try {
+        const items = await listStatuesForReview();
+        if (!cancelled) setDataItems(items);
+      } catch {
+        if (!cancelled) setDataItems([]);
+      }
+      if (!cancelled) setDataLoading(false);
+    };
+    void load();
+    return () => { cancelled = true; };
+  }, [tab]);
 
   const changeReviewView = (next: 'pending' | 'reviewed') => {
     setReviewView(next);
@@ -160,6 +181,7 @@ export function AdminPanel({ onClose, onChanged, onLocate }: Props) {
         <div className="admin-tabs">
           <button type="button" className={tab === 'reviews' ? 'active' : ''} onClick={() => setTab('reviews')}><Clock3 size={15} />投稿审核</button>
           <button type="button" className={tab === 'users' ? 'active' : ''} onClick={() => setTab('users')}><Users size={15} />用户管理</button>
+          <button type="button" className={tab === 'data' ? 'active' : ''} onClick={() => setTab('data')}><MapPin size={15} />数据维护</button>
         </div>
 
         {tab === 'reviews' ? (
@@ -222,6 +244,24 @@ export function AdminPanel({ onClose, onChanged, onLocate }: Props) {
               </div>
             </div>
           </>
+        ) : tab === 'data' ? (
+          <div className="user-admin">
+            <p className="modal-copy">待补图 / 待核验点位，便于统一处理。</p>
+            {dataLoading ? (
+              <div className="admin-empty"><Clock3 size={18} />读取点位数据…</div>
+            ) : (
+              <div className="user-list">
+                {dataItems.filter((item) => !item.hasImage || item.verificationStatus === 'amap_unverified').map((item) => (
+                  <article className="user-row" key={item.id}>
+                    <div>
+                      <strong>{item.name}</strong>
+                      <small>{item.province} · {item.city} · {!item.hasImage ? '待补图' : '有图'} · {item.verificationStatus === 'amap_unverified' ? '待核验' : item.verificationStatus || '—'}</small>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
+          </div>
         ) : (
           <div className="user-admin">
             <div className="user-search">
