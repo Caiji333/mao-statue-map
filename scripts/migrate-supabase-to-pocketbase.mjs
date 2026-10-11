@@ -2,8 +2,8 @@
  * 将 Supabase 存量数据迁移到 PocketBase。
  *
  * 用法：
- *   $env:PB_URL='https://www.u2463609.nyat.app:25649'
- *   $env:PB_SUPERUSER_EMAIL='deqiangli23@gmail.com'
+ *   $env:PB_URL='https://your-pocketbase-host'
+ *   $env:PB_SUPERUSER_EMAIL='admin@example.com'
  *   $env:PB_SUPERUSER_PASSWORD='...'
  *   # 可选：需要完整用户/投稿时提供 Supabase service_role
  *   $env:SUPABASE_URL='https://xxx.supabase.co'
@@ -16,12 +16,16 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 
-const PB_URL = (process.env.PB_URL || 'https://www.u2463609.nyat.app:25649').replace(/\/+$/, '');
-const PB_EMAIL = process.env.PB_SUPERUSER_EMAIL || 'deqiangli23@gmail.com';
+const PB_URL = (process.env.PB_URL || '').replace(/\/+$/, '');
+const PB_EMAIL = process.env.PB_SUPERUSER_EMAIL || '';
 const PB_PASSWORD = process.env.PB_SUPERUSER_PASSWORD || '';
-const SUPA_URL = (process.env.SUPABASE_URL || 'https://ppcrgvgiotfdcwnzmvpx.supabase.co').replace(/\/+$/, '');
-const SUPA_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || 'sb_publishable_4BSD1gRmZ4rzNQxo-cefVQ_Lzwgst65';
+const SUPA_URL = (process.env.SUPABASE_URL || '').replace(/\/+$/, '');
+const SUPA_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || '';
 const DEFAULT_PASSWORD = process.env.MIGRATED_USER_PASSWORD || 'mao123456';
+
+if (!PB_URL || !PB_EMAIL || !PB_PASSWORD) {
+  throw new Error('请设置 PB_URL、PB_SUPERUSER_EMAIL 和 PB_SUPERUSER_PASSWORD 环境变量');
+}
 
 async function pb(pathname, { method = 'GET', token, body, form } = {}) {
   const headers = {};
@@ -48,6 +52,9 @@ async function pb(pathname, { method = 'GET', token, body, form } = {}) {
 }
 
 async function supa(pathname) {
+  if (!SUPA_URL || !SUPA_KEY) {
+    throw new Error('未找到本地 Supabase 导出数据，请设置 SUPABASE_URL 和 SUPABASE_SERVICE_ROLE_KEY（或 SUPABASE_ANON_KEY）');
+  }
   const response = await fetch(`${SUPA_URL}/rest/v1/${pathname}`, {
     headers: { apikey: SUPA_KEY, Authorization: `Bearer ${SUPA_KEY}` },
   });
